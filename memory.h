@@ -7,4 +7,10 @@
 
 #define BYTES_OF_RAM 64 * 1024
 
+#include <stdint.h>
+
+uint8_t ram[BYTES_OF_RAM];
+
+void initialize_ram();
+
 #endif //INC_8080_EMULATOR_MEMORY_H

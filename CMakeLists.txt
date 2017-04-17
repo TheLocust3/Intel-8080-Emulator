@@ -3,5 +3,5 @@ project(8080_Emulator)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.c registers.c registers.h common_functions.c common_functions.h)
+set(SOURCE_FILES main.c registers.c registers.h common_functions.c common_functions.h memory.c memory.h)
 add_executable(8080_Emulator ${SOURCE_FILES})

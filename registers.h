@@ -5,7 +5,6 @@
 #ifndef INC_8080_EMULATOR_REGISTERS_C_H
 #define INC_8080_EMULATOR_REGISTERS_C_H
 
-int pc, sp;
-int a, b, c, d, f, h, l;
+void initialize_registers();
 
 #endif //INC_8080_EMULATOR_REGISTERS_C_H

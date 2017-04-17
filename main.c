@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 #include "registers.h"
-#include "memory.h"
+#include "ram.h"
 
 int main(int argc, const char* argv[])
 {

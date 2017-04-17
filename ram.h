@@ -12,7 +12,11 @@
 uint8_t ram[BYTES_OF_RAM];
 
 void initialize_ram();
-uint8_t get_byte(uint8_t high, uint8_t low);
+
+uint8_t get_byte(uint8_t address_high, uint8_t address_low);
 uint8_t get_byte_from_address(uint16_t address);
+
+void set_byte(uint8_t address_high, uint8_t address_low, uint8_t value);
+void set_byte_from_address(uint16_t address, uint8_t value);
 
 #endif //INC_8080_EMULATOR_MEMORY_H

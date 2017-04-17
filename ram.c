@@ -12,12 +12,22 @@ void initialize_ram()
     }
 }
 
-uint8_t get_byte(uint8_t high, uint8_t low)
+uint8_t get_byte(uint8_t address_high, uint8_t address_low)
 {
-    return ram[combine_bytes(high, low)];
+    return ram[combine_bytes(address_high, address_low)];
 }
 
 uint8_t get_byte_from_address(uint16_t address)
 {
     return ram[address];
+}
+
+void set_byte(uint8_t address_high, uint8_t address_low, uint8_t value)
+{
+    ram[combine_bytes(address_high, address_low)] = value;
+}
+
+void set_byte_from_address(uint16_t address, uint8_t value)
+{
+    ram[address] = value;
 }

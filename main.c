@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "registers.h"
 #include "ram.h"
+#include "opcodes/move.h"
 
 int main(int argc, const char* argv[])
 {

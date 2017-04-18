@@ -7,6 +7,7 @@
 
 #define BYTES_OF_RAM 64 * 1024
 
+#include <stdio.h>
 #include <stdint.h>
 
 uint8_t ram[BYTES_OF_RAM];

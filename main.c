@@ -8,6 +8,7 @@
 #include "ram.h"
 #include "registers.h"
 #include "opcodes/data_transfer.h"
+#include "matcher/instruction_template.h"
 
 int main(int argc, const char* argv[])
 {

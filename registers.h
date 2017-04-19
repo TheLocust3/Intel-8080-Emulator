@@ -18,10 +18,16 @@
 #define H_CODE 0b100
 #define L_CODE 0b101
 
+#define BC_CODE 00
+#define DE_CODE 01
+#define HL_CODE 10
+#define SP_CODE 11
+
 uint16_t pc, sp;
 uint8_t a, b, c, d, e, f, h, l;
 
 void initialize_registers();
 uint8_t get_register_from_code(int code);
+uint16_t get_register_pair_from_code(int code);
 
 #endif //INC_8080_EMULATOR_REGISTERS_C_H

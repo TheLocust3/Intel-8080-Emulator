@@ -15,4 +15,6 @@ void move_to_memory(const uint8_t src_register);
 void move_immediate(uint8_t *dst_register);
 void move_to_memory_immediate();
 
+void load_register_pair_immediate(uint16_t *dst_register_pair);
+
 #endif //INC_8080_EMULATOR_MOVE_H

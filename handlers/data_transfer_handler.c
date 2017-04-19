@@ -9,11 +9,13 @@
 
 bool handle_MOV(uint8_t instruction);
 bool handle_MVI(uint8_t instruction);
+bool handle_misc(uint8_t instruction);
 
 bool handle_data_transfer_instruction(uint8_t instruction)
 {
     if (handle_MOV(instruction)) return true;
     if (handle_MVI(instruction)) return true;
+    if (handle_misc(instruction)) return true;
 
     return false;
 }
@@ -60,4 +62,18 @@ bool handle_MVI(uint8_t instruction)
     }
 
     return false;
+}
+
+bool handle_misc(uint8_t instruction)
+{
+    if (((instruction & 0b11000000) >> 6) == 0b00) {
+        if ((instruction & 0b00001111) == 0b0001) {
+            int rp_code = get_rp_code_from_opcode(instruction);
+            uint16_t dst_register_pair = get_register_pair_from_code(rp_code);
+
+            if (dst_register_pair != NULL_REGISTER) {
+                load_register_pair_immediate(&dst_register_pair);
+            }
+        }
+    }
 }

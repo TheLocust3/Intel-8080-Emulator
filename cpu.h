@@ -9,5 +9,6 @@
 
 void initialize();
 void cycle();
+void print_register_status();
 
 #endif //INC_8080_EMULATOR_CPU_H

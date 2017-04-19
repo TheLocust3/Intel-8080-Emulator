@@ -9,6 +9,7 @@
 
 
 void move_byte(uint8_t *dst, const uint8_t src);
+void move_16bit(uint16_t *dst, const uint16_t src);
 void move_byte_to_memory(const uint16_t dst_address, const uint8_t src);
 
 // MOV
@@ -57,12 +58,21 @@ void move_to_memory_immediate()
 
 // Misc
 
-void load_register_pair_immediate()
+void load_register_pair_immediate(uint16_t *dst_register_pair)
 {
-    printf("LXI rp, data 16");
+    printf("LXI rp, data 16\n");
+
+    uint16_t data = combine_bytes(read_byte_from_address((uint16_t) (pc + 2)), read_byte_from_address((uint16_t) (pc + 1)));
+    move_16bit(dst_register_pair, data);
+    pc += 3;
 }
 
 void move_byte(uint8_t *dst, const uint8_t src)
+{
+    *dst = src;
+}
+
+void move_16bit(uint16_t *dst, const uint16_t src)
 {
     *dst = src;
 }

@@ -13,11 +13,15 @@ int main(int argc, const char* argv[])
 {
     initialize();
 
-    set_byte(0, 0, 0b00110110);
-    set_byte(0, 1, 0b11111101);
+    set_byte(0, 0, 0b00110001);
+    set_byte(0, 1, 0b11111111);
+    set_byte(0, 2, 0b00000000);
+
+    load_register_pair_immediate(&sp);
 
     for (int i = 0; i < 10; i++) {
         cycle();
+        print_register_status();
     }
 
     return 0;

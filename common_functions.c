@@ -18,3 +18,8 @@ int get_src_code_from_opcode(int instruction)
 {
     return (instruction & 0b00000111);
 }
+
+int get_rp_code_from_opcode(int instruction)
+{
+    return (instruction & 0b00110000) >> 6;
+}

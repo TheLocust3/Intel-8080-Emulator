@@ -6,7 +6,7 @@
 #include "registers.h"
 #include "ram.h"
 
-#include "opcodes/move.h"
+#include "handlers/data_transfer_handler.h"
 
 void initialize()
 {
@@ -19,5 +19,7 @@ void cycle()
     uint8_t instruction = read_byte_from_address(pc);
     printf("%d: %d\n", pc, instruction);
 
-    handle_move_instruction(instruction);
+    // pc starts at instruction when passed to handle functions
+
+    handle_data_transfer_instruction(instruction);
 }

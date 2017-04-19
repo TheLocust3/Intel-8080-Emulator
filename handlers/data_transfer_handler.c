@@ -66,6 +66,10 @@ bool handle_MVI(uint8_t instruction)
 
 bool handle_misc(uint8_t instruction)
 {
+    if (instruction == 0b00111010) {
+        load_accumulator_direct();
+    }
+
     if (((instruction & 0b11000000) >> 6) == 0b00) {
         if ((instruction & 0b00001111) == 0b0001) {
             int rp_code = get_rp_code_from_opcode(instruction);

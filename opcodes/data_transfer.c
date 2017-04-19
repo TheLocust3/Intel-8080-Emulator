@@ -67,6 +67,15 @@ void load_register_pair_immediate(uint16_t *dst_register_pair)
     pc += 3;
 }
 
+void load_accumulator_direct()
+{
+    printf("LDA addr\n");
+
+    uint16_t address = combine_bytes(read_byte_from_address((uint16_t) (pc + 2)), read_byte_from_address((uint16_t) (pc + 1)));
+    move_byte(&a, read_byte_from_address(address));
+    pc += 3;
+}
+
 void move_byte(uint8_t *dst, const uint8_t src)
 {
     *dst = src;

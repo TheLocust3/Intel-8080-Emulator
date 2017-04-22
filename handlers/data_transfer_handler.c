@@ -29,13 +29,13 @@ bool handle_MOV(uint8_t instruction)
         int src_code = get_src_code_from_opcode(instruction);
         uint8_t src_register = get_register_from_code(src_code);
 
-        if (dst_register != NULL_REGISTER && src_register != NULL_REGISTER) {
+        if (is_code_8bit_code(dst_code) && is_code_8bit_code(src_code)) {
             move_register(&dst_register, src_register);
             return true;
-        } else if (dst_register != NULL_REGISTER && src_register == NULL_REGISTER) {
+        } else if (is_code_8bit_code(dst_code) && !is_code_8bit_code(src_code)) {
             move_from_memory(&dst_register);
             return true;
-        } else if (dst_register == NULL_REGISTER && src_register != NULL_REGISTER) {
+        } else if (!is_code_8bit_code(dst_code) && is_code_8bit_code(src_code)) {
             move_to_memory(src_register);
             return true;
         }
@@ -53,9 +53,9 @@ bool handle_MVI(uint8_t instruction)
         }
 
         int dst_code = get_dst_code_from_opcode(instruction);
-        uint8_t dst_register = get_register_from_code(dst_code);
 
-        if (dst_register != NULL_REGISTER) {
+        if (is_code_8bit_code(dst_code)) {
+            uint8_t dst_register = get_register_from_code(dst_code);
             move_immediate(&dst_register);
             return true;
         }
@@ -73,9 +73,9 @@ bool handle_misc(uint8_t instruction)
     if (((instruction & 0b11000000) >> 6) == 0b00) {
         if ((instruction & 0b00001111) == 0b0001) {
             int rp_code = get_rp_code_from_opcode(instruction);
-            uint16_t dst_register_pair = get_register_pair_from_code(rp_code);
 
-            if (dst_register_pair != NULL_REGISTER) {
+            if (is_code_16bit_code(rp_code)) {
+                uint16_t dst_register_pair = get_register_pair_from_code(rp_code);
                 load_register_pair_immediate(&dst_register_pair);
             }
         }

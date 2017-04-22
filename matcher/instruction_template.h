@@ -11,12 +11,13 @@
 
 typedef struct {
     char *raw_template;
+    void (*method)();
     uint8_t binary_template;
     bool has_rp;
     bool has_dst;
     bool has_src;
 } InstructionTemplate;
 
-InstructionTemplate new_instruction_template(char *template);
+InstructionTemplate new_instruction_template(char *template, void (*method)());
 
 #endif //INC_8080_EMULATOR_INSTRUCTION_TEMPLATE_H

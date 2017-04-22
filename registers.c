@@ -19,6 +19,15 @@ void initialize_registers()
     l = 0;
 }
 
+bool is_code_8bit_code(int code)
+{
+    if (code == A_CODE || code == B_CODE || code == C_CODE || code == D_CODE || code == E_CODE || code == H_CODE || code == L_CODE) {
+        return true;
+    }
+
+    return false;
+}
+
 uint8_t get_register_from_code(int code)
 {
     switch (code) {
@@ -39,6 +48,15 @@ uint8_t get_register_from_code(int code)
         default:
             return NULL_REGISTER;
     }
+}
+
+bool is_code_16bit_code(int code)
+{
+    if (code == BC_CODE || code == DE_CODE || code == HL_CODE || code == SP_CODE) {
+        return true;
+    }
+
+    return false;
 }
 
 uint16_t get_register_pair_from_code(int code)

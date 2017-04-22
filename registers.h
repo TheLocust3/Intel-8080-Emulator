@@ -7,8 +7,9 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include <stdbool.h>
 
-#define NULL_REGISTER UINT64_MAX
+#define NULL_REGISTER UINT32_MAX
 
 #define A_CODE 0b111
 #define B_CODE 0b000
@@ -27,7 +28,9 @@ uint16_t pc, sp;
 uint8_t a, b, c, d, e, f, h, l;
 
 void initialize_registers();
+bool is_code_8bit_code(int code);
 uint8_t get_register_from_code(int code);
+bool is_code_16bit_code(int code);
 uint16_t get_register_pair_from_code(int code);
 
 #endif //INC_8080_EMULATOR_REGISTERS_C_H

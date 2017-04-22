@@ -2,7 +2,9 @@
 // Created by Jake Kinsella on 4/19/17.
 //
 
+#include <stdlib.h>
 #include "matcher.h"
+#include "instruction_template.h"
 
 InstructionTemplate instruction_templates[255];
 int instruction_template_pointer = 0;
@@ -57,5 +59,19 @@ void run_instruction(int dst_code, int src_code, int rp_code, InstructionTemplat
     uint8_t src_register = get_register_from_code(src_code);
     uint16_t rp_register = get_register_from_code(rp_code);
 
-
+    // TODO: This is really gross
+    if (instruction_template.has_dst && !instruction_template.has_src && !instruction_template.has_rp) {
+        instruction_template.method(&dst_register);
+    } else if (!instruction_template.has_dst && instruction_template.has_src && !instruction_template.has_rp) {
+        instruction_template.method(&src_register);
+    } else if (!instruction_template.has_dst && !instruction_template.has_src && instruction_template.has_rp) {
+        instruction_template.method(&rp_register);
+    } else if (instruction_template.has_dst && instruction_template.has_src && !instruction_template.has_rp) {
+        instruction_template.method(&dst_register, &src_register);
+    } else if (!instruction_template.has_dst && !instruction_template.has_src && !instruction_template.has_rp) {
+        instruction_template.method();
+    } else {
+        printf("Instruction arguments not matched!\n");
+        exit(1);
+    }
 }

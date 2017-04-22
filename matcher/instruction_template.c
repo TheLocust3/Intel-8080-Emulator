@@ -3,9 +3,9 @@
 //
 
 #include <string.h>
-#include <assert.h>
 #include <math.h>
 #include <stdlib.h>
+#include <assert.h>
 #include "instruction_template.h"
 
 InstructionTemplate setup_binary_template(InstructionTemplate *instruction_template);
@@ -23,6 +23,7 @@ InstructionTemplate new_instruction_template(char *template, void (*method)())
 
     InstructionTemplate instruction_template;
     instruction_template.raw_template = template;
+    instruction_template.method = method;
 
     instruction_template = setup_binary_template(&instruction_template);
     instruction_template.has_rp = has_rp(instruction_template);
@@ -60,7 +61,7 @@ int binary_string_to_int(char *string)
     int number = 0;
     for (int i = 0; i < strlen(string); i++) {
         if (string[i] == '1') {
-            number += pow(2, 8 - i);
+            number += pow(2, 7 - i);
         }
     }
 

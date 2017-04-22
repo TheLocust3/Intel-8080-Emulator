@@ -9,16 +9,15 @@
 #include "registers.h"
 #include "opcodes/data_transfer.h"
 #include "matcher/instruction_template.h"
+#include "matcher/matcher.h"
 
 int main(int argc, const char* argv[])
 {
     initialize();
 
     InstructionTemplate instruction_template = new_instruction_template("01DDDSSS", &move_register);
-    printf("%d\n", instruction_template.binary_template);
-    printf("%d\n", instruction_template.has_dst);
-    printf("%d\n", instruction_template.has_src);
-    printf("%d\n", instruction_template.has_rp);
+    add_instruction_template(instruction_template);
+    printf("%d\n", match(0b01111000));
 
     set_byte(0, 0, 0b00111010);
     set_byte(0, 1, 0b10000000);

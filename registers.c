@@ -45,8 +45,6 @@ uint8_t get_register_from_code(int code)
             return h;
         case L_CODE:
             return l;
-        default:
-            return NULL_REGISTER;
     }
 }
 
@@ -70,7 +68,5 @@ uint16_t get_register_pair_from_code(int code)
             return combine_bytes(h, l);
         case SP_CODE:
             return sp;
-        default:
-            return NULL_REGISTER;
     }
 }

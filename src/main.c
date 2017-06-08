@@ -6,7 +6,6 @@
 
 #include "cpu.h"
 #include "ram.h"
-#include "registers.h"
 #include "opcodes/data_transfer.h"
 #include "matcher/instruction_template.h"
 #include "matcher/matcher.h"

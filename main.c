@@ -18,13 +18,6 @@ int main(int argc, const char* argv[])
     setup_opcodes();
     initialize();
 
-    printf("%d\n", match(0b01111000));
-
-    set_byte(0, 0, 0b00111010);
-    set_byte(0, 1, 0b10000000);
-    set_byte(0, 2, 0b00000000);
-    set_byte(0, 0b10000000, 100);
-
     for (int i = 0; i < 10; i++) {
         cycle();
         print_register_status();

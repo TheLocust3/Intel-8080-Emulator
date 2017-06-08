@@ -5,8 +5,7 @@
 #include "cpu.h"
 #include "registers.h"
 #include "ram.h"
-
-#include "handlers/data_transfer_handler.h"
+#include "matcher/matcher.h"
 
 void initialize()
 {
@@ -21,7 +20,7 @@ void cycle()
 
     // pc starts at instruction when passed to handle functions
 
-    handle_data_transfer_instruction(instruction);
+    match(instruction);
 }
 
 void print_register_status()

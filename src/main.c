@@ -25,7 +25,8 @@ int main(int argc, const char* argv[])
     return 0;
 }
 
-void setup_opcodes() {
+void setup_opcodes()
+{
     InstructionTemplate move_register_template = new_instruction_template("01DDDSSS", &move_register);
     add_instruction_template(move_register_template);
 

@@ -93,10 +93,10 @@ int load_register_pair_immediate_test()
     l = 0;
     pc = 0;
 
-    set_byte_from_address((uint16_t) (pc + 2), TEST_VALUE);
-    set_byte_from_address((uint16_t) (pc + 1), 0);
+    set_byte_from_address((uint16_t) (pc + 2), 0);
+    set_byte_from_address((uint16_t) (pc + 1), TEST_VALUE);
 
-    uint16_t register_pair = get_register_from_code(HL_CODE);
+    uint16_t register_pair = get_register_pair_from_code(HL_CODE);
     load_register_pair_immediate(&register_pair);
 
     return get_register_from_code(HL_CODE) == TEST_VALUE;

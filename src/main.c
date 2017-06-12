@@ -39,6 +39,7 @@ void setup_opcodes()
     InstructionTemplate move_immediate_template = new_instruction_template("00DDD110", &move_immediate);
     add_instruction_template(move_immediate_template);
 
+    // TODO: Fix these
     InstructionTemplate move_to_memory_immediate_template = new_instruction_template("00110110", &move_to_memory_immediate);
     add_instruction_template(move_to_memory_immediate_template);
 

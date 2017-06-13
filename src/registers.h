@@ -24,13 +24,19 @@
 #define HL_CODE 10
 #define SP_CODE 11
 
-uint16_t pc, sp;
-uint8_t a, b, c, d, e, f, h, l;
+typedef struct {
+    uint8_t *register1;
+    uint8_t *register2;
+} RegisterPair;
+
+uint16_t pc;
+uint8_t a, b, c, d, e, f, h, l, s, p;
 
 void initialize_registers();
 bool is_code_8bit_code(int code);
 uint8_t get_register_from_code(int code);
 bool is_code_16bit_code(int code);
-uint16_t get_register_pair_from_code(int code);
+RegisterPair get_register_pair_from_code(int code);
+bool does_register_pair_equal(RegisterPair register_pair, uint16_t value);
 
 #endif //INC_8080_EMULATOR_REGISTERS_C_H

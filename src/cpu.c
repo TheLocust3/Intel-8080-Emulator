@@ -25,5 +25,5 @@ void cycle()
 
 void print_register_status()
 {
-    printf("A: %d, B: %d, C: %d, D: %d, E: %d, F: %d, H: %d, L: %d, SP: %d\n", a, b, c, d, e, f, h, l, sp);
+    printf("A: %d, B: %d, C: %d, D: %d, E: %d, F: %d, H: %d, L: %d, SP: %d\n", a, b, c, d, e, f, h, l, combine_bytes(s, p));
 }

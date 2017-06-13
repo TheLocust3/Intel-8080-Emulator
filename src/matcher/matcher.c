@@ -57,7 +57,7 @@ void run_instruction(int dst_code, int src_code, int rp_code, InstructionTemplat
 {
     uint8_t dst_register = get_register_from_code(dst_code);
     uint8_t src_register = get_register_from_code(src_code);
-    uint16_t rp_register = get_register_from_code(rp_code);
+    RegisterPair rp_register = get_register_pair_from_code(rp_code);
 
     // TODO: This is really gross
     if (instruction_template.has_dst && !instruction_template.has_src && !instruction_template.has_rp) {

@@ -9,6 +9,16 @@ uint16_t combine_bytes(uint8_t high, uint8_t low)
     return (high << 8) + low;
 }
 
+uint8_t get_high_order_byte(uint16_t number)
+{
+    return (uint8_t) ((number & 0xFF00) >> 8);
+}
+
+uint8_t get_low_order_byte(uint16_t number)
+{
+    return (uint8_t) (number & 0x00FF);
+}
+
 int get_dst_code_from_opcode(int instruction)
 {
     return (instruction & 0b00111000) >> 3;

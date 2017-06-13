@@ -75,7 +75,7 @@ bool handle_misc(uint8_t instruction)
             int rp_code = get_rp_code_from_opcode(instruction);
 
             if (is_code_16bit_code(rp_code)) {
-                uint16_t dst_register_pair = get_register_pair_from_code(rp_code);
+                RegisterPair dst_register_pair = get_register_pair_from_code(rp_code);
                 load_register_pair_immediate(&dst_register_pair);
             }
         }

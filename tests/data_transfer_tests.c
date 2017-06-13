@@ -96,10 +96,10 @@ int load_register_pair_immediate_test()
     set_byte_from_address((uint16_t) (pc + 2), 0);
     set_byte_from_address((uint16_t) (pc + 1), TEST_VALUE);
 
-    uint16_t register_pair = get_register_pair_from_code(HL_CODE);
+    RegisterPair register_pair = get_register_pair_from_code(HL_CODE);
     load_register_pair_immediate(&register_pair);
 
-    return get_register_from_code(HL_CODE) == TEST_VALUE;
+    return does_register_pair_equal(get_register_pair_from_code(HL_CODE), TEST_VALUE);
 }
 
 int load_accumulator_direct_test()

@@ -14,6 +14,7 @@
 
 bool match(uint8_t instruction);
 void add_instruction_template(InstructionTemplate instruction_template);
+InstructionTemplate * get_all_registered_templates();
 bool match_instruction_template(uint8_t instruction, InstructionTemplate instruction_template);
 
 #endif //INC_8080_EMULATOR_MATCHER_H

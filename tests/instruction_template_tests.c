@@ -58,7 +58,4 @@ int dst_and_src_template_creation_test()
     return template.binary_template == 0 && !template.has_rp && template.has_dst && template.has_src;
 }
 
-void empty_method()
-{
-
-}
+void empty_method() {}

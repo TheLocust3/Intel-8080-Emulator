@@ -26,6 +26,11 @@ void add_instruction_template(InstructionTemplate instruction_template)
     instruction_template_pointer++;
 }
 
+InstructionTemplate * get_all_registered_templates()
+{
+    return instruction_templates;
+}
+
 bool match_instruction_template(uint8_t instruction, InstructionTemplate instruction_template)
 {
     uint8_t binary_template = instruction_template.binary_template;

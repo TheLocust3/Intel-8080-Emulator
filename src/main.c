@@ -42,7 +42,7 @@ void setup_opcodes()
     InstructionTemplate move_to_memory_immediate_template = new_instruction_template("00110110", &move_to_memory_immediate);
     add_instruction_template(move_to_memory_immediate_template);
 
-    InstructionTemplate load_register_pair_immediate_template = new_instruction_template("00RR0001", &load_register_pair_immediate);
+    InstructionTemplate load_register_pair_immediate_template = new_instruction_template("00RP0001", &load_register_pair_immediate);
     add_instruction_template(load_register_pair_immediate_template);
 
     InstructionTemplate load_accumulator_direct_template = new_instruction_template("00111010", &load_accumulator_direct);

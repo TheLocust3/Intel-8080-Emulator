@@ -9,19 +9,14 @@
 #include "../src/opcode_definitions.h"
 
 void empty_method();
-void flip_bool();
 
 void add_template_test();
 void simple_match_test();
-void simple_run_test();
-
-bool has_flipped = false;
 
 int main(int argc, const char* argv[])
 {
     add_template_test();
     simple_match_test();
-    simple_run_test();
 
     return 0;
 }
@@ -43,22 +38,4 @@ void simple_match_test()
     assert(!match(10) && "Matched matched incorrect instruction");
 }
 
-void simple_run_test()
-{
-    clear_all_registered_templates();
-    has_flipped = false;
-
-    InstructionTemplate template = new_instruction_template("00000000", &flip_bool);
-    add_instruction_template(template);
-
-    run_instruction(0, 0, 0, template);
-
-    assert(has_flipped && "Template function was not run");
-}
-
 void empty_method() {}
-
-void flip_bool()
-{
-    has_flipped = true;
-}

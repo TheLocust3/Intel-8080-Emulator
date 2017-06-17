@@ -31,6 +31,16 @@ InstructionTemplate * get_all_registered_templates()
     return instruction_templates;
 }
 
+void clear_all_registered_templates()
+{
+    for (int i = 0; i < instruction_template_pointer; i++) {
+        InstructionTemplate null_template;
+        instruction_templates[i] = null_template;
+    }
+
+    instruction_template_pointer = 0;
+}
+
 bool match_instruction_template(uint8_t instruction, InstructionTemplate instruction_template)
 {
     uint8_t binary_template = instruction_template.binary_template;

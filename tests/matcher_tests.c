@@ -3,44 +3,47 @@
 //
 
 #include <stdio.h>
+#include <assert.h>
 #include "../src/matcher/instruction_template.h"
 #include "../src/matcher/matcher.h"
 #include "../src/opcode_definitions.h"
 
 void empty_method();
 void flip_bool();
-int add_template_test();
-int simple_match_test();
-int simple_run_test();
+
+void add_template_test();
+void simple_match_test();
+void simple_run_test();
 
 bool has_flipped = false;
 
 int main(int argc, const char* argv[])
 {
-    int status = add_template_test();
-    status = status && simple_match_test();
-    status = status && simple_run_test();
+    add_template_test();
+    simple_match_test();
+    simple_run_test();
 
-    return !status;
+    return 0;
 }
 
-int add_template_test()
+void add_template_test()
 {
     InstructionTemplate template = new_instruction_template("11111111", &empty_method);
     add_instruction_template(template);
 
-    return get_all_registered_templates()[0].binary_template == template.binary_template; // should be the same templates
+    assert(get_all_registered_templates()[0].binary_template == template.binary_template && "Generated template was not registered with matcher");
 }
 
-int simple_match_test()
+void simple_match_test()
 {
     InstructionTemplate template = new_instruction_template("00000000", &empty_method);
     add_instruction_template(template);
 
-    return match(0) && !match(10); // shouldn't match the random one
+    assert(match(0) && "Matcher failed to match correct instruction");
+    assert(!match(10) && "Matched matched incorrect instruction");
 }
 
-int simple_run_test()
+void simple_run_test()
 {
     clear_all_registered_templates();
     has_flipped = false;
@@ -50,7 +53,7 @@ int simple_run_test()
 
     run_instruction(0, 0, 0, template);
 
-    return has_flipped;
+    assert(has_flipped && "Template function was not run");
 }
 
 void empty_method() {}

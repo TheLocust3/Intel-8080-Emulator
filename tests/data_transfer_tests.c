@@ -3,43 +3,44 @@
 //
 
 #include <stdio.h>
+#include <assert.h>
 #include "../src/opcodes/data_transfer.h"
 #include "../src/registers.h"
 #include "../src/ram.h"
 
-int move_register_test();
-int move_from_memory_test();
-int move_to_memory_test();
-int move_immediate_test();
-int move_to_memory_immediate_test();
-int load_register_pair_immediate_test();
-int load_accumulator_direct_test();
+void move_register_test();
+void move_from_memory_test();
+void move_to_memory_test();
+void move_immediate_test();
+void move_to_memory_immediate_test();
+void load_register_pair_immediate_test();
+void load_accumulator_direct_test();
 
 const int TEST_VALUE = 10;
 
 int main(int argc, const char* argv[])
 {
-    int status = move_register_test();
-    status = status && move_from_memory_test();
-    status = status && move_to_memory_test();
-    status = status && move_immediate_test();
-    status = status && move_to_memory_immediate_test();
-    status = status && load_register_pair_immediate_test();
-    status = status && load_accumulator_direct_test();
+    move_register_test();
+    move_from_memory_test();
+    move_to_memory_test();
+    move_immediate_test();
+    move_to_memory_immediate_test();
+    load_register_pair_immediate_test();
+    load_accumulator_direct_test();
 
-    return !status;
+    return 0;
 }
 
-int move_register_test()
+void move_register_test()
 {
     a = 0;
     b = TEST_VALUE;
     move_register(&a, b);
 
-    return a == b;
+    assert(a == b && "Value at B was not properly moved to A");
 }
 
-int move_from_memory_test()
+void move_from_memory_test()
 {
     a = 0;
     h = 0;
@@ -48,10 +49,10 @@ int move_from_memory_test()
 
     move_from_memory(&a);
 
-    return a == TEST_VALUE;
+    assert(a == TEST_VALUE && "Value at address HL was not properly moved to A");
 }
 
-int move_to_memory_test()
+void move_to_memory_test()
 {
     a = TEST_VALUE;
     h = 0;
@@ -59,10 +60,10 @@ int move_to_memory_test()
 
     move_to_memory(a);
 
-    return read_byte(h, l) == TEST_VALUE;
+    assert(read_byte(h, l) == TEST_VALUE && "Value at A was not properly moved to address HL");
 }
 
-int move_immediate_test()
+void move_immediate_test()
 {
     a = 0;
     pc = 0;
@@ -71,10 +72,10 @@ int move_immediate_test()
 
     move_immediate(&a);
 
-    return a == TEST_VALUE;
+    assert(a == TEST_VALUE && "Value at address following instruction was not properly moved to A");
 }
 
-int move_to_memory_immediate_test()
+void move_to_memory_immediate_test()
 {
     h = 0;
     l = 0;
@@ -84,10 +85,10 @@ int move_to_memory_immediate_test()
 
     move_to_memory_immediate();
 
-    return read_byte(h, l) == TEST_VALUE;
+    assert(read_byte(h, l) == TEST_VALUE && "Value following instruction was not properly moved to address HL");
 }
 
-int load_register_pair_immediate_test()
+void load_register_pair_immediate_test()
 {
     h = 0;
     l = 0;
@@ -99,10 +100,10 @@ int load_register_pair_immediate_test()
     RegisterPair register_pair = get_register_pair_from_code(HL_CODE);
     load_register_pair_immediate(&register_pair);
 
-    return does_register_pair_equal(get_register_pair_from_code(HL_CODE), TEST_VALUE);
+    assert(does_register_pair_equal(get_register_pair_from_code(HL_CODE), TEST_VALUE) && "Value following instruction was not properly moved to HL");
 }
 
-int load_accumulator_direct_test()
+void load_accumulator_direct_test()
 {
     a = 0;
     pc = 0;
@@ -113,5 +114,5 @@ int load_accumulator_direct_test()
 
     load_accumulator_direct();
 
-    return a == TEST_VALUE;
+    assert(a == TEST_VALUE && "Value from address following instruction wasn't properly moved to A");
 }

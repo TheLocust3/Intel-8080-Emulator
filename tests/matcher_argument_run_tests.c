@@ -79,7 +79,7 @@ void dst_src_run_test()
     a = TEST_VALUE;
     b = TEST_VALUE + 1;
 
-    InstructionTemplate template = new_instruction_template("00DDDSSS", &rp_run);
+    InstructionTemplate template = new_instruction_template("00DDDSSS", &dst_src_run);
     add_instruction_template(template);
 
     run_instruction(A_CODE, B_CODE, 0, template);

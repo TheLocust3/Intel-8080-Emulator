@@ -5,4 +5,4 @@ Still actively being worked on specifically with implementing more opcodes
   
 ### Testing
 To run the project's unit tests:  
-`make &amp;&amp; make test`    
+`make && make test`    

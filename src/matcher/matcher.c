@@ -78,11 +78,11 @@ void run_instruction(int dst_code, int src_code, int rp_code, InstructionTemplat
     if (instruction_template.has_dst && !instruction_template.has_src && !instruction_template.has_rp) {
         instruction_template.method(&dst_register);
     } else if (!instruction_template.has_dst && instruction_template.has_src && !instruction_template.has_rp) {
-        instruction_template.method(&src_register);
+        instruction_template.method(src_register);
     } else if (!instruction_template.has_dst && !instruction_template.has_src && instruction_template.has_rp) {
         instruction_template.method(&rp_register);
     } else if (instruction_template.has_dst && instruction_template.has_src && !instruction_template.has_rp) {
-        instruction_template.method(&dst_register, &src_register);
+        instruction_template.method(&dst_register, src_register);
     } else if (!instruction_template.has_dst && !instruction_template.has_src && !instruction_template.has_rp) {
         instruction_template.method();
     } else {

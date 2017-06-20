@@ -17,7 +17,6 @@ bool has_rp(InstructionTemplate instruction_template);
 bool has_dst(InstructionTemplate instruction_template);
 bool has_src(InstructionTemplate instruction_template);
 
-// TODO: Fail on wrong characters
 InstructionTemplate new_instruction_template(char *template, void (*method)())
 {
     assert(strlen(template) == 8);

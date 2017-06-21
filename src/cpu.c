@@ -16,7 +16,7 @@ void initialize()
 void cycle()
 {
     uint8_t instruction = read_byte_from_address(pc);
-    printf("%d: %d\n", pc, instruction);
+    printf("0x%x: 0x%x\n", pc, instruction);
 
     // pc starts at instruction when passed to handle functions
 
@@ -33,5 +33,5 @@ void cycle()
 
 void print_register_status()
 {
-    printf("A: %d, B: %d, C: %d, D: %d, E: %d, F: %d, H: %d, L: %d, SP: %d\n", a, b, c, d, e, f, h, l, combine_bytes(s, p));
+    printf("A: 0x%x, B: 0x%x, C: 0x%x, D: 0x%x, E: 0x%x, F: 0x%x, H: 0x%x, L: 0x%x, SP: 0x%x\n", a, b, c, d, e, f, h, l, combine_bytes(s, p));
 }

@@ -20,7 +20,9 @@ void cycle()
 
     // pc starts at instruction when passed to handle functions
 
-    match(instruction);
+    if (match(instruction)) {
+
+    }
 }
 
 void print_register_status()

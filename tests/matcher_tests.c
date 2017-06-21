@@ -34,8 +34,8 @@ void simple_match_test()
     InstructionTemplate template = new_instruction_template("00000000", &empty_method);
     add_instruction_template(template);
 
-    assert(match(0) && "Matcher failed to match correct instruction");
-    assert(!match(10) && "Matched matched incorrect instruction");
+    assert(match(0) != -1 && "Matcher failed to match correct instruction");
+    assert(match(10) == -1 && "Matched matched incorrect instruction");
 }
 
 void empty_method() {}

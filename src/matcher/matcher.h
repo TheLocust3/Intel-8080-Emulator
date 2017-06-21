@@ -12,7 +12,7 @@
 #include "../registers.h"
 #include "instruction_template.h"
 
-bool match(uint8_t instruction);
+int match(uint8_t instruction);
 void add_instruction_template(InstructionTemplate instruction_template);
 void clear_all_registered_templates();
 InstructionTemplate * get_all_registered_templates();

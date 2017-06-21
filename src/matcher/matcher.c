@@ -9,15 +9,15 @@
 InstructionTemplate instruction_templates[255];
 int instruction_template_pointer = 0;
 
-bool match(uint8_t instruction)
+int match(uint8_t instruction)
 {
     for (int i = 0; i < instruction_template_pointer; i++) {
         if (match_instruction_template(instruction, instruction_templates[i])) {
-            return true;
+            return i;
         }
     }
 
-    return false;
+    return -1;
 }
 
 void add_instruction_template(InstructionTemplate instruction_template)

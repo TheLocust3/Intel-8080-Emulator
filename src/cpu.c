@@ -20,8 +20,9 @@ void cycle()
 
     // pc starts at instruction when passed to handle functions
 
-    if (match(instruction)) {
-
+    int index = match(instruction);
+    if (index != -1) {
+        InstructionTemplate template = get_registered_template(index);
     }
 }
 

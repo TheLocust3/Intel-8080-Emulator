@@ -31,6 +31,11 @@ InstructionTemplate * get_all_registered_templates()
     return instruction_templates;
 }
 
+InstructionTemplate get_registered_template(int index)
+{
+    return instruction_templates[index];
+}
+
 void clear_all_registered_templates()
 {
     for (int i = 0; i < instruction_template_pointer; i++) {

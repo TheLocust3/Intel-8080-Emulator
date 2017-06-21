@@ -16,6 +16,7 @@ int match(uint8_t instruction);
 void add_instruction_template(InstructionTemplate instruction_template);
 void clear_all_registered_templates();
 InstructionTemplate * get_all_registered_templates();
+InstructionTemplate get_registered_template(int index);
 bool match_instruction_template(uint8_t instruction, InstructionTemplate instruction_template);
 void run_instruction(int dst_code, int src_code, int rp_code, InstructionTemplate instruction_template);
 

@@ -11,6 +11,7 @@ To run the project's unit tests:
 
 - CPU tests  
 - Reorganize tests
+- Setup TravisCI
 - Add more opcodes
 - Handle flags
 - Handle interrupts

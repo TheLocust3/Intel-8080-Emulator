@@ -23,6 +23,11 @@ void cycle()
     int index = match(instruction);
     if (index != -1) {
         InstructionTemplate template = get_registered_template(index);
+
+        int dst_code = get_dst_code_from_opcode(instruction);
+        int src_code = get_src_code_from_opcode(instruction);
+        int rp_code = get_rp_code_from_opcode(instruction);
+        run_instruction(dst_code, src_code, rp_code, template);
     }
 }
 

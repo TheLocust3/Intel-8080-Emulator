@@ -1,0 +1,7 @@
+language: c
+install: sudo apt-get install cmake
+compiler: gcc
+script:
+ - cmake CMakeLists.txt
+ - make
+ - make test

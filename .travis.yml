@@ -1,6 +1,6 @@
 language: c
 install: sudo apt-get install cmake
-compiler: gcc
+compiler: clang
 script:
  - cmake CMakeLists.txt
  - make

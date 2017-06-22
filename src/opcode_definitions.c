@@ -4,6 +4,7 @@
 
 #include "opcode_definitions.h"
 #include "opcodes/data_transfer.h"
+#include "opcodes/miscellaneous.h"
 
 void define_opcodes()
 {
@@ -27,4 +28,7 @@ void define_opcodes()
 
     InstructionTemplate load_accumulator_direct_template = new_instruction_template("00111010", &load_accumulator_direct);
     add_instruction_template(load_accumulator_direct_template);
+
+    InstructionTemplate nop_template = new_instruction_template("00000000", &nop);
+    add_instruction_template(nop_template);
 }

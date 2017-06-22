@@ -10,7 +10,6 @@ To run the project's unit tests:
 ### To-Do  
 
 - CPU tests  
-- Reorganize tests
 - Add more opcodes
 - Handle flags
 - Handle interrupts

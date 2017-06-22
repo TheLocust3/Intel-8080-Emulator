@@ -3,8 +3,8 @@
 //
 
 #include <assert.h>
-#include "../src/matcher/matcher.h"
-#include "../src/registers.h"
+#include "../../src/matcher/matcher.h"
+#include "../../src/registers.h"
 
 void setup();
 

@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 #include <assert.h>
-#include "../src/matcher/instruction_template.h"
+#include "../../src/matcher/instruction_template.h"
 
 void empty_method();
 

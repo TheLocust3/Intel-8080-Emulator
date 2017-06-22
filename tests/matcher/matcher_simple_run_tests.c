@@ -3,7 +3,7 @@
 //
 
 #include <assert.h>
-#include "../src/matcher/matcher.h"
+#include "../../src/matcher/matcher.h"
 
 void setup();
 void flip_bool();

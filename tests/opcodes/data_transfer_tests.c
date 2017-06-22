@@ -4,9 +4,9 @@
 
 #include <stdio.h>
 #include <assert.h>
-#include "../src/opcodes/data_transfer.h"
-#include "../src/registers.h"
-#include "../src/ram.h"
+#include "../../src/opcodes/data_transfer.h"
+#include "../../src/registers.h"
+#include "../../src/ram.h"
 
 void move_register_test();
 void move_from_memory_test();

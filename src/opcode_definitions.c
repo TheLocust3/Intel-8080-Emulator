@@ -47,6 +47,9 @@ void define_data_transfer_opcodes()
 
     InstructionTemplate store_HL_direct_template = new_instruction_template("00100010", &store_HL_direct);
     add_instruction_template(store_HL_direct_template);
+
+    InstructionTemplate load_accumulator_indirect_template = new_instruction_template("00RP1010", &load_accumulator_indirect);
+    add_instruction_template(load_accumulator_indirect_template);
 }
 
 void define_miscellaneous_opcodes()

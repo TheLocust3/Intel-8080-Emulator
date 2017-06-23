@@ -109,6 +109,14 @@ void store_HL_direct()
     pc += 3;
 }
 
+void load_accumulator_indirect(const RegisterPair src_register_pair)
+{
+    printf("LDAX addr\n");
+
+    a = read_byte_from_address(combine_bytes(*src_register_pair.high, *src_register_pair.low));
+    pc += 3;
+}
+
 void move_byte(uint8_t *dst, const uint8_t src)
 {
     *dst = src;
@@ -116,8 +124,8 @@ void move_byte(uint8_t *dst, const uint8_t src)
 
 void move_register_pair(RegisterPair *dst_register_pair, const uint16_t src)
 {
-    *dst_register_pair->register1 = get_high_order_byte(src);
-    *dst_register_pair->register2 = get_low_order_byte(src);
+    *dst_register_pair->high = get_high_order_byte(src);
+    *dst_register_pair->low = get_low_order_byte(src);
 }
 
 void move_byte_to_memory(const uint16_t dst_address, const uint8_t src)

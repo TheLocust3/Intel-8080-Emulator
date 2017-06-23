@@ -99,7 +99,7 @@ void src_run(const uint8_t src_register)
 
 void rp_run(RegisterPair *dst_register_pair)
 {
-    value_register1 = combine_bytes(*dst_register_pair->register1, *dst_register_pair->register2);
+    value_register1 = combine_bytes(*dst_register_pair->high, *dst_register_pair->low);
 }
 
 void dst_src_run(uint8_t *dst_register, const uint8_t src_register)

@@ -5,7 +5,7 @@
 #include "registers.h"
 #include "common_functions.h"
 
-RegisterPair create_register_pair(uint8_t *register1, uint8_t *register2);
+RegisterPair create_register_pair(uint8_t *high, uint8_t *low);
 
 void initialize_registers()
 {
@@ -76,14 +76,14 @@ RegisterPair get_register_pair_from_code(int code)
 
 bool does_register_pair_equal(RegisterPair register_pair, uint16_t value)
 {
-    return *register_pair.register1 == get_high_order_byte(value) && *register_pair.register2 == get_low_order_byte(value);
+    return *register_pair.high == get_high_order_byte(value) && *register_pair.low == get_low_order_byte(value);
 }
 
-RegisterPair create_register_pair(uint8_t *register1, uint8_t *register2)
+RegisterPair create_register_pair(uint8_t *high, uint8_t *low)
 {
     RegisterPair tmp;
-    tmp.register1 = register1;
-    tmp.register2 = register2;
+    tmp.high = high;
+    tmp.low = low;
 
     return tmp;
 }

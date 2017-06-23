@@ -25,8 +25,8 @@
 #define SP_CODE 11
 
 typedef struct {
-    uint8_t *register1;
-    uint8_t *register2;
+    uint8_t *high;
+    uint8_t *low;
 } RegisterPair;
 
 uint16_t pc;
@@ -38,5 +38,6 @@ uint8_t get_register_from_code(int code);
 bool is_code_16bit_code(int code);
 RegisterPair get_register_pair_from_code(int code);
 bool does_register_pair_equal(RegisterPair register_pair, uint16_t value);
+RegisterPair create_register_pair(uint8_t *high, uint8_t *low);
 
 #endif //INC_8080_EMULATOR_REGISTERS_C_H

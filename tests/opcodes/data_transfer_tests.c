@@ -15,6 +15,7 @@ void move_immediate_test();
 void move_to_memory_immediate_test();
 void load_register_pair_immediate_test();
 void load_accumulator_direct_test();
+void store_accumulator_direct_test();
 
 const int TEST_VALUE = 10;
 
@@ -27,6 +28,7 @@ int main(int argc, const char* argv[])
     move_to_memory_immediate_test();
     load_register_pair_immediate_test();
     load_accumulator_direct_test();
+    store_accumulator_direct_test();
 
     return 0;
 }
@@ -115,4 +117,18 @@ void load_accumulator_direct_test()
     load_accumulator_direct();
 
     assert(a == TEST_VALUE && "Value from address following instruction wasn't properly moved to A");
+}
+
+void store_accumulator_direct_test()
+{
+    a = TEST_VALUE;
+    pc = 0;
+    set_byte_from_address(0, 0);
+
+    set_byte_from_address((uint16_t) (pc + 2), 0);
+    set_byte_from_address((uint16_t) (pc + 1), 0);
+
+    store_accumulator_direct();
+
+    assert(read_byte_from_address(0) == TEST_VALUE && "Register A was not properly stored at address");
 }

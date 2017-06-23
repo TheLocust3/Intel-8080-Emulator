@@ -11,5 +11,6 @@ To run the project's unit tests:
 
 - CPU tests  
 - Add more opcodes
+- Use log function instead of prints
 - Handle flags
 - Handle interrupts

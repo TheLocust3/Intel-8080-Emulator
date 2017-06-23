@@ -77,6 +77,16 @@ void load_accumulator_direct()
     pc += 3;
 }
 
+void store_accumulator_direct()
+{
+    printf("STA addr\n");
+
+    uint16_t address = combine_bytes(read_byte_from_address((uint16_t) (pc + 2)), read_byte_from_address((uint16_t) (pc + 1)));
+
+    set_byte_from_address(address, a);
+    pc += 3;
+}
+
 void move_byte(uint8_t *dst, const uint8_t src)
 {
     *dst = src;

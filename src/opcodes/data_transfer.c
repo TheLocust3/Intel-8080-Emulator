@@ -63,7 +63,7 @@ void load_register_pair_immediate(RegisterPair *dst_register_pair)
     printf("LXI rp, data 16\n");
 
 
-    uint16_t data = combine_bytes(read_byte_from_address((uint16_t) (pc + 2)), read_byte_from_address((uint16_t) (pc + 1)));
+    uint16_t data = read_16bits_from_address((uint16_t) (pc + 1));
     move_register_pair(dst_register_pair, data);
     pc += 3;
 }
@@ -72,7 +72,7 @@ void load_accumulator_direct()
 {
     printf("LDA addr\n");
 
-    uint16_t address = combine_bytes(read_byte_from_address((uint16_t) (pc + 2)), read_byte_from_address((uint16_t) (pc + 1)));
+    uint16_t address = read_16bits_from_address((uint16_t) (pc + 1));
     move_byte(&a, read_byte_from_address(address));
     pc += 3;
 }
@@ -81,7 +81,7 @@ void store_accumulator_direct()
 {
     printf("STA addr\n");
 
-    uint16_t address = combine_bytes(read_byte_from_address((uint16_t) (pc + 2)), read_byte_from_address((uint16_t) (pc + 1)));
+    uint16_t address = read_16bits_from_address((uint16_t) (pc + 1));
 
     set_byte_from_address(address, a);
     pc += 3;
@@ -91,11 +91,10 @@ void load_HL_direct()
 {
     printf("LHLD addr\n");
 
-    uint16_t address = combine_bytes(read_byte_from_address((uint16_t) (pc + 2)), read_byte_from_address((uint16_t) (pc + 1)));
+    uint16_t address = read_16bits_from_address((uint16_t) (pc + 1));
 
     l = read_byte_from_address(address);
     h = read_byte_from_address((uint16_t) (address + 1));
-
     pc += 3;
 }
 
@@ -103,11 +102,10 @@ void store_HL_direct()
 {
     printf("SHLD addr\n");
 
-    uint16_t address = combine_bytes(read_byte_from_address((uint16_t) (pc + 2)), read_byte_from_address((uint16_t) (pc + 1)));
+    uint16_t address = read_16bits_from_address((uint16_t) (pc + 1));
 
     set_byte_from_address(address, l);
     set_byte_from_address((uint16_t) (address + 1), h);
-
     pc += 3;
 }
 

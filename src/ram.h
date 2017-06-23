@@ -17,6 +17,8 @@ void initialize_ram();
 uint8_t read_byte(uint8_t address_high, uint8_t address_low);
 uint8_t read_byte_from_address(uint16_t address);
 
+uint16_t read_16bits_from_address(uint16_t address);
+
 void set_byte(uint8_t address_high, uint8_t address_low, uint8_t value);
 void set_byte_from_address(uint16_t address, uint8_t value);
 

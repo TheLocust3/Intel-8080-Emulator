@@ -22,6 +22,11 @@ uint8_t read_byte_from_address(uint16_t address)
     return ram[address];
 }
 
+uint16_t read_16bits_from_address(uint16_t address)
+{
+    return combine_bytes(read_byte_from_address((uint16_t) (address + 1)), read_byte_from_address((uint16_t) (address)));
+}
+
 void set_byte(uint8_t address_high, uint8_t address_low, uint8_t value)
 {
     ram[combine_bytes(address_high, address_low)] = value;

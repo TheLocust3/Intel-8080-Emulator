@@ -43,7 +43,7 @@ void dst_run_test()
 
     run_instruction(A_CODE, 0, 0, template);
 
-    assert(value_register1 == TEST_VALUE && "Matcher didn't properly pass in register");
+    assert(value_register1 == TEST_VALUE && "dst_run_test failed!");
 }
 
 void src_run_test()
@@ -56,7 +56,7 @@ void src_run_test()
 
     run_instruction(0, A_CODE, 0, template);
 
-    assert(value_register1 == TEST_VALUE && "Matcher didn't properly pass in register");
+    assert(value_register1 == TEST_VALUE && "src_run_test failed!");
 }
 
 void rp_run_test()
@@ -70,7 +70,7 @@ void rp_run_test()
 
     run_instruction(0, 0, HL_CODE, template);
 
-    assert(value_register1 == TEST_VALUE && "Matcher didn't properly pass in register");
+    assert(value_register1 == TEST_VALUE && "rp_run_test failed!");
 }
 
 void dst_src_run_test()
@@ -84,7 +84,7 @@ void dst_src_run_test()
 
     run_instruction(A_CODE, B_CODE, 0, template);
 
-    assert(value_register1 == TEST_VALUE && value_register2 == (TEST_VALUE + 1) && "Matcher didn't properly pass in register");
+    assert(value_register1 == TEST_VALUE && value_register2 == (TEST_VALUE + 1) && "dst_src_run_test failed!");
 }
 
 void dst_run(uint8_t *dst_register)

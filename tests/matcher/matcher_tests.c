@@ -26,7 +26,7 @@ void add_template_test()
     InstructionTemplate template = new_instruction_template("11111111", &empty_method);
     add_instruction_template(template);
 
-    assert(get_all_registered_templates()[0].binary_template == template.binary_template && "Generated template was not registered with matcher");
+    assert(get_all_registered_templates()[0].binary_template == template.binary_template && "add_template_test failed");
 }
 
 void simple_match_test()

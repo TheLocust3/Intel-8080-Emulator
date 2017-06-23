@@ -46,7 +46,7 @@ void move_register_test()
     b = TEST_VALUE;
     move_register(&a, b);
 
-    assert(a == b && "Value at B was not properly moved to A");
+    assert(a == b && "Move_register_test failed!");
 }
 
 void move_from_memory_test()
@@ -58,7 +58,7 @@ void move_from_memory_test()
 
     move_from_memory(&a);
 
-    assert(a == TEST_VALUE && "Value at address HL was not properly moved to A");
+    assert(a == TEST_VALUE && "move_from_memory_test failed!");
 }
 
 void move_to_memory_test()
@@ -69,7 +69,7 @@ void move_to_memory_test()
 
     move_to_memory(a);
 
-    assert(read_byte(h, l) == TEST_VALUE && "Value at A was not properly moved to address HL");
+    assert(read_byte(h, l) == TEST_VALUE && "move_to_memory_test failed!");
 }
 
 void move_immediate_test()
@@ -81,7 +81,7 @@ void move_immediate_test()
 
     move_immediate(&a);
 
-    assert(a == TEST_VALUE && "Value at address following instruction was not properly moved to A");
+    assert(a == TEST_VALUE && "move_immediate_test failed!");
 }
 
 void move_to_memory_immediate_test()
@@ -94,7 +94,7 @@ void move_to_memory_immediate_test()
 
     move_to_memory_immediate();
 
-    assert(read_byte(h, l) == TEST_VALUE && "Value following instruction was not properly moved to address HL");
+    assert(read_byte(h, l) == TEST_VALUE && "move_to_memory_immediate_test failed!");
 }
 
 void load_register_pair_immediate_test()
@@ -109,7 +109,7 @@ void load_register_pair_immediate_test()
     RegisterPair register_pair = get_register_pair_from_code(HL_CODE);
     load_register_pair_immediate(&register_pair);
 
-    assert(does_register_pair_equal(get_register_pair_from_code(HL_CODE), TEST_VALUE) && "Value following instruction was not properly moved to HL");
+    assert(does_register_pair_equal(get_register_pair_from_code(HL_CODE), TEST_VALUE) && "load_register_pair_immediate_test failed!");
 }
 
 void load_accumulator_direct_test()
@@ -123,7 +123,7 @@ void load_accumulator_direct_test()
 
     load_accumulator_direct();
 
-    assert(a == TEST_VALUE && "Value from address following instruction wasn't properly moved to A");
+    assert(a == TEST_VALUE && "load_accumulator_direct_test failed!");
 }
 
 void store_accumulator_direct_test()
@@ -137,7 +137,7 @@ void store_accumulator_direct_test()
 
     store_accumulator_direct();
 
-    assert(read_byte_from_address(0) == TEST_VALUE && "Register A was not properly stored at address");
+    assert(read_byte_from_address(0) == TEST_VALUE && "store_accumulator_direct_test failed!");
 }
 
 void load_HL_direct_test()
@@ -153,7 +153,7 @@ void load_HL_direct_test()
 
     load_HL_direct();
 
-    assert(combine_bytes(h, l) == TEST_VALUE && "Value from address wasn't properly moved to HL");
+    assert(combine_bytes(h, l) == TEST_VALUE && "load_HL_direct_test failed!");
 }
 
 void store_HL_direct_test()
@@ -167,7 +167,7 @@ void store_HL_direct_test()
 
     store_HL_direct();
 
-    assert(read_byte_from_address(10) == TEST_VALUE && read_byte_from_address(11) == TEST_VALUE && "Register pair HL wasn't properly stored to address");
+    assert(read_byte_from_address(10) == TEST_VALUE && read_byte_from_address(11) == TEST_VALUE && "store_HL_direct_test failed!");
 }
 
 void load_accumulator_indirect_test()
@@ -182,5 +182,5 @@ void load_accumulator_indirect_test()
 
     load_accumulator_indirect(register_pair);
 
-    assert(a == TEST_VALUE && "Value from address at HL following instruction wasn't properly moved to A");
+    assert(a == TEST_VALUE && "load_accumulator_indirect_test failed!");
 }

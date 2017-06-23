@@ -20,5 +20,5 @@ void nop_test()
     pc = 0;
     nop();
 
-    assert(pc == 1 && "NOP isn't implemented properly");
+    assert(pc == 1 && "nop_test failed!");
 }

@@ -6,7 +6,17 @@
 #include "opcodes/data_transfer.h"
 #include "opcodes/miscellaneous.h"
 
+void define_data_transfer_opcodes();
+void define_miscellaneous_opcodes();
+
 void define_opcodes()
+{
+    define_data_transfer_opcodes();
+
+    define_miscellaneous_opcodes();
+}
+
+void define_data_transfer_opcodes()
 {
     InstructionTemplate move_register_template = new_instruction_template("01DDDSSS", &move_register);
     add_instruction_template(move_register_template);
@@ -29,6 +39,18 @@ void define_opcodes()
     InstructionTemplate load_accumulator_direct_template = new_instruction_template("00111010", &load_accumulator_direct);
     add_instruction_template(load_accumulator_direct_template);
 
+    InstructionTemplate store_accumulator_direct_template = new_instruction_template("00110010", &store_accumulator_direct);
+    add_instruction_template(store_accumulator_direct_template);
+
+    InstructionTemplate load_HL_direct_template = new_instruction_template("00101010", &load_HL_direct);
+    add_instruction_template(load_HL_direct_template);
+
+    InstructionTemplate store_HL_direct_template = new_instruction_template("00100010", &store_HL_direct);
+    add_instruction_template(store_HL_direct_template);
+}
+
+void define_miscellaneous_opcodes()
+{
     InstructionTemplate nop_template = new_instruction_template("00000000", &nop);
     add_instruction_template(nop_template);
 }

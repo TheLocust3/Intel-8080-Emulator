@@ -18,6 +18,7 @@ void load_register_pair_immediate_test();
 void load_accumulator_direct_test();
 void store_accumulator_direct_test();
 void load_HL_direct_test();
+void store_HL_direct_test();
 
 const int TEST_VALUE = 10;
 
@@ -32,6 +33,7 @@ int main(int argc, const char* argv[])
     load_accumulator_direct_test();
     store_accumulator_direct_test();
     load_HL_direct_test();
+    store_HL_direct_test();
 
     return 0;
 }
@@ -150,4 +152,18 @@ void load_HL_direct_test()
     load_HL_direct();
 
     assert(combine_bytes(h, l) == TEST_VALUE && "Value from address wasn't properly moved to HL");
+}
+
+void store_HL_direct_test()
+{
+    h = TEST_VALUE;
+    l = TEST_VALUE;
+    pc = 0;
+
+    set_byte_from_address((uint16_t) (pc + 2), 0);
+    set_byte_from_address((uint16_t) (pc + 1), 10);
+
+    store_HL_direct();
+
+    assert(read_byte_from_address(10) == TEST_VALUE && read_byte_from_address(11) == TEST_VALUE && "Register pair HL wasn't properly stored to address");
 }

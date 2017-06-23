@@ -99,6 +99,18 @@ void load_HL_direct()
     pc += 3;
 }
 
+void store_HL_direct()
+{
+    printf("SHLD addr\n");
+
+    uint16_t address = combine_bytes(read_byte_from_address((uint16_t) (pc + 2)), read_byte_from_address((uint16_t) (pc + 1)));
+
+    set_byte_from_address(address, l);
+    set_byte_from_address((uint16_t) (address + 1), h);
+
+    pc += 3;
+}
+
 void move_byte(uint8_t *dst, const uint8_t src)
 {
     *dst = src;

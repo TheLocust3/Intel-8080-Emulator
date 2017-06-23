@@ -20,5 +20,6 @@ void load_register_pair_immediate(RegisterPair *dst_register_pair);
 void load_accumulator_direct();
 void store_accumulator_direct();
 void load_HL_direct();
+void store_HL_direct();
 
 #endif //INC_8080_EMULATOR_MOVE_H

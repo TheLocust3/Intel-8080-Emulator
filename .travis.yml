@@ -5,3 +5,4 @@ script:
  - cmake CMakeLists.txt
  - make
  - make test
+ - ./8080_Emulator

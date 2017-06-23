@@ -87,6 +87,18 @@ void store_accumulator_direct()
     pc += 3;
 }
 
+void load_HL_direct()
+{
+    printf("LHLD addr\n");
+
+    uint16_t address = combine_bytes(read_byte_from_address((uint16_t) (pc + 2)), read_byte_from_address((uint16_t) (pc + 1)));
+
+    l = read_byte_from_address(address);
+    h = read_byte_from_address((uint16_t) (address + 1));
+
+    pc += 3;
+}
+
 void move_byte(uint8_t *dst, const uint8_t src)
 {
     *dst = src;

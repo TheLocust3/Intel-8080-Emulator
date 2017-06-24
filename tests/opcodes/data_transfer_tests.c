@@ -198,5 +198,16 @@ void store_accumulator_indirect_test()
 
     store_accumulator_indirect(register_pair);
 
-    assert(read_byte_from_address(0) == TEST_VALUE && "load_accumulator_indirect_test failed!");
+    assert(read_byte_from_address(0) == TEST_VALUE && "store_accumulator_indirect_test failed!");
+}
+
+void exchange_HL_DE_test()
+{
+    h = 0;
+    l = TEST_VALUE;
+
+    d = TEST_VALUE;
+    e = 0;
+
+    assert(h == TEST_VALUE && l == 0 && d == TEST_VALUE && e == 0 && "exchange_HL_DE_test failed!");
 }

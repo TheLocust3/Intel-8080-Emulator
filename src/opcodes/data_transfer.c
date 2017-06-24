@@ -126,6 +126,22 @@ void store_accumulator_indirect(const RegisterPair dst_register_pair)
     pc += 1;
 }
 
+void exchange_HL_DE()
+{
+    printf("XCHG\n");
+
+    uint8_t d_tmp = d;
+    uint8_t e_tmp = e;
+
+    d = h;
+    e = l;
+
+    h = d_tmp;
+    l = e_tmp;
+
+    pc += 1;
+}
+
 void move_byte(uint8_t *dst, const uint8_t src)
 {
     *dst = src;

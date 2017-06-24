@@ -20,6 +20,7 @@ void store_accumulator_direct_test();
 void load_HL_direct_test();
 void store_HL_direct_test();
 void load_accumulator_indirect_test();
+void store_accumulator_indirect_test();
 
 const int TEST_VALUE = 10;
 
@@ -183,4 +184,19 @@ void load_accumulator_indirect_test()
     load_accumulator_indirect(register_pair);
 
     assert(a == TEST_VALUE && "load_accumulator_indirect_test failed!");
+}
+
+void store_accumulator_indirect_test()
+{
+    a = TEST_VALUE;
+    h = 0;
+    l = 0;
+    pc = 0;
+
+    set_byte_from_address(0, 0);
+    RegisterPair register_pair = create_register_pair(&h, &l);
+
+    store_accumulator_indirect(register_pair);
+
+    assert(read_byte_from_address(0) == TEST_VALUE && "load_accumulator_indirect_test failed!");
 }

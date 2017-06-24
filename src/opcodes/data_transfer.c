@@ -111,10 +111,19 @@ void store_HL_direct()
 
 void load_accumulator_indirect(const RegisterPair src_register_pair)
 {
-    printf("LDAX addr\n");
+    printf("LDAX rp\n");
 
     a = read_byte_from_address(combine_bytes(*src_register_pair.high, *src_register_pair.low));
-    pc += 3;
+    pc += 1;
+}
+
+void store_accumulator_indirect(const RegisterPair dst_register_pair)
+{
+    printf("STAX rp\n");
+
+    set_byte(*dst_register_pair.high, *dst_register_pair.low, a);
+
+    pc += 1;
 }
 
 void move_byte(uint8_t *dst, const uint8_t src)

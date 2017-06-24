@@ -50,6 +50,9 @@ void define_data_transfer_opcodes()
 
     InstructionTemplate load_accumulator_indirect_template = new_instruction_template("00RP1010", &load_accumulator_indirect);
     add_instruction_template(load_accumulator_indirect_template);
+
+    InstructionTemplate store_accumulator_indirect_template = new_instruction_template("00RP0010", &store_accumulator_indirect);
+    add_instruction_template(store_accumulator_indirect_template);
 }
 
 void define_miscellaneous_opcodes()

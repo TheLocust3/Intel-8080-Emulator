@@ -22,5 +22,6 @@ void store_accumulator_direct();
 void load_HL_direct();
 void store_HL_direct();
 void load_accumulator_indirect(const RegisterPair src_register_pair);
+void store_accumulator_indirect(const RegisterPair dst_register_pair);
 
 #endif //INC_8080_EMULATOR_MOVE_H

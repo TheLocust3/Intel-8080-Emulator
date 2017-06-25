@@ -7,5 +7,6 @@
 
 #include <stdint.h>
 #include "../../registers.h"
+#include "../../flags.h"
 
 #endif //INC_8080_EMULATOR_ADD_H

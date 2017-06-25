@@ -7,7 +7,6 @@
 #include "../ram.h"
 #include "../common_functions.h"
 
-
 void move_byte(uint8_t *dst, const uint8_t src);
 void move_register_pair(RegisterPair *dst_register_pair, const uint16_t src);
 void move_byte_to_memory(const uint16_t dst_address, const uint8_t src);

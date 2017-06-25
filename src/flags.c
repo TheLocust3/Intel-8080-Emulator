@@ -4,6 +4,46 @@
 
 #include "flags.h"
 
+void handle_zero_flag(const int value)
+{
+    set_zero_flag(value == 0);
+}
+
+void handle_sign_flag(const int value)
+{
+    set_sign_flag((value & 0b10000000) > 0);
+}
+
+void handle_parity_flag(const int value)
+{
+    int tmp = value;
+    int number_set_bits = 0;
+    while (tmp > 0) {
+        if ((tmp & 1) == 1) {
+            number_set_bits++;
+        }
+
+        tmp = tmp >> 1;
+    }
+
+    set_parity_flag((number_set_bits % 2) == 0);
+}
+
+void handle_carry_flag_add(const int value)
+{
+    // TODO: Implement carry flag add
+}
+
+void handle_carry_flag_sub(const int value)
+{
+    // TODO: Implement carry flag sub
+}
+
+void handle_aux_carry_flag(const int value)
+{
+    // TODO: Implement aux carry flag
+}
+
 void set_zero_flag(bool flag)
 {
     if (flag) {

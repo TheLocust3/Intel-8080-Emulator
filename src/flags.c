@@ -29,14 +29,14 @@ void handle_parity_flag(const int value)
     set_parity_flag((number_set_bits % 2) == 0);
 }
 
-void handle_carry_flag_add(const int value)
+void handle_carry_flag_add(const int value1, const int value2)
 {
-    // TODO: Implement carry flag add
+    set_carry_flag((value1 + value2) > 0xFF);
 }
 
-void handle_carry_flag_sub(const int value)
+void handle_carry_flag_sub(const int value1, const int value2)
 {
-    // TODO: Implement carry flag sub
+    set_carry_flag((value1 - value2) < 0);
 }
 
 void handle_aux_carry_flag(const int value)

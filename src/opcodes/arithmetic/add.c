@@ -15,7 +15,7 @@ void add_register(const uint8_t src_register)
     handle_zero_flag(a);
     handle_sign_flag(a);
     handle_carry_flag_add(a, src_register);
-    // TODO handle aux carry flag
+    handle_aux_carry_flag_add(a, src_register);
     handle_parity_flag(a);
 }
 

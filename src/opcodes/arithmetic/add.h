@@ -7,8 +7,8 @@
 
 #include <stdint.h>
 #include "../../registers.h"
-#include "../../flags.h
+#include "../../flags.h"
 
-void add_register(const uint8_t src_register)"
+void add_register(const uint8_t src_register);
 
 #endif //INC_8080_EMULATOR_ADD_H

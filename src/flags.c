@@ -41,7 +41,7 @@ void handle_carry_flag_sub(const int value1, const int value2)
 
 void handle_aux_carry_flag_add(const int value1, const int value2)
 {
-    set_aux_carry_flag((value1 & 0xF) + (value2 & 0xF) > 15);
+    set_aux_carry_flag(((value1 & 0xF) + (value2 & 0xF)) > 0xF);
 }
 
 void set_zero_flag(bool flag)
@@ -51,7 +51,7 @@ void set_zero_flag(bool flag)
         return;
     }
 
-    f = (uint8_t) (f | ~(1 << 6));
+    f = (uint8_t) (f & ~(1 << 6));
 }
 
 bool is_zero_flag_set()
@@ -66,7 +66,7 @@ void set_sign_flag(bool flag)
         return;
     }
 
-    f = (uint8_t) (f | ~(1 << 7));
+    f = (uint8_t) (f & ~(1 << 7));
 }
 
 bool is_sign_flag_set()
@@ -81,7 +81,7 @@ void set_parity_flag(bool flag)
         return;
     }
 
-    f = (uint8_t) (f | ~(1 << 2));
+    f = (uint8_t) (f & ~(1 << 2));
 }
 
 bool is_parity_flag_set()
@@ -96,7 +96,7 @@ void set_carry_flag(bool flag)
         return;
     }
 
-    f = (uint8_t) (f | ~(1 << 0));
+    f = (uint8_t) (f & ~(1 << 0));
 }
 
 bool is_carry_flag_set()
@@ -111,7 +111,7 @@ void set_aux_carry_flag(bool flag)
         return;
     }
 
-    f = (uint8_t) (f | ~(1 << 4));
+    f = (uint8_t) (f & ~(1 << 4));
 }
 
 bool is_aux_carry_flag_set()

@@ -19,6 +19,7 @@ int main(int argc, const char* argv[])
 
 void add_register_test()
 {
+    f = 0;
     a = TEST_VALUE1;
     b = TEST_VALUE2;
 
@@ -28,7 +29,7 @@ void add_register_test()
 
     assert(!is_zero_flag_set() && "add_register_test failed!");
     assert(!is_sign_flag_set() && "add_register_test failed!");
-    assert(!is_parity_flag_set() && "add_register_test failed!"); // TODO: I just guessed on this
-    assert(!is_carry_flag_set() && "add_register_test failed!"); // TODO: I just guessed on this
-    assert(!is_aux_carry_flag_set() && "add_register_test failed!"); // TODO: I just guessed on this
+    assert(is_parity_flag_set() && "add_register_test failed!");
+    assert(!is_carry_flag_set() && "add_register_test failed!");
+    assert(!is_aux_carry_flag_set() && "add_register_test failed!");
 }

@@ -4,15 +4,17 @@
 
 #include "opcode_definitions.h"
 #include "opcodes/data_transfer.h"
+#include "opcodes/arithmetic/add.h"
 #include "opcodes/miscellaneous.h"
 
 void define_data_transfer_opcodes();
+void define_arithmetic_opcodes();
 void define_miscellaneous_opcodes();
 
 void define_opcodes()
 {
     define_data_transfer_opcodes();
-
+    define_arithmetic_opcodes();
     define_miscellaneous_opcodes();
 }
 
@@ -56,6 +58,18 @@ void define_data_transfer_opcodes()
 
     InstructionTemplate exchange_HL_DE_template = new_instruction_template("11101011", &exchange_HL_DE);
     add_instruction_template(exchange_HL_DE_template);
+}
+
+void define_arithmetic_opcodes()
+{
+    InstructionTemplate add_register_template = new_instruction_template("10000SSS", &add_register);
+    add_instruction_template(add_register_template);
+
+    InstructionTemplate add_memory_template = new_instruction_template("10000110", &add_memory);
+    add_instruction_template(add_memory_template);
+
+    InstructionTemplate add_immediate_template = new_instruction_template("11000110", &add_immediate);
+    add_instruction_template(add_immediate_template);
 }
 
 void define_miscellaneous_opcodes()

@@ -10,6 +10,7 @@ void generic_asserts();
 
 void add_register_test();
 void add_memory_test();
+void add_immediate_test();
 
 const int TEST_VALUE1 = 10;
 const int TEST_VALUE2 = 5;
@@ -18,6 +19,7 @@ int main(int argc, const char* argv[])
 {
     add_register_test();
     add_memory_test();
+    add_immediate_test();
 
     return 0;
 }
@@ -44,6 +46,20 @@ void add_memory_test()
     set_byte_from_address(0, TEST_VALUE2);
 
     add_memory();
+
+    assert(a == (TEST_VALUE1 + TEST_VALUE2) && "add_memory_test failed!");
+
+    generic_asserts();
+}
+
+void add_immediate_test()
+{
+    pc = 0;
+    f = 0;
+    a = TEST_VALUE1;
+    set_byte_from_address(1, TEST_VALUE2);
+
+    add_immediate();
 
     assert(a == (TEST_VALUE1 + TEST_VALUE2) && "add_memory_test failed!");
 

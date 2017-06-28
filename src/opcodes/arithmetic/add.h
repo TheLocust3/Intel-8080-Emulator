@@ -12,5 +12,6 @@
 
 void add_register(const uint8_t src_register);
 void add_memory();
+void add_immediate();
 
 #endif //INC_8080_EMULATOR_ADD_H

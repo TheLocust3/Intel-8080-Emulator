@@ -17,6 +17,7 @@ void add_register(const uint8_t src_register)
     add_8bit(&a, src_register);
 
     handle_flags(a, tmp, src_register);
+    pc++;
 }
 
 void add_memory()
@@ -24,13 +25,27 @@ void add_memory()
     printf("ADD (HL)\n");
 
     int tmp = a;
-    int byte = read_byte(h, l);
+    uint8_t byte = read_byte(h, l);
 
-    add_8bit(&a, (const uint8_t) byte);
+    add_8bit(&a, byte);
 
     handle_flags(a, tmp, byte);
+    pc++;
 }
 
+
+void add_immediate()
+{
+    printf("ADI data\n");
+
+    int tmp = a;
+    uint8_t byte = read_byte_from_address((uint16_t) (pc + 1));
+
+    add_8bit(&a, byte);
+
+    handle_flags(a, tmp, byte);
+    pc += 2;
+}
 void add_8bit(uint8_t *dst, const uint8_t src)
 {
     if ((*dst + src) > 0xFF) {

@@ -4,6 +4,8 @@
 
 #include "add.h"
 
+void handle_flags(const int final_value, const int value1, const int value2);
+
 void add_8bit(uint8_t *dst, const uint8_t src);
 
 void add_register(const uint8_t src_register)
@@ -14,11 +16,7 @@ void add_register(const uint8_t src_register)
 
     add_8bit(&a, src_register);
 
-    handle_zero_flag(a);
-    handle_sign_flag(a);
-    handle_carry_flag_add(tmp, src_register);
-    handle_aux_carry_flag_add(tmp, src_register);
-    handle_parity_flag(a);
+    handle_flags(a, tmp, src_register);
 }
 
 void add_memory()
@@ -30,11 +28,7 @@ void add_memory()
 
     add_8bit(&a, (const uint8_t) byte);
 
-    handle_zero_flag(a);
-    handle_sign_flag(a);
-    handle_carry_flag_add(tmp, byte);
-    handle_aux_carry_flag_add(tmp, byte);
-    handle_parity_flag(a);
+    handle_flags(a, tmp, byte);
 }
 
 void add_8bit(uint8_t *dst, const uint8_t src)
@@ -45,4 +39,13 @@ void add_8bit(uint8_t *dst, const uint8_t src)
     }
 
     *dst += src;
+}
+
+void handle_flags(const int final_value, const int value1, const int value2)
+{
+    handle_zero_flag(final_value);
+    handle_sign_flag(final_value);
+    handle_carry_flag_add(value1, value2);
+    handle_aux_carry_flag_add(value1, value2);
+    handle_parity_flag(a);
 }

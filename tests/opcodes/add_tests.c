@@ -43,7 +43,7 @@ void add_memory_test()
     a = TEST_VALUE1;
     set_byte_from_address(0, TEST_VALUE2);
 
-    add_register(b);
+    add_memory();
 
     assert(a == (TEST_VALUE1 + TEST_VALUE2) && "add_memory_test failed!");
 

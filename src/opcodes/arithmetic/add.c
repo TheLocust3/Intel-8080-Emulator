@@ -28,7 +28,7 @@ void add_memory()
     int tmp = a;
     int byte = read_byte(h, l);
 
-    add_8bit(&a, byte);
+    add_8bit(&a, (const uint8_t) byte);
 
     handle_zero_flag(a);
     handle_sign_flag(a);

@@ -113,7 +113,7 @@ void load_accumulator_indirect(const RegisterPair src_register_pair)
     printf("LDAX rp\n");
 
     a = read_byte_from_address(combine_bytes(*src_register_pair.high, *src_register_pair.low));
-    pc += 1;
+    pc++;
 }
 
 void store_accumulator_indirect(const RegisterPair dst_register_pair)
@@ -122,7 +122,7 @@ void store_accumulator_indirect(const RegisterPair dst_register_pair)
 
     set_byte(*dst_register_pair.high, *dst_register_pair.low, a);
 
-    pc += 1;
+    pc++;
 }
 
 void exchange_HL_DE()
@@ -138,7 +138,7 @@ void exchange_HL_DE()
     h = d_tmp;
     l = e_tmp;
 
-    pc += 1;
+    pc++;
 }
 
 void move_byte(uint8_t *dst, const uint8_t src)

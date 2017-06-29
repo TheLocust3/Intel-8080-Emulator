@@ -26,6 +26,7 @@ int main(int argc, const char* argv[])
 
 void add_register_test()
 {
+    pc = 0;
     f = 0;
     a = TEST_VALUE1;
     b = TEST_VALUE2;
@@ -33,12 +34,14 @@ void add_register_test()
     add_register(b);
 
     assert(a == (TEST_VALUE1 + TEST_VALUE2) && "add_register_test failed!");
+    assert(pc == 1 && "add_register_test failed!");
 
     generic_asserts();
 }
 
 void add_memory_test()
 {
+    pc = 0;
     f = 0;
     h = 0;
     l = 0;
@@ -48,6 +51,7 @@ void add_memory_test()
     add_memory();
 
     assert(a == (TEST_VALUE1 + TEST_VALUE2) && "add_memory_test failed!");
+    assert(pc == 1 && "add_memory_test failed!");
 
     generic_asserts();
 }
@@ -62,6 +66,7 @@ void add_immediate_test()
     add_immediate();
 
     assert(a == (TEST_VALUE1 + TEST_VALUE2) && "add_memory_test failed!");
+    assert(pc == 2 && "add_immediate_test failed!");
 
     generic_asserts();
 }

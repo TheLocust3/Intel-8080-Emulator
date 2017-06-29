@@ -59,6 +59,19 @@ void add_register_with_carry(const uint8_t src_register)
     pc++;
 }
 
+void add_memory_with_carry()
+{
+    printf("ADC M\n");
+
+    int tmp = a;
+    uint8_t byte = (uint8_t) (read_byte(h, l) + get_carry_flag());
+
+    add_8bit(&a, byte);
+
+    handle_flags(a, tmp, byte);
+    pc++;
+}
+
 void add_8bit(uint8_t *dst, const uint8_t src)
 {
     if ((*dst + src) > 0xFF) {

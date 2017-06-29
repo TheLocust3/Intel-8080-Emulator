@@ -73,6 +73,9 @@ void define_arithmetic_opcodes()
 
     InstructionTemplate add_register_with_carry_template = new_instruction_template("10001SSS", &add_register_with_carry);
     add_instruction_template(add_register_with_carry_template);
+
+    InstructionTemplate add_memory_with_carry_template = new_instruction_template("10001110", &add_memory_with_carry);
+    add_instruction_template(add_memory_with_carry_template);
 }
 
 void define_miscellaneous_opcodes()

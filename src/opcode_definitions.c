@@ -70,6 +70,9 @@ void define_arithmetic_opcodes()
 
     InstructionTemplate add_immediate_template = new_instruction_template("11000110", &add_immediate);
     add_instruction_template(add_immediate_template);
+
+    InstructionTemplate add_register_with_carry_template = new_instruction_template("10001SSS", &add_register_with_carry);
+    add_instruction_template(add_register_with_carry_template);
 }
 
 void define_miscellaneous_opcodes()

@@ -33,7 +33,6 @@ void add_memory()
     pc++;
 }
 
-
 void add_immediate()
 {
     printf("ADI data\n");
@@ -46,6 +45,20 @@ void add_immediate()
     handle_flags(a, tmp, byte);
     pc += 2;
 }
+
+void add_register_with_carry(const uint8_t src_register)
+{
+    printf("ADC r\n");
+
+    int tmp = a;
+    uint8_t byte = (uint8_t) (src_register + get_carry_flag());
+
+    add_8bit(&a, byte);
+
+    handle_flags(a, tmp, byte);
+    pc++;
+}
+
 void add_8bit(uint8_t *dst, const uint8_t src)
 {
     if ((*dst + src) > 0xFF) {

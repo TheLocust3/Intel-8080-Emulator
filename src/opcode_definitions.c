@@ -6,6 +6,7 @@
 #include "opcodes/data_transfer.h"
 #include "opcodes/arithmetic/add.h"
 #include "opcodes/miscellaneous.h"
+#include "opcodes/arithmetic/sub.h"
 
 void define_data_transfer_opcodes();
 void define_arithmetic_opcodes();
@@ -79,6 +80,9 @@ void define_arithmetic_opcodes()
 
     InstructionTemplate add_immediate_with_carry_template = new_instruction_template("11001110", &add_immediate_with_carry);
     add_instruction_template(add_immediate_with_carry_template);
+
+    InstructionTemplate sub_register_template = new_instruction_template("10010SSS", &sub_register);
+    add_instruction_template(sub_register_template);
 }
 
 void define_miscellaneous_opcodes()

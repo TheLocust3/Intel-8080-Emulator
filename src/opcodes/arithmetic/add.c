@@ -4,7 +4,7 @@
 
 #include "add.h"
 
-void handle_flags(const int final_value, const int value1, const int value2);
+void handle_flags_add(const int final_value, const int value1, const int value2);
 
 void add_8bit(uint8_t *dst, const uint8_t src);
 
@@ -16,7 +16,7 @@ void add_register(const uint8_t src_register)
 
     add_8bit(&a, src_register);
 
-    handle_flags(a, tmp, src_register);
+    handle_flags_add(a, tmp, src_register);
     pc++;
 }
 
@@ -29,7 +29,7 @@ void add_memory()
 
     add_8bit(&a, byte);
 
-    handle_flags(a, tmp, byte);
+    handle_flags_add(a, tmp, byte);
     pc++;
 }
 
@@ -42,7 +42,7 @@ void add_immediate()
 
     add_8bit(&a, byte);
 
-    handle_flags(a, tmp, byte);
+    handle_flags_add(a, tmp, byte);
     pc += 2;
 }
 
@@ -55,7 +55,7 @@ void add_register_with_carry(const uint8_t src_register)
 
     add_8bit(&a, byte);
 
-    handle_flags(a, tmp, byte);
+    handle_flags_add(a, tmp, byte);
     pc++;
 }
 
@@ -68,7 +68,7 @@ void add_memory_with_carry()
 
     add_8bit(&a, byte);
 
-    handle_flags(a, tmp, byte);
+    handle_flags_add(a, tmp, byte);
     pc++;
 }
 
@@ -81,7 +81,7 @@ void add_immediate_with_carry()
 
     add_8bit(&a, byte);
 
-    handle_flags(a, tmp, byte);
+    handle_flags_add(a, tmp, byte);
     pc += 2;
 }
 
@@ -95,7 +95,7 @@ void add_8bit(uint8_t *dst, const uint8_t src)
     *dst += src;
 }
 
-void handle_flags(const int final_value, const int value1, const int value2)
+void handle_flags_add(const int final_value, const int value1, const int value2)
 {
     handle_zero_flag(final_value);
     handle_sign_flag(final_value);

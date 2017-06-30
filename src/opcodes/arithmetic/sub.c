@@ -5,7 +5,7 @@
 #include "sub.h"
 
 void sub_8bit(uint8_t *dst, const uint8_t src);
-void handle_flags(const int final_value, const int value1, const int value2);
+void handle_flags_sub(const int final_value, const int value1, const int value2);
 
 void sub_register(const uint8_t src_register)
 {
@@ -15,7 +15,7 @@ void sub_register(const uint8_t src_register)
 
     sub_8bit(&a, src_register);
 
-    handle_flags(a, tmp, src_register);
+    handle_flags_sub(a, tmp, src_register);
     pc++;
 }
 
@@ -29,7 +29,7 @@ void sub_8bit(uint8_t *dst, const uint8_t src)
     *dst -= src;
 }
 
-void handle_flags(const int final_value, const int value1, const int value2)
+void handle_flags_sub(const int final_value, const int value1, const int value2)
 {
     handle_zero_flag(final_value);
     handle_sign_flag(final_value);

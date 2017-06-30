@@ -15,6 +15,7 @@ void add_memory_test();
 void add_immediate_test();
 void add_register_with_carry_test();
 void add_memory_with_carry_test();
+void add_immediate_with_carry_test();
 
 const int TEST_VALUE1 = 10;
 const int TEST_VALUE2 = 5;
@@ -26,6 +27,7 @@ int main(int argc, const char* argv[])
     add_immediate_test();
     add_register_with_carry_test();
     add_memory_with_carry_test();
+    add_immediate_with_carry_test();
 
     return 0;
 }
@@ -71,7 +73,7 @@ void add_immediate_test()
 
     add_immediate();
 
-    assert(a == (TEST_VALUE1 + TEST_VALUE2) && "add_memory_test failed!");
+    assert(a == (TEST_VALUE1 + TEST_VALUE2) && "add_immediate_test failed!");
     assert(pc == 2 && "add_immediate_test failed!");
 
     generic_asserts();
@@ -107,6 +109,22 @@ void add_memory_with_carry_test()
 
     assert(a == (TEST_VALUE1 + TEST_VALUE2 + 1) && "add_memory_with_carry failed!");
     assert(pc == 1 && "add_memory_with_carry failed!");
+
+    generic_asserts_with_carry();
+}
+
+void add_immediate_with_carry_test()
+{
+    pc = 0;
+    f = 0;
+    a = TEST_VALUE1;
+    set_byte_from_address(1, TEST_VALUE2);
+    set_carry_flag(true);
+
+    add_immediate_with_carry();
+
+    assert(a == (TEST_VALUE1 + TEST_VALUE2 + 1) && "add_immediate_with_carry_test failed!");
+    assert(pc == 2 && "add_immediate_with_carry_test failed!");
 
     generic_asserts_with_carry();
 }

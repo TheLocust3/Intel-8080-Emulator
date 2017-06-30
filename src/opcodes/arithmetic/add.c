@@ -72,6 +72,19 @@ void add_memory_with_carry()
     pc++;
 }
 
+void add_immediate_with_carry()
+{
+    printf("ACI data\n");
+
+    int tmp = a;
+    uint8_t byte = (uint8_t) (read_byte_from_address((uint16_t) (pc + 1)) + get_carry_flag());
+
+    add_8bit(&a, byte);
+
+    handle_flags(a, tmp, byte);
+    pc += 2;
+}
+
 void add_8bit(uint8_t *dst, const uint8_t src)
 {
     if ((*dst + src) > 0xFF) {

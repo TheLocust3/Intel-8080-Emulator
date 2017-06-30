@@ -15,5 +15,6 @@ void add_memory();
 void add_immediate();
 void add_register_with_carry(const uint8_t src_register);
 void add_memory_with_carry();
+void add_immediate_with_carry();
 
 #endif //INC_8080_EMULATOR_ADD_H

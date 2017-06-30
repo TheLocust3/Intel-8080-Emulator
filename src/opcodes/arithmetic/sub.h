@@ -5,4 +5,11 @@
 #ifndef INC_8080_EMULATOR_SUB_H
 #define INC_8080_EMULATOR_SUB_H
 
+#include <stdint.h>
+#include <stdio.h>
+#include "../../registers.h"
+#include "../../flags.h"
+
+void sub_register(const uint8_t src_register);
+
 #endif //INC_8080_EMULATOR_SUB_H

@@ -31,6 +31,7 @@ int get_carry_flag();
 bool is_carry_flag_set();
 
 void handle_aux_carry_flag_add(const int value1, const int value2);
+void handle_aux_carry_flag_sub(const int value1, const int value2);
 int get_aux_carry_flag();
 bool is_aux_carry_flag_set();
 

@@ -34,7 +34,7 @@ void sub_memory()
 
 void sub_immediate()
 {
-    printf("SUB data\n");
+    printf("SUI data\n");
 
     int tmp = a;
     uint8_t byte = read_byte_from_address((uint16_t) (pc + 1));
@@ -43,6 +43,19 @@ void sub_immediate()
 
     handle_flags_sub(a, tmp, byte);
     pc += 2;
+}
+
+void sub_register_with_borrow(const uint8_t src_register)
+{
+    printf("SBB r\n");
+
+    int tmp = a;
+    uint8_t byte = (uint8_t) (src_register + get_carry_flag());
+
+    sub_8bit(&a, byte);
+
+    handle_flags_sub(a, tmp, byte);
+    pc++;
 }
 
 void sub_8bit(uint8_t *dst, const uint8_t src)

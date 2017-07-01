@@ -111,6 +111,22 @@ void sub_memory_with_borrow_test()
     generic_asserts_with_borrow();
 }
 
+void sub_immediate_with_borrow_test()
+{
+    pc = 0;
+    f = 0;
+    a = TEST_VALUE1;
+    set_byte_from_address(1, TEST_VALUE2);
+    set_carry_flag(true);
+
+    sub_immediate_with_borrow();
+
+    assert(a == (TEST_VALUE1 - TEST_VALUE2 - 1) && "sub_immediate_with_borrow_test failed!");
+    assert(pc == 2 && "sub_immediate_with_borrow_test failed!");
+
+    generic_asserts();
+}
+
 void generic_asserts()
 {
     assert(!is_zero_flag_set() && "generic_asserts failed!");

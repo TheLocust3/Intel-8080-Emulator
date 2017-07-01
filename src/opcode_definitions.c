@@ -97,6 +97,9 @@ void define_arithmetic_opcodes()
 
     InstructionTemplate sub_memory_with_borrow_template = new_instruction_template("10011110", &sub_memory_with_borrow);
     add_instruction_template(sub_memory_with_borrow_template);
+
+    InstructionTemplate sub_immediate_with_borrow_template = new_instruction_template("10011110", &sub_immediate_with_borrow);
+    add_instruction_template(sub_immediate_with_borrow_template);
 }
 
 void define_miscellaneous_opcodes()

@@ -71,6 +71,19 @@ void sub_memory_with_borrow()
     pc++;
 }
 
+void sub_immediate_with_borrow()
+{
+    printf("SBI data\n");
+
+    int tmp = a;
+    uint8_t byte = (uint8_t) (read_byte_from_address((uint16_t) (pc + 1)) + get_carry_flag());
+
+    sub_8bit(&a, byte);
+
+    handle_flags_sub(a, tmp, byte);
+    pc += 2;
+}
+
 void sub_8bit(uint8_t *dst, const uint8_t src)
 {
     if ((*dst - src) < 0) {

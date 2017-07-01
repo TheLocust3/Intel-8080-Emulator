@@ -64,10 +64,10 @@ void sub_immediate_test()
     a = TEST_VALUE1;
     set_byte_from_address(1, TEST_VALUE2);
 
-    sub_memory();
+    sub_immediate();
 
     assert(a == (TEST_VALUE1 - TEST_VALUE2) && "sub_immediate_test failed!");
-    assert(pc == 1 && "sub_immediate_test failed!");
+    assert(pc == 2 && "sub_immediate_test failed!");
 
     generic_asserts();
 }

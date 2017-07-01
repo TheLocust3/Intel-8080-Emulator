@@ -34,6 +34,7 @@ void handle_carry_flag_add(const int value1, const int value2)
     set_carry_flag((value1 + value2) > 0xFF);
 }
 
+// TODO: it is possible that this flag is wrong
 void handle_carry_flag_sub(const int value1, const int value2)
 {
     set_carry_flag((value1 - value2) < 0);

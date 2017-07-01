@@ -19,6 +19,19 @@ void sub_register(const uint8_t src_register)
     pc++;
 }
 
+void sub_memory()
+{
+    printf("SUB M\n");
+
+    int tmp = a;
+    uint8_t byte = read_byte(h, l);
+
+    sub_8bit(&a, byte);
+
+    handle_flags_sub(a, tmp, byte);
+    pc++;
+}
+
 void sub_8bit(uint8_t *dst, const uint8_t src)
 {
     if ((*dst - src) < 0) {

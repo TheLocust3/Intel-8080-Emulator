@@ -63,6 +63,7 @@ void define_data_transfer_opcodes()
 
 void define_arithmetic_opcodes()
 {
+    // add
     InstructionTemplate add_register_template = new_instruction_template("10000SSS", &add_register);
     add_instruction_template(add_register_template);
 
@@ -81,8 +82,12 @@ void define_arithmetic_opcodes()
     InstructionTemplate add_immediate_with_carry_template = new_instruction_template("11001110", &add_immediate_with_carry);
     add_instruction_template(add_immediate_with_carry_template);
 
+    // sub
     InstructionTemplate sub_register_template = new_instruction_template("10010SSS", &sub_register);
     add_instruction_template(sub_register_template);
+
+    InstructionTemplate sub_memory_template = new_instruction_template("10010110", &sub_memory);
+    add_instruction_template(sub_memory_template);
 }
 
 void define_miscellaneous_opcodes()

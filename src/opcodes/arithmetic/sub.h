@@ -9,7 +9,9 @@
 #include <stdio.h>
 #include "../../registers.h"
 #include "../../flags.h"
+#include "../../ram.h"
 
 void sub_register(const uint8_t src_register);
+void sub_memory();
 
 #endif //INC_8080_EMULATOR_SUB_H

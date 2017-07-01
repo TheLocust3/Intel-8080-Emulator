@@ -17,6 +17,7 @@ void sub_register_test();
 void sub_memory_test();
 void sub_immediate_test();
 void sub_register_with_borrow_test();
+void sub_memory_with_borrow_test();
 
 int main(int argc, const char* argv[])
 {
@@ -24,6 +25,7 @@ int main(int argc, const char* argv[])
     sub_memory_test();
     sub_immediate_test();
     sub_register_with_borrow_test();
+    sub_memory_with_borrow_test();
 
     return 0;
 }
@@ -87,6 +89,24 @@ void sub_register_with_borrow_test()
 
     assert(a == (TEST_VALUE1 - TEST_VALUE2 - 1) && "sub_register_with_borrow failed!");
     assert(pc == 1 && "sub_register_with_borrow failed!");
+
+    generic_asserts_with_borrow();
+}
+
+void sub_memory_with_borrow_test()
+{
+    pc = 0;
+    f = 0;
+    h = 0;
+    l = 0;
+    a = TEST_VALUE1;
+    set_byte_from_address(0, TEST_VALUE2);
+    set_carry_flag(true);
+
+    sub_memory_with_borrow();
+
+    assert(a == (TEST_VALUE1 - TEST_VALUE2 - 1) && "sub_memory_with_borrow_test failed!");
+    assert(pc == 1 && "sub_memory_with_borrow_test failed!");
 
     generic_asserts_with_borrow();
 }

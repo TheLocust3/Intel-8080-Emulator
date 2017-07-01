@@ -32,6 +32,19 @@ void sub_memory()
     pc++;
 }
 
+void sub_immediate()
+{
+    printf("SUB data\n");
+
+    int tmp = a;
+    uint8_t byte = read_byte_from_address((uint16_t) (pc + 1));
+
+    sub_8bit(&a, byte);
+
+    handle_flags_sub(a, tmp, byte);
+    pc += 2;
+}
+
 void sub_8bit(uint8_t *dst, const uint8_t src)
 {
     if ((*dst - src) < 0) {

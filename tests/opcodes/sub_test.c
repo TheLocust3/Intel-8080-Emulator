@@ -14,11 +14,13 @@ void generic_asserts();
 
 void sub_register_test();
 void sub_memory_test();
+void sub_immediate_test();
 
 int main(int argc, const char* argv[])
 {
     sub_register_test();
     sub_memory_test();
+    sub_immediate_test();
 
     return 0;
 }
@@ -51,6 +53,21 @@ void sub_memory_test()
 
     assert(a == (TEST_VALUE1 - TEST_VALUE2) && "sub_memory_test failed!");
     assert(pc == 1 && "sub_memory_test failed!");
+
+    generic_asserts();
+}
+
+void sub_immediate_test()
+{
+    pc = 0;
+    f = 0;
+    a = TEST_VALUE1;
+    set_byte_from_address(1, TEST_VALUE2);
+
+    sub_memory();
+
+    assert(a == (TEST_VALUE1 - TEST_VALUE2) && "sub_immediate_test failed!");
+    assert(pc == 1 && "sub_immediate_test failed!");
 
     generic_asserts();
 }

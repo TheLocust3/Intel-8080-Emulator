@@ -13,5 +13,6 @@
 
 void sub_register(const uint8_t src_register);
 void sub_memory();
+void sub_immediate();
 
 #endif //INC_8080_EMULATOR_SUB_H

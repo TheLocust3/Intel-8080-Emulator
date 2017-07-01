@@ -11,6 +11,7 @@ void parity_flag_test();
 void carry_flag_add_test();
 void carry_flag_sub_test();
 void aux_carry_flag_add_test();
+void aux_carry_flag_sub_test();
 
 int main(int argc, const char* argv[])
 {
@@ -20,6 +21,7 @@ int main(int argc, const char* argv[])
     carry_flag_add_test();
     carry_flag_sub_test();
     aux_carry_flag_add_test();
+    aux_carry_flag_sub_test();
 
     return 0;
 }
@@ -88,4 +90,15 @@ void aux_carry_flag_add_test()
 
     handle_aux_carry_flag_add(0, 0);
     assert(!is_aux_carry_flag_set() && "aux_carry_flag_add_test failed!");
+}
+
+void aux_carry_flag_sub_test()
+{
+    f = 0;
+
+    handle_aux_carry_flag_sub(0b00000100, 0b00001000);
+    assert(is_aux_carry_flag_set() && "aux_carry_flag_sub_test failed!");
+
+    handle_aux_carry_flag_sub(0xF, 0xF);
+    assert(!is_aux_carry_flag_set() && "aux_carry_flag_sub_test failed!");
 }

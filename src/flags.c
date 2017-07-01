@@ -46,7 +46,7 @@ void handle_aux_carry_flag_add(const int value1, const int value2)
 
 void handle_aux_carry_flag_sub(const int value1, const int value2)
 {
-    // TODO: Implement aux carry flag sub
+    set_aux_carry_flag(((value1 & 0xF) - (value2 & 0xF)) < 0);
 }
 
 void set_zero_flag(bool flag)

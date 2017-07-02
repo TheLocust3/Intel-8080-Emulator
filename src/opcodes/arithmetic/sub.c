@@ -100,5 +100,5 @@ void handle_flags_sub(const int final_value, const int value1, const int value2)
     handle_sign_flag(final_value);
     handle_carry_flag_sub(value1, value2);
     handle_aux_carry_flag_sub(value1, value2);
-    handle_parity_flag(a);
+    handle_parity_flag(final_value);
 }

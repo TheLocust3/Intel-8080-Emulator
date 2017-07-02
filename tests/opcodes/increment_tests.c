@@ -10,12 +10,14 @@
 void generic_asserts_increment();
 
 void increment_register_test();
+void increment_memory_test();
 
 const int TEST_VALUE1 = 10;
 
 int main(int argc, const char* argv[])
 {
     increment_register_test();
+    increment_memory_test();
 
     return 0;
 }
@@ -30,6 +32,22 @@ void increment_register_test()
 
     assert(a == (TEST_VALUE1 + 1) && "increment_register_test failed!");
     assert(pc == 1 && "increment_register_test failed!");
+
+    generic_asserts_increment();
+}
+
+void increment_memory_test()
+{
+    pc = 0;
+    f = 0;
+    h = 0;
+    l = 0;
+    set_byte(h, l, TEST_VALUE1);
+
+    increment_memory();
+
+    assert(read_byte(h, l) == (TEST_VALUE1 + 1) && "increment_memory_test failed!");
+    assert(pc == 1 && "increment_memory_test failed!");
 
     generic_asserts_increment();
 }

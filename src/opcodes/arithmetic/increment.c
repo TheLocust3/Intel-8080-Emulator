@@ -21,6 +21,20 @@ void increment_register(uint8_t *dst)
     pc++;
 }
 
+void increment_memory()
+{
+    printf("INR M\n");
+
+    int tmp = read_byte(h, l);
+    uint8_t *memory = read_byte_pointer(h, l);
+
+    increment_8bit(memory);
+
+    handle_flags_increment(*memory, tmp);
+
+    pc++;
+}
+
 void increment_8bit(uint8_t *dst)
 {
     if ((*dst + 1) > 0xFF) {

@@ -105,6 +105,9 @@ void define_arithmetic_opcodes()
     // increment
     InstructionTemplate increment_register_template = new_instruction_template("00DDD100", &increment_register);
     add_instruction_template(increment_register_template);
+
+    InstructionTemplate increment_memory_template = new_instruction_template("00110100", &increment_memory);
+    add_instruction_template(increment_memory_template);
 }
 
 void define_miscellaneous_opcodes()

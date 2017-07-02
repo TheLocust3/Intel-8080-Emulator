@@ -12,5 +12,6 @@
 #include "../../ram.h"
 
 void increment_register(uint8_t *dst);
+void increment_memory();
 
 #endif //INC_8080_EMULATOR_INCREMENT_H

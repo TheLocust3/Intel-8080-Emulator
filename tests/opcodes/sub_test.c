@@ -7,9 +7,6 @@
 #include "../../src/flags.h"
 #include "../../src/opcodes/arithmetic/sub.h"
 
-const int TEST_VALUE1 = 10;
-const int TEST_VALUE2 = 5;
-
 void generic_asserts();
 void generic_asserts_with_borrow();
 
@@ -18,6 +15,9 @@ void sub_memory_test();
 void sub_immediate_test();
 void sub_register_with_borrow_test();
 void sub_memory_with_borrow_test();
+
+const int TEST_VALUE1 = 10;
+const int TEST_VALUE2 = 5;
 
 int main(int argc, const char* argv[])
 {

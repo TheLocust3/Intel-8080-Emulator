@@ -7,6 +7,7 @@
 #include "opcodes/arithmetic/add.h"
 #include "opcodes/miscellaneous.h"
 #include "opcodes/arithmetic/sub.h"
+#include "opcodes/arithmetic/increment.h"
 
 void define_data_transfer_opcodes();
 void define_arithmetic_opcodes();
@@ -100,6 +101,10 @@ void define_arithmetic_opcodes()
 
     InstructionTemplate sub_immediate_with_borrow_template = new_instruction_template("10011110", &sub_immediate_with_borrow);
     add_instruction_template(sub_immediate_with_borrow_template);
+
+    // increment
+    InstructionTemplate increment_register_template = new_instruction_template("00DDD100", &increment_register);
+    add_instruction_template(increment_register_template);
 }
 
 void define_miscellaneous_opcodes()

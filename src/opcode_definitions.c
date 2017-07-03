@@ -115,8 +115,11 @@ void define_arithmetic_opcodes()
     InstructionTemplate decrement_memory_template = new_instruction_template("00110101", &decrement_memory);
     add_instruction_template(decrement_memory_template);
 
-    InstructionTemplate increment_register_pair_template = new_instruction_template("00RP1011", &increment_register_pair);
+    InstructionTemplate increment_register_pair_template = new_instruction_template("00RP0011", &increment_register_pair);
     add_instruction_template(increment_register_pair_template);
+
+    InstructionTemplate decrement_register_pair_template = new_instruction_template("00RP1011", &decrement_register_pair);
+    add_instruction_template(decrement_register_pair_template);
 }
 
 void define_miscellaneous_opcodes()

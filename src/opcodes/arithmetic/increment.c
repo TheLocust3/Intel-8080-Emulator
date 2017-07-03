@@ -80,6 +80,21 @@ void decrement_memory()
     pc++;
 }
 
+void decrement_register_pair(const RegisterPair dst_register_pair)
+{
+    printf("DCX rp\n");
+
+    int tmp = combine_bytes(*dst_register_pair.high, *dst_register_pair.low) - 1;
+    if (tmp < 0) {
+        tmp = 0;
+    }
+
+    *dst_register_pair.high = get_high_order_byte((uint16_t) tmp);
+    *dst_register_pair.low = get_low_order_byte((uint16_t) tmp);
+
+    pc++;
+}
+
 void increment_8bit(uint8_t *dst)
 {
     if ((*dst + 1) > 0xFF) {

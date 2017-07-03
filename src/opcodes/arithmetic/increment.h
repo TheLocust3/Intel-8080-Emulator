@@ -14,5 +14,6 @@
 void increment_register(uint8_t *dst);
 void increment_memory();
 void decrement_register(uint8_t *dst);
+void decrement_memory();
 
 #endif //INC_8080_EMULATOR_INCREMENT_H

@@ -50,6 +50,20 @@ void decrement_register(uint8_t *dst)
     pc++;
 }
 
+void decrement_memory()
+{
+    printf("DCR M\n");
+
+    int tmp = read_byte(h, l);
+    uint8_t *memory = read_byte_pointer(h, l);
+
+    decrement_8bit(memory);
+
+    handle_flags_decrement(*memory, tmp);
+
+    pc++;
+}
+
 void increment_8bit(uint8_t *dst)
 {
     if ((*dst + 1) > 0xFF) {

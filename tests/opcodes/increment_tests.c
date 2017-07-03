@@ -13,6 +13,7 @@ void generic_asserts_decrement();
 void increment_register_test();
 void increment_memory_test();
 void decrement_register_test();
+void decrement_memory_test();
 
 const int TEST_VALUE1 = 10;
 
@@ -21,6 +22,7 @@ int main(int argc, const char* argv[])
     increment_register_test();
     increment_memory_test();
     decrement_register_test();
+    decrement_memory_test();
 
     return 0;
 }
@@ -65,6 +67,22 @@ void decrement_register_test()
 
     assert(a == (TEST_VALUE1 - 1) && "decrement_register_test failed!");
     assert(pc == 1 && "decrement_register_test failed!");
+
+    generic_asserts_decrement();
+}
+
+void decrement_memory_test()
+{
+    pc = 0;
+    f = 0;
+    h = 0;
+    l = 0;
+    set_byte(h, l, TEST_VALUE1);
+
+    decrement_memory();
+
+    assert(read_byte(h, l) == (TEST_VALUE1 - 1) && "decrement_memory_test failed!");
+    assert(pc == 1 && "decrement_memory_test failed!");
 
     generic_asserts_decrement();
 }

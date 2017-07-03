@@ -3,6 +3,7 @@
 //
 
 #include "increment.h"
+#include "../../registers.h"
 
 void handle_flags_increment(const int final_value, const int value1);
 void handle_flags_decrement(const int final_value, const int value1);
@@ -33,6 +34,21 @@ void increment_memory()
     increment_8bit(memory);
 
     handle_flags_increment(*memory, tmp);
+
+    pc++;
+}
+
+void increment_register_pair(const RegisterPair dst_register_pair)
+{
+    printf("INX rp\n");
+
+    int tmp = combine_bytes(*dst_register_pair.high, *dst_register_pair.low) + 1;
+    if (tmp > 0xFFFF) {
+        tmp = 0xFFFF;
+    }
+
+    *dst_register_pair.high = get_high_order_byte((uint16_t) tmp);
+    *dst_register_pair.low = get_low_order_byte((uint16_t) tmp);
 
     pc++;
 }

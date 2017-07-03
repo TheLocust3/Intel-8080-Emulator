@@ -14,6 +14,7 @@ void increment_register_test();
 void increment_memory_test();
 void decrement_register_test();
 void decrement_memory_test();
+void increment_register_pair_test();
 
 const int TEST_VALUE1 = 10;
 
@@ -23,6 +24,7 @@ int main(int argc, const char* argv[])
     increment_memory_test();
     decrement_register_test();
     decrement_memory_test();
+    increment_register_pair_test();
 
     return 0;
 }
@@ -55,6 +57,19 @@ void increment_memory_test()
     assert(pc == 1 && "increment_memory_test failed!");
 
     generic_asserts_increment();
+}
+
+void increment_register_pair_test()
+{
+    pc = 0;
+    f = 0;
+    h = 0;
+    l = TEST_VALUE1;
+
+    increment_register_pair(create_register_pair(&h, &l));
+    
+    assert(h == 0 && l == (TEST_VALUE1 + 1) && "increment_register_pair_test failed!");
+    assert(pc == 1 && "increment_register_pair_test failed!");
 }
 
 void decrement_register_test()

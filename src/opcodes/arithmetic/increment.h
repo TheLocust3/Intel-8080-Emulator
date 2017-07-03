@@ -10,10 +10,12 @@
 #include "../../registers.h"
 #include "../../flags.h"
 #include "../../ram.h"
+#include "../../common_functions.h"
 
 void increment_register(uint8_t *dst);
 void increment_memory();
 void decrement_register(uint8_t *dst);
 void decrement_memory();
+void increment_register_pair(const RegisterPair dst_register_pair);
 
 #endif //INC_8080_EMULATOR_INCREMENT_H

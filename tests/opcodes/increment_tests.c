@@ -8,9 +8,11 @@
 #include "../../src/opcodes/arithmetic/increment.h"
 
 void generic_asserts_increment();
+void generic_asserts_decrement();
 
 void increment_register_test();
 void increment_memory_test();
+void decrement_register_test();
 
 const int TEST_VALUE1 = 10;
 
@@ -18,6 +20,7 @@ int main(int argc, const char* argv[])
 {
     increment_register_test();
     increment_memory_test();
+    decrement_register_test();
 
     return 0;
 }
@@ -52,10 +55,32 @@ void increment_memory_test()
     generic_asserts_increment();
 }
 
+void decrement_register_test()
+{
+    pc = 0;
+    f = 0;
+    a = TEST_VALUE1;
+
+    decrement_register(&a);
+
+    assert(a == (TEST_VALUE1 - 1) && "decrement_register_test failed!");
+    assert(pc == 1 && "decrement_register_test failed!");
+
+    generic_asserts_decrement();
+}
+
 void generic_asserts_increment()
 {
     assert(!is_zero_flag_set() && "generic_asserts_increment failed!");
     assert(!is_sign_flag_set() && "generic_asserts_increment failed!");
     assert(!is_parity_flag_set() && "generic_asserts_increment failed!");
     assert(!is_aux_carry_flag_set() && "generic_asserts_increment failed!");
+}
+
+void generic_asserts_decrement()
+{
+    assert(!is_zero_flag_set() && "generic_asserts_decrement failed!");
+    assert(!is_sign_flag_set() && "generic_asserts_decrement failed!");
+    assert(is_parity_flag_set() && "generic_asserts_decrement failed!");
+    assert(!is_aux_carry_flag_set() && "generic_asserts_decrement failed!");
 }

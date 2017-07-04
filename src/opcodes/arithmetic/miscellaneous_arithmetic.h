@@ -10,5 +10,6 @@
 #include "../../flags.h"
 
 void add_register_pair_to_HL(const RegisterPair dst_register_pair);
+void decimal_adjust_accumulator();
 
 #endif //INC_8080_EMULATOR_MISCELLANEOUS_ARITHMETIC_H

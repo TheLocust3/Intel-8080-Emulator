@@ -20,3 +20,21 @@ void add_register_pair_to_HL(const RegisterPair dst_register_pair)
 
     pc++;
 }
+
+void decimal_adjust_accumulator()
+{
+    if ((a & 0xF) > 9 || is_aux_carry_flag_set()) {
+        a += 6;
+    }
+
+    if (((a & 0xF0) >> 4) > 9 || is_carry_flag_set()) {
+        a = (uint8_t) ((((a & 0xF0) >> 4) + 6) + (a & 0xF));
+    }
+
+    handle_zero_flag(a);
+    handle_sign_flag(a);
+    handle_parity_flag(a);
+    // TODO: figure out other flags
+
+    pc++;
+}

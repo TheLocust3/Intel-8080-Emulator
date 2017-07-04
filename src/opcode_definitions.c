@@ -122,8 +122,11 @@ void define_arithmetic_opcodes()
     InstructionTemplate decrement_register_pair_template = new_instruction_template("00RP1011", &decrement_register_pair);
     add_instruction_template(decrement_register_pair_template);
 
-    InstructionTemplate add_register_pair_to_HL_template = new_instruction_template("00RP1011", &add_register_pair_to_HL);
+    InstructionTemplate add_register_pair_to_HL_template = new_instruction_template("00RP1001", &add_register_pair_to_HL);
     add_instruction_template(add_register_pair_to_HL_template);
+
+    InstructionTemplate decimal_adjust_accumulator_template = new_instruction_template("00100111", &decimal_adjust_accumulator);
+    add_instruction_template(decimal_adjust_accumulator_template);
 }
 
 void define_miscellaneous_opcodes()

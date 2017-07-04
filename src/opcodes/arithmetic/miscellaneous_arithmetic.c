@@ -34,7 +34,8 @@ void decimal_adjust_accumulator()
     handle_zero_flag(a);
     handle_sign_flag(a);
     handle_parity_flag(a);
-    // TODO: figure out other flags
+    set_carry_flag(false); // TODO: I just took a guess on this one
+    set_aux_carry_flag(false);
 
     pc++;
 }

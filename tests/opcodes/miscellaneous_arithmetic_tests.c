@@ -42,8 +42,6 @@ void decimal_adjust_accumulator_test()
 
     decimal_adjust_accumulator();
 
-    printf("%d\n", a);
-
     assert(a == 16 && "decimal_adjust_accumulator_test failed!");
     assert(pc == 1 && "decimal_adjust_accumulator_test failed!");
 

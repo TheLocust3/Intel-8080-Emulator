@@ -4,6 +4,7 @@ add_executable(data_transfer_tests ../src/common_functions.c ../src/ram.c ../src
 add_executable(add_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/arithmetic/add.c opcodes/add_tests.c)
 add_executable(sub_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/arithmetic/sub.c opcodes/sub_test.c)
 add_executable(increment_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/arithmetic/increment.c opcodes/increment_tests.c)
+add_executable(miscellaneous_arithmetic_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/arithmetic/miscellaneous_arithmetic.c opcodes/miscellaneous_arithmetic_tests.c)
 add_executable(miscellaneous_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/opcodes/miscellaneous.c opcodes/miscellaneous_tests.c)
 
 add_executable(matcher_tests ../src/common_functions.c ../src/registers.c ../src/matcher/instruction_template.c ../src/matcher/matcher.c matcher/matcher_tests.c)
@@ -21,6 +22,7 @@ target_link_libraries(matcher_argument_run_tests m)
 add_test(data_transfer_tests data_transfer_tests)
 add_test(add_tests add_tests)
 add_test(sub_tests sub_tests)
+add_test(miscellaneous_arithmetic_tests miscellaneous_arithmetic_tests)
 add_test(increment_tests increment_tests)
 add_test(miscellaneous_tests miscellaneous_tests)
 

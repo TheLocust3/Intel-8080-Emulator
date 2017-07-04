@@ -8,6 +8,7 @@
 #include "opcodes/miscellaneous.h"
 #include "opcodes/arithmetic/sub.h"
 #include "opcodes/arithmetic/increment.h"
+#include "opcodes/arithmetic/miscellaneous_arithmetic.h"
 
 void define_data_transfer_opcodes();
 void define_arithmetic_opcodes();
@@ -120,6 +121,9 @@ void define_arithmetic_opcodes()
 
     InstructionTemplate decrement_register_pair_template = new_instruction_template("00RP1011", &decrement_register_pair);
     add_instruction_template(decrement_register_pair_template);
+
+    InstructionTemplate add_register_pair_to_HL_template = new_instruction_template("00RP1011", &add_register_pair_to_HL);
+    add_instruction_template(add_register_pair_to_HL_template);
 }
 
 void define_miscellaneous_opcodes()

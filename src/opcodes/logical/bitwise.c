@@ -63,5 +63,5 @@ void handle_bitwise_flags(const uint8_t result, const uint8_t value1, const uint
     handle_zero_flag(result);
     handle_sign_flag(result);
     handle_parity_flag(result);
-    handle_aux_carry_flag_add(value1, value2); // TODO: Need to make sure this is correct behavior
+    //handle_aux_carry_flag_add(value1, value2); // TODO: Figure out correct aux carry behavior
 }

@@ -23,6 +23,7 @@ int main(int argc, const char* argv[])
 void add_register_pair_to_HL_test()
 {
     pc = 0;
+    f = 0;
     h = 0;
     l = 0;
     b = 0;
@@ -38,6 +39,7 @@ void add_register_pair_to_HL_test()
 void decimal_adjust_accumulator_test()
 {
     pc = 0;
+    f = 0;
     a = TEST_VALUE;
 
     decimal_adjust_accumulator();

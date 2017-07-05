@@ -29,6 +29,7 @@ void and_register_test()
 {
 
     pc = 0;
+    f = 0;
     a = TEST_VALUE1;
     b = TEST_VALUE2;
 
@@ -44,6 +45,7 @@ void and_memory_test()
 {
 
     pc = 0;
+    f = 0;
     a = TEST_VALUE1;
     h = 0;
     l = 0;
@@ -61,6 +63,7 @@ void and_immediate_test()
 {
 
     pc = 0;
+    f = 0;
     a = TEST_VALUE1;
     set_byte_from_address(1, TEST_VALUE2);
 

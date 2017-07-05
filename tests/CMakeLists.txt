@@ -5,7 +5,7 @@ add_executable(add_tests ../src/common_functions.c ../src/ram.c ../src/registers
 add_executable(sub_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/arithmetic/sub.c opcodes/sub_test.c)
 add_executable(increment_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/arithmetic/increment.c opcodes/arithmetic/increment_tests.c)
 add_executable(miscellaneous_arithmetic_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/arithmetic/miscellaneous_arithmetic.c opcodes/arithmetic/miscellaneous_arithmetic_tests.c)
-add_executable(logical_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/opcodes/logical/bitwise.c opcodes/logical/bitwise_tests.c)
+add_executable(bitwise_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/logical/bitwise.c opcodes/logical/bitwise_tests.c)
 add_executable(miscellaneous_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/opcodes/miscellaneous.c opcodes/miscellaneous_tests.c)
 
 add_executable(matcher_tests ../src/common_functions.c ../src/registers.c ../src/matcher/instruction_template.c ../src/matcher/matcher.c matcher/matcher_tests.c)
@@ -25,6 +25,7 @@ add_test(add_tests add_tests)
 add_test(sub_tests sub_tests)
 add_test(miscellaneous_arithmetic_tests miscellaneous_arithmetic_tests)
 add_test(increment_tests increment_tests)
+add_test(bitwise_tests bitwise_tests)
 add_test(miscellaneous_tests miscellaneous_tests)
 
 add_test(matcher_tests matcher_tests)

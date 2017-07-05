@@ -9,15 +9,18 @@
 #include "opcodes/arithmetic/sub.h"
 #include "opcodes/arithmetic/increment.h"
 #include "opcodes/arithmetic/miscellaneous_arithmetic.h"
+#include "opcodes/logical/bitwise.h"
 
 void define_data_transfer_opcodes();
 void define_arithmetic_opcodes();
+void define_logical_opcodes();
 void define_miscellaneous_opcodes();
 
 void define_opcodes()
 {
     define_data_transfer_opcodes();
     define_arithmetic_opcodes();
+    define_logical_opcodes();
     define_miscellaneous_opcodes();
 }
 
@@ -127,6 +130,12 @@ void define_arithmetic_opcodes()
 
     InstructionTemplate decimal_adjust_accumulator_template = new_instruction_template("00100111", &decimal_adjust_accumulator);
     add_instruction_template(decimal_adjust_accumulator_template);
+}
+
+void define_logical_opcodes()
+{
+    InstructionTemplate and_register_template = new_instruction_template("10100SSS", &and_register);
+    add_instruction_template(and_register_template);
 }
 
 void define_miscellaneous_opcodes()

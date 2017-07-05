@@ -3,9 +3,9 @@
 //
 
 #include <assert.h>
-#include "../../src/registers.h"
-#include "../../src/flags.h"
-#include "../../src/opcodes/arithmetic/increment.h"
+#include "../../../src/registers.h"
+#include "../../../src/flags.h"
+#include "../../../src/opcodes/arithmetic/increment.h"
 
 void generic_asserts_increment();
 void generic_asserts_decrement();

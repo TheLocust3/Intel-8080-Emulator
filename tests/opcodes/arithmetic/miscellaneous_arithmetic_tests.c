@@ -3,9 +3,9 @@
 //
 
 #include <assert.h>
-#include "../../src/registers.h"
-#include "../../src/flags.h"
-#include "../../src/opcodes/arithmetic/miscellaneous_arithmetic.h"
+#include "../../../src/registers.h"
+#include "../../../src/flags.h"
+#include "../../../src/opcodes/arithmetic/miscellaneous_arithmetic.h"
 
 void add_register_pair_to_HL_test();
 void decimal_adjust_accumulator_test();

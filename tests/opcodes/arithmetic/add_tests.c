@@ -4,8 +4,8 @@
 
 #include <assert.h>
 #include <stdlib.h>
-#include "../../src/opcodes/arithmetic/add.h"
-#include "../../src/ram.h"
+#include "../../../src/opcodes/arithmetic/add.h"
+#include "../../../src/ram.h"
 
 void generic_asserts();
 void generic_asserts_with_carry();

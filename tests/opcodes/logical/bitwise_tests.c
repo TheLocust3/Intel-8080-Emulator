@@ -5,9 +5,12 @@
 #include <assert.h>
 #include "../../../src/registers.h"
 #include "../../../src/opcodes/logical/bitwise.h"
+#include "../../../src/ram.h"
 
 void generic_asserts_and();
+
 void and_register_test();
+void and_memory_test();
 
 const int TEST_VALUE1 = 10;
 const int TEST_VALUE2 = 9;
@@ -15,6 +18,7 @@ const int TEST_VALUE2 = 9;
 int main(int argc, const char* argv[])
 {
     and_register_test();
+    and_memory_test();
 
     return 0;
 }
@@ -30,6 +34,23 @@ void and_register_test()
 
     assert(a == (TEST_VALUE1 & TEST_VALUE2) && "and_register_test failed!");
     assert(pc == 1 && "and_register_test failed!");
+
+    generic_asserts_and();
+}
+
+void and_memory_test()
+{
+
+    pc = 0;
+    a = TEST_VALUE1;
+    h = 0;
+    l = 0;
+    set_byte_from_address(0, TEST_VALUE2);
+
+    and_memory();
+
+    assert(a == (TEST_VALUE1 & TEST_VALUE2) && "and_memory_test failed!");
+    assert(pc == 1 && "and_memory_test failed!");
 
     generic_asserts_and();
 }

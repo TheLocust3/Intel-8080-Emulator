@@ -3,6 +3,7 @@
 //
 
 #include "bitwise.h"
+#include "../../ram.h"
 
 void handle_bitwise_flags(const uint8_t result, const uint8_t value1, const uint8_t value2);
 void and(const uint8_t src);
@@ -16,6 +17,21 @@ void and_register(const uint8_t src_register)
     and(src_register);
 
     handle_bitwise_flags(a, tmp, src_register);
+    set_carry_flag(false);
+
+    pc++;
+}
+
+void and_memory()
+{
+    printf("ANA r\n");
+
+    const uint8_t tmp = a;
+    const uint8_t data = read_byte(h, l);
+
+    and(data);
+
+    handle_bitwise_flags(a, tmp, data);
     set_carry_flag(false);
 
     pc++;

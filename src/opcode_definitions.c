@@ -136,6 +136,12 @@ void define_logical_opcodes()
 {
     InstructionTemplate and_register_template = new_instruction_template("10100SSS", &and_register);
     add_instruction_template(and_register_template);
+
+    InstructionTemplate and_memory_template = new_instruction_template("10100110", &and_memory);
+    add_instruction_template(and_memory_template);
+
+    InstructionTemplate and_immediate_template = new_instruction_template("11100110", &and_immediate);
+    add_instruction_template(and_immediate_template);
 }
 
 void define_miscellaneous_opcodes()

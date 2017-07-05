@@ -24,7 +24,7 @@ void and_register(const uint8_t src_register)
 
 void and_memory()
 {
-    printf("ANA r\n");
+    printf("ANA (HL)\n");
 
     const uint8_t tmp = a;
     const uint8_t data = read_byte(h, l);
@@ -33,6 +33,22 @@ void and_memory()
 
     handle_bitwise_flags(a, tmp, data);
     set_carry_flag(false);
+
+    pc++;
+}
+
+void and_immediate()
+{
+    printf("ANA data\n");
+
+    const uint8_t tmp = a;
+    const uint8_t data = read_byte_from_address(pc);
+
+    and(data);
+
+    handle_bitwise_flags(a, tmp, data);
+    set_carry_flag(false);
+    set_aux_carry_flag(false);
 
     pc++;
 }

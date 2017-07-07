@@ -9,6 +9,7 @@ void handle_bitwise_flags(const uint8_t result, const uint8_t value1, const uint
 
 void and(const uint8_t src);
 void exclusive_or(const uint8_t src);
+void or(const uint8_t src);
 
 void and_register(const uint8_t src_register)
 {
@@ -102,6 +103,21 @@ void exclusive_or_immediate()
     pc += 2;
 }
 
+void or_register(const uint8_t src_register)
+{
+    printf("ORA r\n");
+
+    const uint8_t tmp = a;
+
+    or(src_register);
+
+    handle_bitwise_flags(a, tmp, src_register);
+    set_carry_flag(false);
+    set_aux_carry_flag(false);
+
+    pc++;
+}
+
 void and(const uint8_t src)
 {
     a = a & src;
@@ -110,6 +126,11 @@ void and(const uint8_t src)
 void exclusive_or(const uint8_t src)
 {
     a = a ^ src;
+}
+
+void or(const uint8_t src)
+{
+    a = a | src;
 }
 
 void handle_bitwise_flags(const uint8_t result, const uint8_t value1, const uint8_t value2)

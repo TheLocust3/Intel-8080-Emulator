@@ -17,4 +17,6 @@ void exclusive_or_register(const uint8_t src_register);
 void exclusive_or_memory();
 void exclusive_or_immediate();
 
+void or_register(const uint8_t src_register);
+
 #endif //INC_8080_EMULATOR_BITWISE_H

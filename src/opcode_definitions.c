@@ -151,6 +151,9 @@ void define_logical_opcodes()
 
     InstructionTemplate exclusive_or_immediate_template = new_instruction_template("11101110", &exclusive_or_immediate);
     add_instruction_template(exclusive_or_immediate_template);
+
+    InstructionTemplate or_register_template = new_instruction_template("10110SSS", &or_register);
+    add_instruction_template(or_register_template);
 }
 
 void define_miscellaneous_opcodes()

@@ -6,7 +6,9 @@
 #include "../../ram.h"
 
 void handle_bitwise_flags(const uint8_t result, const uint8_t value1, const uint8_t value2);
+
 void and(const uint8_t src);
+void exclusive_or(const uint8_t src);
 
 void and_register(const uint8_t src_register)
 {
@@ -53,9 +55,29 @@ void and_immediate()
     pc++;
 }
 
+void exclusive_or_register(const uint8_t src_register)
+{
+    printf("XRA r\n");
+
+    const uint8_t tmp = a;
+
+    exclusive_or(src_register);
+
+    handle_bitwise_flags(a, tmp, src_register);
+    set_carry_flag(false);
+    set_aux_carry_flag(false);
+
+    pc++;
+}
+
 void and(const uint8_t src)
 {
     a = a & src;
+}
+
+void exclusive_or(const uint8_t src)
+{
+    a = a ^ src;
 }
 
 void handle_bitwise_flags(const uint8_t result, const uint8_t value1, const uint8_t value2)

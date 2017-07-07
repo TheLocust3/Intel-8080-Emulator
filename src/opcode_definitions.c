@@ -145,6 +145,9 @@ void define_logical_opcodes()
 
     InstructionTemplate exclusive_or_register_template = new_instruction_template("10101SSS", &exclusive_or_register);
     add_instruction_template(exclusive_or_register_template);
+
+    InstructionTemplate exclusive_or_memory_template = new_instruction_template("10101110", &exclusive_or_memory);
+    add_instruction_template(exclusive_or_memory_template);
 }
 
 void define_miscellaneous_opcodes()

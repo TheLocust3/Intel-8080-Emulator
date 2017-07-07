@@ -70,6 +70,22 @@ void exclusive_or_register(const uint8_t src_register)
     pc++;
 }
 
+void exclusive_or_memory()
+{
+    printf("XRA (HL)\n");
+
+    const uint8_t tmp = a;
+    const uint8_t data = read_byte(h, l);
+
+    exclusive_or(data);
+
+    handle_bitwise_flags(a, tmp, data);
+    set_carry_flag(false);
+    set_aux_carry_flag(false);
+
+    pc++;
+}
+
 void and(const uint8_t src)
 {
     a = a & src;

@@ -96,6 +96,24 @@ void exclusive_or_register_test()
     generic_asserts_xor();
 }
 
+void exclusive_or_memory_test()
+{
+
+    pc = 0;
+    f = 0;
+    a = TEST_VALUE1;
+    h = 0;
+    l = 0;
+    set_byte_from_address(0, TEST_VALUE2);
+
+    exclusive_or_memory();
+
+    assert(a == (TEST_VALUE1 ^ TEST_VALUE2) && "exclusive_or_memory_test failed!");
+    assert(pc == 1 && "exclusive_or_memory_test failed!");
+
+    generic_asserts_xor();
+}
+
 void generic_asserts_and()
 {
     assert(!get_zero_flag() && "generic_asserts_and failed");

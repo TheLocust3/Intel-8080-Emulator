@@ -14,6 +14,8 @@ void and_register_test();
 void and_memory_test();
 void and_immediate_test();
 void exclusive_or_register_test();
+void exclusive_or_memory_test();
+void exclusive_or_immediate_test();
 
 const int TEST_VALUE1 = 10;
 const int TEST_VALUE2 = 9;
@@ -25,6 +27,8 @@ int main(int argc, const char* argv[])
     and_immediate_test();
 
     exclusive_or_register_test();
+    exclusive_or_memory_test();
+    exclusive_or_immediate_test();
 
     return 0;
 }
@@ -74,7 +78,7 @@ void and_immediate_test()
     and_immediate();
 
     assert(a == (TEST_VALUE1 & TEST_VALUE2) && "and_immediate_test failed!");
-    assert(pc == 1 && "and_immediate_test failed!");
+    assert(pc == 2 && "and_immediate_test failed!");
 
     generic_asserts_and();
     assert(!get_aux_carry_flag() && "and_immediate_test failed!");
@@ -110,6 +114,22 @@ void exclusive_or_memory_test()
 
     assert(a == (TEST_VALUE1 ^ TEST_VALUE2) && "exclusive_or_memory_test failed!");
     assert(pc == 1 && "exclusive_or_memory_test failed!");
+
+    generic_asserts_xor();
+}
+
+void exclusive_or_immediate_test()
+{
+
+    pc = 0;
+    f = 0;
+    a = TEST_VALUE1;
+    set_byte_from_address(1, TEST_VALUE2);
+
+    exclusive_or_immediate();
+
+    assert(a == (TEST_VALUE1 ^ TEST_VALUE2) && "and_immediate_test failed!");
+    assert(pc == 2 && "and_immediate_test failed!");
 
     generic_asserts_xor();
 }

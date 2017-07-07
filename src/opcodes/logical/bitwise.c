@@ -52,7 +52,7 @@ void and_immediate()
     set_carry_flag(false);
     set_aux_carry_flag(false);
 
-    pc++;
+    pc += 2;
 }
 
 void exclusive_or_register(const uint8_t src_register)
@@ -84,6 +84,22 @@ void exclusive_or_memory()
     set_aux_carry_flag(false);
 
     pc++;
+}
+
+void exclusive_or_immediate()
+{
+    printf("XRI data\n");
+
+    const uint8_t tmp = a;
+    const uint8_t data = read_byte_from_address(pc);
+
+    exclusive_or(data);
+
+    handle_bitwise_flags(a, tmp, data);
+    set_carry_flag(false);
+    set_aux_carry_flag(false);
+
+    pc += 2;
 }
 
 void and(const uint8_t src)

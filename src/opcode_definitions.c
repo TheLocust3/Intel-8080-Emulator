@@ -148,6 +148,9 @@ void define_logical_opcodes()
 
     InstructionTemplate exclusive_or_memory_template = new_instruction_template("10101110", &exclusive_or_memory);
     add_instruction_template(exclusive_or_memory_template);
+
+    InstructionTemplate exclusive_or_immediate_template = new_instruction_template("11101110", &exclusive_or_immediate);
+    add_instruction_template(exclusive_or_immediate_template);
 }
 
 void define_miscellaneous_opcodes()

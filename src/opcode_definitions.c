@@ -154,6 +154,12 @@ void define_logical_opcodes()
 
     InstructionTemplate or_register_template = new_instruction_template("10110SSS", &or_register);
     add_instruction_template(or_register_template);
+
+    InstructionTemplate or_memory_template = new_instruction_template("10101110", &or_memory);
+    add_instruction_template(or_memory_template);
+
+    InstructionTemplate or_immediate_template = new_instruction_template("11101110", &or_immediate);
+    add_instruction_template(or_immediate_template);
 }
 
 void define_miscellaneous_opcodes()

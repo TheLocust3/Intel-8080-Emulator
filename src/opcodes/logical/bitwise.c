@@ -134,6 +134,22 @@ void or_memory()
     pc++;
 }
 
+void or_immediate()
+{
+    printf("ORI data\n");
+
+    const uint8_t tmp = a;
+    const uint8_t data = read_byte_from_address(pc);
+
+    or(data);
+
+    handle_bitwise_flags(a, tmp, data);
+    set_carry_flag(false);
+    set_aux_carry_flag(false);
+
+    pc += 2;
+}
+
 void and(const uint8_t src)
 {
     a = a & src;

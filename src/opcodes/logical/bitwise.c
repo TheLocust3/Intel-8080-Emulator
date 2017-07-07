@@ -118,6 +118,22 @@ void or_register(const uint8_t src_register)
     pc++;
 }
 
+void or_memory()
+{
+    printf("ORA M\n");
+
+    const uint8_t tmp = a;
+    const uint8_t data = read_byte(h, l);
+
+    or(data);
+
+    handle_bitwise_flags(a, tmp, data);
+    set_carry_flag(false);
+    set_aux_carry_flag(false);
+
+    pc++;
+}
+
 void and(const uint8_t src)
 {
     a = a & src;

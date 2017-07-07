@@ -18,6 +18,7 @@ void exclusive_or_register_test();
 void exclusive_or_memory_test();
 void exclusive_or_immediate_test();
 void or_register_test();
+void or_memory_test();
 
 const int TEST_VALUE1 = 10;
 const int TEST_VALUE2 = 9;
@@ -33,6 +34,7 @@ int main(int argc, const char* argv[])
     exclusive_or_immediate_test();
 
     or_register_test();
+    or_memory_test();
 
     return 0;
 }
@@ -143,6 +145,23 @@ void or_register_test()
 
     assert(a == (TEST_VALUE1 | TEST_VALUE2) && "or_register_test failed!");
     assert(pc == 1 && "or_register_test failed!");
+
+    generic_asserts_or();
+}
+
+void or_memory_test()
+{
+    pc = 0;
+    f = 0;
+    a = TEST_VALUE1;
+    h = 0;
+    l = 0;
+    set_byte_from_address(0, TEST_VALUE2);
+
+    or_memory();
+
+    assert(a == (TEST_VALUE1 | TEST_VALUE2) && "or_memory_test failed!");
+    assert(pc == 1 && "or_memory_test failed!");
 
     generic_asserts_or();
 }

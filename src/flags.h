@@ -27,6 +27,7 @@ bool is_parity_flag_set();
 
 void handle_carry_flag_add(const int value1, const int value2);
 void handle_carry_flag_sub(const int value1, const int value2);
+void handle_carry_flag_cmp(const int value1, const int value2);
 int get_carry_flag();
 bool is_carry_flag_set();
 

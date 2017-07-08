@@ -10,6 +10,7 @@
 #include "opcodes/arithmetic/increment.h"
 #include "opcodes/arithmetic/miscellaneous_arithmetic.h"
 #include "opcodes/logical/bitwise.h"
+#include "opcodes/logical/miscellaneous_logical.h"
 
 void define_data_transfer_opcodes();
 void define_arithmetic_opcodes();
@@ -160,6 +161,9 @@ void define_logical_opcodes()
 
     InstructionTemplate or_immediate_template = new_instruction_template("11101110", &or_immediate);
     add_instruction_template(or_immediate_template);
+
+    InstructionTemplate compare_register_template = new_instruction_template("10111SSS", &compare_register);
+    add_instruction_template(compare_register_template);
 }
 
 void define_miscellaneous_opcodes()

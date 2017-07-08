@@ -167,6 +167,9 @@ void define_logical_opcodes()
 
     InstructionTemplate compare_memory_template = new_instruction_template("10111110", &compare_memory);
     add_instruction_template(compare_memory_template);
+
+    InstructionTemplate compare_immediate_template = new_instruction_template("11111110", &compare_immediate);
+    add_instruction_template(compare_immediate_template);
 }
 
 void define_miscellaneous_opcodes()

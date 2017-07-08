@@ -30,6 +30,18 @@ void compare_memory()
     pc++;
 }
 
+void compare_immediate()
+{
+    printf("CPI data\n");
+
+    int byte = read_byte_from_address(pc);
+    int result = a - byte;
+
+    handle_flags_cmp(result, a, byte);
+
+    pc += 2;
+}
+
 void handle_flags_cmp(const int final_value, const int value1, const int value2) {
     handle_zero_flag(final_value);
     handle_sign_flag(final_value);

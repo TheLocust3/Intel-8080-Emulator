@@ -10,5 +10,6 @@
 #include "../../flags.h"
 
 void compare_register(const uint8_t src_register);
+void compare_memory();
 
 #endif //INC_8080_EMULATOR_MISCELLANEOUS_LOGICAL_H

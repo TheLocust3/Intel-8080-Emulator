@@ -3,6 +3,7 @@
 //
 
 #include "miscellaneous_logical.h"
+#include "../../ram.h"
 
 void handle_flags_cmp(const int final_value, const int value1, const int value2);
 
@@ -13,6 +14,18 @@ void compare_register(const uint8_t src_register)
     int result = a - src_register;
 
     handle_flags_cmp(result, a, src_register);
+
+    pc++;
+}
+
+void compare_memory()
+{
+    printf("CMP M\n");
+
+    int byte = read_byte(h, l);
+    int result = a - byte;
+
+    handle_flags_cmp(result, a, byte);
 
     pc++;
 }

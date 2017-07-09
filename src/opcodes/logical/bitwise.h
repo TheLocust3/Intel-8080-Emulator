@@ -21,4 +21,6 @@ void or_register(const uint8_t src_register);
 void or_memory();
 void or_immediate();
 
+void rotate_left();
+
 #endif //INC_8080_EMULATOR_BITWISE_H

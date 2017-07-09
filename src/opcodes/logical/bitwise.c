@@ -150,6 +150,21 @@ void or_immediate()
     pc += 2;
 }
 
+void rotate_left()
+{
+    printf("RLC\n");
+
+    if ((a << 1) > 0xFF) {
+        set_carry_flag(true);
+    } else {
+        set_carry_flag(false);
+    }
+
+    a = (uint8_t) (0xFF & (a << 1));
+
+    pc++;
+}
+
 void and(const uint8_t src)
 {
     a = a & src;

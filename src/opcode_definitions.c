@@ -170,6 +170,9 @@ void define_logical_opcodes()
 
     InstructionTemplate compare_immediate_template = new_instruction_template("11111110", &compare_immediate);
     add_instruction_template(compare_immediate_template);
+
+    InstructionTemplate rotate_left_template = new_instruction_template("00000111", &rotate_left);
+    add_instruction_template(rotate_left_template);
 }
 
 void define_miscellaneous_opcodes()

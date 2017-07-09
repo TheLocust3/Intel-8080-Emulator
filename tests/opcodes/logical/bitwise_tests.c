@@ -20,6 +20,7 @@ void exclusive_or_immediate_test();
 void or_register_test();
 void or_memory_test();
 void or_immediate_test();
+void rotate_left_test();
 
 const int TEST_VALUE1 = 10;
 const int TEST_VALUE2 = 9;
@@ -37,6 +38,8 @@ int main(int argc, const char* argv[])
     or_register_test();
     or_memory_test();
     or_immediate_test();
+
+    rotate_left_test();
 
     return 0;
 }
@@ -181,6 +184,20 @@ void or_immediate_test()
     assert(pc == 2 && "or_immediate_test failed!");
 
     generic_asserts_or();
+}
+
+void rotate_left_test()
+{
+    pc = 0;
+    f = 0;
+    a = TEST_VALUE1;
+
+    rotate_left();
+
+    assert(a == (TEST_VALUE1 << 1) && "rotate_left_test failed!");
+    assert(pc == 1 && "rotate_left_test failed!");
+
+    assert(!get_carry_flag() && "rotate_left_test failed!");
 }
 
 void generic_asserts_and()

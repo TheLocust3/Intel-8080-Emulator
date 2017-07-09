@@ -180,6 +180,23 @@ void rotate_right()
     pc++;
 }
 
+void rotate_left_through_carry()
+{
+    printf("RAL\n");
+
+    int old_carry_flag = get_carry_flag();
+
+    if ((a << 1) > 0xFF) {
+        set_carry_flag(true);
+    } else {
+        set_carry_flag(false);
+    }
+
+    a = (uint8_t) (0xFF & (a << 1) + old_carry_flag);
+
+    pc++;
+}
+
 void and(const uint8_t src)
 {
     a = a & src;

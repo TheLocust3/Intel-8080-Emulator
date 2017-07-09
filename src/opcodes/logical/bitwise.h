@@ -22,5 +22,6 @@ void or_memory();
 void or_immediate();
 
 void rotate_left();
+void rotate_right();
 
 #endif //INC_8080_EMULATOR_BITWISE_H

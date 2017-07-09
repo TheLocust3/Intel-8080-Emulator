@@ -165,6 +165,21 @@ void rotate_left()
     pc++;
 }
 
+void rotate_right()
+{
+    printf("RRC\n");
+
+    if ((a >> 1) < 0) { // Might not properly catch it
+        set_carry_flag(true);
+    } else {
+        set_carry_flag(false);
+    }
+
+    a = (uint8_t) (a >> 1);
+
+    pc++;
+}
+
 void and(const uint8_t src)
 {
     a = a & src;

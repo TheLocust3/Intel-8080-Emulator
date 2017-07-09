@@ -12,3 +12,4 @@ To run the project's unit tests:
 - Use log function instead of prints
 - Handle flags
 - Handle interrupts
+- Create tests that test extremes

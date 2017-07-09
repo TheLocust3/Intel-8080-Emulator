@@ -23,6 +23,7 @@ void or_immediate_test();
 void rotate_left_test();
 void rotate_right_test();
 void rotate_left_through_carry_test();
+void rotate_right_through_carry_test();
 
 const int TEST_VALUE1 = 10;
 const int TEST_VALUE2 = 9;
@@ -44,6 +45,7 @@ int main(int argc, const char* argv[])
     rotate_left_test();
     rotate_right_test();
     rotate_left_through_carry_test();
+    rotate_right_through_carry_test();
 
     return 0;
 }
@@ -231,6 +233,21 @@ void rotate_left_through_carry_test()
     assert(pc == 1 && "rotate_left_through_carry_test failed!");
 
     assert(!get_carry_flag() && "rotate_left_through_carry_test failed!");
+}
+
+void rotate_right_through_carry_test()
+{
+    pc = 0;
+    f = 0;
+    a = TEST_VALUE1;
+    set_carry_flag(true);
+
+    rotate_right_through_carry();
+
+    assert(a == ((TEST_VALUE1 >> 1) + 128) && "rotate_right_through_carry_test failed!");
+    assert(pc == 1 && "rotate_right_through_carry_test failed!");
+
+    assert(!get_carry_flag() && "rotate_right_through_carry_test failed!");
 }
 
 void generic_asserts_and()

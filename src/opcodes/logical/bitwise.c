@@ -192,7 +192,24 @@ void rotate_left_through_carry()
         set_carry_flag(false);
     }
 
-    a = (uint8_t) (0xFF & (a << 1) + old_carry_flag);
+    a = (uint8_t) ((0xFF & (a << 1)) + old_carry_flag);
+
+    pc++;
+}
+
+void rotate_right_through_carry()
+{
+    printf("RAR\n");
+
+    int old_carry_flag = get_carry_flag() << 7;
+
+    if ((a >> 1) < 0) { // Might not properly catch it
+        set_carry_flag(true);
+    } else {
+        set_carry_flag(false);
+    }
+
+    a = (uint8_t) ((a >> 1) + old_carry_flag);
 
     pc++;
 }

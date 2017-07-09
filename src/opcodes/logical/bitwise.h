@@ -24,5 +24,6 @@ void or_immediate();
 void rotate_left();
 void rotate_right();
 void rotate_left_through_carry();
+void rotate_right_through_carry();
 
 #endif //INC_8080_EMULATOR_BITWISE_H

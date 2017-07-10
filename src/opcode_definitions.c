@@ -182,6 +182,9 @@ void define_logical_opcodes()
 
     InstructionTemplate rotate_right_through_carry_template = new_instruction_template("00011111", &rotate_right_through_carry);
     add_instruction_template(rotate_right_through_carry_template);
+
+    InstructionTemplate complement_accumulator_template = new_instruction_template("00101111", &complement_accumulator);
+    add_instruction_template(complement_accumulator_template);
 }
 
 void define_miscellaneous_opcodes()

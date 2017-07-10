@@ -12,5 +12,6 @@
 void compare_register(const uint8_t src_register);
 void compare_memory();
 void compare_immediate();
+void complement_accumulator();
 
 #endif //INC_8080_EMULATOR_MISCELLANEOUS_LOGICAL_H

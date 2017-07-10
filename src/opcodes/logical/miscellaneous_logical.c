@@ -42,6 +42,15 @@ void compare_immediate()
     pc += 2;
 }
 
+void complement_accumulator()
+{
+    printf("CMA\n");
+
+    a = ~a;
+
+    pc++;
+}
+
 void handle_flags_cmp(const int final_value, const int value1, const int value2) {
     handle_zero_flag(final_value);
     handle_sign_flag(final_value);

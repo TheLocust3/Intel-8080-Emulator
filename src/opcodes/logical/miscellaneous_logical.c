@@ -51,6 +51,15 @@ void complement_accumulator()
     pc++;
 }
 
+void complement_carry()
+{
+    printf("CMC\n");
+
+    set_carry_flag(!get_carry_flag());
+
+    pc++;
+}
+
 void handle_flags_cmp(const int final_value, const int value1, const int value2) {
     handle_zero_flag(final_value);
     handle_sign_flag(final_value);

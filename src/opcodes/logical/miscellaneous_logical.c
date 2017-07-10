@@ -60,6 +60,15 @@ void complement_carry()
     pc++;
 }
 
+void set_carry()
+{
+    printf("STC\n");
+
+    set_carry_flag(true);
+
+    pc++;
+}
+
 void handle_flags_cmp(const int final_value, const int value1, const int value2) {
     handle_zero_flag(final_value);
     handle_sign_flag(final_value);

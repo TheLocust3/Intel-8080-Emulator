@@ -186,8 +186,11 @@ void define_logical_opcodes()
     InstructionTemplate complement_accumulator_template = new_instruction_template("00101111", &complement_accumulator);
     add_instruction_template(complement_accumulator_template);
 
-    InstructionTemplate complement_carry_flag_template = new_instruction_template("00111111", &complement_carry);
-    add_instruction_template(complement_carry_flag_template);
+    InstructionTemplate complement_carry_template = new_instruction_template("00111111", &complement_carry);
+    add_instruction_template(complement_carry_template);
+
+    InstructionTemplate set_carry_template = new_instruction_template("00110111", &set_carry);
+    add_instruction_template(set_carry_template);
 }
 
 void define_miscellaneous_opcodes()

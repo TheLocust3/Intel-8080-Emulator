@@ -14,5 +14,6 @@ void compare_memory();
 void compare_immediate();
 void complement_accumulator();
 void complement_carry();
+void set_carry();
 
 #endif //INC_8080_EMULATOR_MISCELLANEOUS_LOGICAL_H

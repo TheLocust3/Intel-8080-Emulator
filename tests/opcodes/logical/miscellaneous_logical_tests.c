@@ -14,6 +14,7 @@ void cmp_memory_test();
 void cmp_immediate_test();
 void complement_accumulator_test();
 void complement_carry_test();
+void set_carry_test();
 
 const int TEST_VALUE1 = 10;
 const int TEST_VALUE2 = 5;
@@ -25,6 +26,7 @@ int main(int argc, const char* argv[])
     cmp_immediate_test();
     complement_accumulator_test();
     complement_carry_test();
+    set_carry_test();
 
     return 0;
 }
@@ -95,6 +97,17 @@ void complement_carry_test()
 
     assert(get_carry_flag() == 0 && "complement_carry_test failed!");
     assert(pc == 1 && "complement_carry_test failed!");
+}
+
+void set_carry_test()
+{
+    pc = 0;
+    f = 0;
+
+    set_carry();
+
+    assert(get_carry_flag() == 1 && "set_carry_test failed!");
+    assert(pc == 1 && "set_carry_test failed!");
 }
 
 void generic_asserts_cmp() {

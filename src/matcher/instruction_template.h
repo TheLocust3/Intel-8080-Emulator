@@ -16,6 +16,7 @@ typedef struct {
     bool has_rp;
     bool has_dst;
     bool has_src;
+    bool has_condition;
 } InstructionTemplate;
 
 InstructionTemplate new_instruction_template(char *template, void (*method)());

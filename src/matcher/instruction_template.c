@@ -16,6 +16,7 @@ int binary_string_to_int(char *string);
 bool has_rp(InstructionTemplate instruction_template);
 bool has_dst(InstructionTemplate instruction_template);
 bool has_src(InstructionTemplate instruction_template);
+bool has_condition(InstructionTemplate instruction_template);
 
 InstructionTemplate new_instruction_template(char *template, void (*method)())
 {
@@ -29,6 +30,7 @@ InstructionTemplate new_instruction_template(char *template, void (*method)())
     instruction_template.has_rp = has_rp(instruction_template);
     instruction_template.has_dst = has_dst(instruction_template);
     instruction_template.has_src = has_src(instruction_template);
+    instruction_template.has_condition = has_condition(instruction_template);
 
     return instruction_template;
 }
@@ -86,4 +88,10 @@ bool has_dst(InstructionTemplate instruction_template)
 bool has_src(InstructionTemplate instruction_template)
 {
     return instruction_template.raw_template[5] == 'S' && instruction_template.raw_template[6] == 'S' && instruction_template.raw_template[7] == 'S';
+}
+
+// --CCC---
+bool has_condition(InstructionTemplate instruction_template)
+{
+    return instruction_template.raw_template[2] == 'C' && instruction_template.raw_template[3] == 'C' && instruction_template.raw_template[4] == 'C';
 }

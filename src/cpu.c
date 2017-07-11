@@ -27,7 +27,8 @@ void cycle()
         int dst_code = get_dst_code_from_opcode(instruction);
         int src_code = get_src_code_from_opcode(instruction);
         int rp_code = get_rp_code_from_opcode(instruction);
-        run_instruction(dst_code, src_code, rp_code, template);
+        int condition_code = get_condition_code_from_opcode(instruction);
+        run_instruction(dst_code, src_code, rp_code, condition_code, template);
     }
 }
 

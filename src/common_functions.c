@@ -33,3 +33,8 @@ int get_rp_code_from_opcode(int instruction)
 {
     return (instruction & 0b00110000) >> 6;
 }
+
+int get_condition_code_from_opcode(int instruction)
+{
+    return (instruction & 0b00111000) >> 3;
+}

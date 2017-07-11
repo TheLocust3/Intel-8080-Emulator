@@ -41,7 +41,7 @@ void dst_run_test()
     InstructionTemplate template = new_instruction_template("00DDD000", &dst_run);
     add_instruction_template(template);
 
-    run_instruction(A_CODE, 0, 0, template);
+    run_instruction(A_CODE, 0, 0, 0, template);
 
     assert(value_register1 == TEST_VALUE1 && "dst_run_test failed!");
 }
@@ -54,7 +54,7 @@ void src_run_test()
     InstructionTemplate template = new_instruction_template("00000SSS", &src_run);
     add_instruction_template(template);
 
-    run_instruction(0, A_CODE, 0, template);
+    run_instruction(0, A_CODE, 0, 0, template);
 
     assert(value_register1 == TEST_VALUE1 && "src_run_test failed!");
 }
@@ -68,7 +68,7 @@ void rp_run_test()
     InstructionTemplate template = new_instruction_template("00RP0000", &rp_run);
     add_instruction_template(template);
 
-    run_instruction(0, 0, HL_CODE, template);
+    run_instruction(0, 0, HL_CODE, 0, template);
 
     assert(value_register1 == TEST_VALUE1 && "rp_run_test failed!");
 }
@@ -82,7 +82,7 @@ void dst_src_run_test()
     InstructionTemplate template = new_instruction_template("00DDDSSS", &dst_src_run);
     add_instruction_template(template);
 
-    run_instruction(A_CODE, B_CODE, 0, template);
+    run_instruction(A_CODE, B_CODE, 0, 0, template);
 
     assert(value_register1 == TEST_VALUE1 && value_register2 == (TEST_VALUE1 + 1) && "dst_src_run_test failed!");
 }

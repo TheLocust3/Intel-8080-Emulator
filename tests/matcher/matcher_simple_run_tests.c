@@ -36,7 +36,7 @@ void simple_run_test()
     InstructionTemplate template = new_instruction_template("00000000", &flip_bool);
     add_instruction_template(template);
 
-    run_instruction(0, 0, 0, template);
+    run_instruction(0, 0, 0, 0, template);
 
     assert(has_flipped && "simple_run_test failed!");
 }
@@ -48,7 +48,7 @@ void dst_run_test()
     InstructionTemplate template = new_instruction_template("00DDD000", &flip_bool);
     add_instruction_template(template);
 
-    run_instruction(0, 0, 0, template);
+    run_instruction(0, 0, 0, 0, template);
 
     assert(has_flipped && "dst_run_test failed!");
 }
@@ -60,7 +60,7 @@ void src_run_test()
     InstructionTemplate template = new_instruction_template("00000SSS", &flip_bool);
     add_instruction_template(template);
 
-    run_instruction(0, 0, 0, template);
+    run_instruction(0, 0, 0, 0, template);
 
     assert(has_flipped && "src_run_test failed!");
 }
@@ -72,7 +72,7 @@ void rp_run_test()
     InstructionTemplate template = new_instruction_template("00RP0000", &flip_bool);
     add_instruction_template(template);
 
-    run_instruction(0, 0, 0, template);
+    run_instruction(0, 0, 0, 0, template);
 
     assert(has_flipped && "rp_run_test failed!");
 }
@@ -84,7 +84,7 @@ void dst_and_src_run_test()
     InstructionTemplate template = new_instruction_template("00DDDSSS", &flip_bool);
     add_instruction_template(template);
 
-    run_instruction(0, 0, 0, template);
+    run_instruction(0, 0, 0, 0, template);
 
     assert(has_flipped && "dst_and_src_run_test failed!");
 }
@@ -96,7 +96,7 @@ void none_run_test()
     InstructionTemplate template = new_instruction_template("00000000", &flip_bool);
     add_instruction_template(template);
 
-    run_instruction(0, 0, 0, template);
+    run_instruction(0, 0, 0, 0, template);
 
     assert(has_flipped && "none_run_test failed!");
 }

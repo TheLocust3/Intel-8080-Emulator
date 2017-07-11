@@ -11,10 +11,12 @@
 #include "opcodes/arithmetic/miscellaneous_arithmetic.h"
 #include "opcodes/logical/bitwise.h"
 #include "opcodes/logical/miscellaneous_logical.h"
+#include "opcodes/branch/jump.h"
 
 void define_data_transfer_opcodes();
 void define_arithmetic_opcodes();
 void define_logical_opcodes();
+void define_branch_opcodes();
 void define_miscellaneous_opcodes();
 
 void define_opcodes()
@@ -22,6 +24,7 @@ void define_opcodes()
     define_data_transfer_opcodes();
     define_arithmetic_opcodes();
     define_logical_opcodes();
+    define_branch_opcodes();
     define_miscellaneous_opcodes();
 }
 
@@ -191,6 +194,12 @@ void define_logical_opcodes()
 
     InstructionTemplate set_carry_template = new_instruction_template("00110111", &set_carry);
     add_instruction_template(set_carry_template);
+}
+
+void define_branch_opcodes()
+{
+    InstructionTemplate jump_template = new_instruction_template("11000011", &jump);
+    add_instruction_template(jump_template);
 }
 
 void define_miscellaneous_opcodes()

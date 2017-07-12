@@ -5,6 +5,7 @@
 #include <assert.h>
 #include "../../src/matcher/matcher.h"
 #include "../../src/registers.h"
+#include "../../src/opcodes/branch/jump.h"
 
 void setup();
 
@@ -12,11 +13,13 @@ void dst_run(uint8_t *dst_register);
 void src_run(const uint8_t src_register);
 void rp_run(RegisterPair *dst_register_pair);
 void dst_src_run(uint8_t *dst_register, const uint8_t src_register);
+void condition_run(int condition_code);
 
 void dst_run_test();
 void src_run_test();
 void rp_run_test();
 void dst_src_run_test();
+void condition_run_test();
 
 int value_register1 = 0;
 int value_register2 = 0;
@@ -87,6 +90,18 @@ void dst_src_run_test()
     assert(value_register1 == TEST_VALUE1 && value_register2 == (TEST_VALUE1 + 1) && "dst_src_run_test failed!");
 }
 
+void condition_run_test()
+{
+    setup();
+
+    InstructionTemplate template = new_instruction_template("00CCC000", &condition_run);
+    add_instruction_template(template);
+
+    run_instruction(0, 0, 0, CONDITIONAL_M, template);
+
+    assert(value_register1 == CONDITIONAL_M && "condition_run_test failed!");
+}
+
 void dst_run(uint8_t *dst_register)
 {
     value_register1 = *dst_register;
@@ -106,6 +121,11 @@ void dst_src_run(uint8_t *dst_register, const uint8_t src_register)
 {
     value_register1 = *dst_register;
     value_register2 = src_register;
+}
+
+void condition_run(int condition_code)
+{
+    value_register1 = condition_code;
 }
 
 void setup()

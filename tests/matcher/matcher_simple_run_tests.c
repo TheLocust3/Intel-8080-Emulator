@@ -14,6 +14,7 @@ void src_run_test();
 void rp_run_test();
 void dst_and_src_run_test();
 void none_run_test();
+void condition_run_test();
 
 bool has_flipped = false;
 
@@ -24,6 +25,7 @@ int main(int argc, const char* argv[])
     src_run_test();
     rp_run_test();
     dst_and_src_run_test();
+    condition_run_test();
     none_run_test();
 
     return 0;
@@ -87,6 +89,18 @@ void dst_and_src_run_test()
     run_instruction(0, 0, 0, 0, template);
 
     assert(has_flipped && "dst_and_src_run_test failed!");
+}
+
+void condition_run_test()
+{
+    setup();
+
+    InstructionTemplate template = new_instruction_template("00CCC000", &flip_bool);
+    add_instruction_template(template);
+
+    run_instruction(0, 0, 0, 0, template);
+
+    assert(has_flipped && "condition_run_test failed!");
 }
 
 void none_run_test()

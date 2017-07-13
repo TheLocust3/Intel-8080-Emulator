@@ -3,6 +3,7 @@
 //
 
 #include "jump.h"
+#include "../../flags.h"
 
 void jump()
 {
@@ -19,20 +20,52 @@ void jump_condition(int condition) {
 
     switch (condition) {
         case CONDITIONAL_NZ:
+            if (!is_zero_flag_set()) {
+                pc = address;
+            }
+
             break;
         case CONDITIONAL_Z:
+            if (is_zero_flag_set()) {
+                pc = address;
+            }
+
             break;
         case CONDITIONAL_NC:
+            if (!is_carry_flag_set()) {
+                pc = address;
+            }
+
             break;
         case CONDITIONAL_C:
+            if (is_carry_flag_set()) {
+                pc = address;
+            }
+
             break;
         case CONDITIONAL_PO:
+            if (!is_parity_flag_set()) {
+                pc = address;
+            }
+
             break;
         case CONDITIONAL_PE:
+            if (is_parity_flag_set()) {
+                pc = address;
+            }
+
             break;
         case CONDITIONAL_P:
+            if (!is_sign_flag_set()) {
+                pc = address;
+            }
+
             break;
         case CONDITIONAL_M:
+            if (is_sign_flag_set()) {
+                pc = address;
+            }
+
             break;
     }
 }

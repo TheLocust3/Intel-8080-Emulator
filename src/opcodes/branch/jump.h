@@ -10,7 +10,7 @@
 #include "../../common_functions.h"
 
 #define CONDITIONAL_NZ 0b000
-#define CONDITIONAL_Z0b001
+#define CONDITIONAL_Z 0b001
 #define CONDITIONAL_NC 0b010
 #define CONDITIONAL_C 0b011
 #define CONDITIONAL_PO 0b100
@@ -19,5 +19,6 @@
 #define CONDITIONAL_M 0b111
 
 void jump();
+void jump_condition(int condition);
 
 #endif //INC_8080_EMULATOR_JUMP_H

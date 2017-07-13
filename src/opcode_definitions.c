@@ -200,6 +200,9 @@ void define_branch_opcodes()
 {
     InstructionTemplate jump_template = new_instruction_template("11000011", &jump);
     add_instruction_template(jump_template);
+
+    InstructionTemplate jump_condition_template = new_instruction_template("11CCC011", &jump_condition);
+    add_instruction_template(jump_condition_template);
 }
 
 void define_miscellaneous_opcodes()

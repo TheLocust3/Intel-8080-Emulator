@@ -12,6 +12,7 @@
 #include "opcodes/logical/bitwise.h"
 #include "opcodes/logical/miscellaneous_logical.h"
 #include "opcodes/branch/jump.h"
+#include "opcodes/branch/call.h"
 
 void define_data_transfer_opcodes();
 void define_arithmetic_opcodes();
@@ -203,6 +204,9 @@ void define_branch_opcodes()
 
     InstructionTemplate jump_condition_template = new_instruction_template("11CCC011", &jump_condition);
     add_instruction_template(jump_condition_template);
+
+    InstructionTemplate call_template = new_instruction_template("11000011", &call);
+    add_instruction_template(call_template);
 }
 
 void define_miscellaneous_opcodes()

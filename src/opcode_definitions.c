@@ -13,6 +13,7 @@
 #include "opcodes/logical/miscellaneous_logical.h"
 #include "opcodes/branch/jump.h"
 #include "opcodes/branch/call.h"
+#include "opcodes/stack.h"
 
 void define_data_transfer_opcodes();
 void define_arithmetic_opcodes();
@@ -211,6 +212,9 @@ void define_branch_opcodes()
 
 void define_miscellaneous_opcodes()
 {
+    InstructionTemplate push_template = new_instruction_template("11RP0101", &push_register_pair);
+    add_instruction_template(push_template);
+
     InstructionTemplate nop_template = new_instruction_template("00000000", &nop);
     add_instruction_template(nop_template);
 }

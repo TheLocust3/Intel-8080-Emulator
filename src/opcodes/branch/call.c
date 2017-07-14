@@ -10,6 +10,7 @@ void call()
     uint8_t high = read_byte_from_address((uint16_t) (pc + 2));
 
     // adjust stack
+    // TODO: Finish call opcodes
 
     pc = combine_bytes(high, low);
 }

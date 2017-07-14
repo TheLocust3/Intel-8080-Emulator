@@ -2,7 +2,7 @@ enable_testing()
 
 add_executable(data_transfer_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/opcodes/data_transfer.c opcodes/data_transfer_tests.c)
 add_executable(add_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/arithmetic/add.c opcodes/arithmetic/add_tests.c)
-add_executable(sub_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/arithmetic/sub.c opcodes/sub_test.c)
+add_executable(sub_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/arithmetic/sub.c opcodes/arithmetic/sub_test.c)
 add_executable(increment_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/arithmetic/increment.c opcodes/arithmetic/increment_tests.c)
 add_executable(miscellaneous_arithmetic_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/arithmetic/miscellaneous_arithmetic.c opcodes/arithmetic/miscellaneous_arithmetic_tests.c)
 add_executable(bitwise_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/logical/bitwise.c opcodes/logical/bitwise_tests.c)

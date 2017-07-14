@@ -3,9 +3,9 @@
 //
 
 #include <assert.h>
-#include "../../src/registers.h"
-#include "../../src/flags.h"
-#include "../../src/opcodes/arithmetic/sub.h"
+#include "../../../src/registers.h"
+#include "../../../src/flags.h"
+#include "../../../src/opcodes/arithmetic/sub.h"
 
 void generic_asserts();
 void generic_asserts_with_borrow();

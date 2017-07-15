@@ -3,6 +3,7 @@
 //
 
 #include "stack.h"
+#include "../flags.h"
 
 void push(uint8_t value);
 uint8_t flag_status_word();
@@ -23,9 +24,16 @@ void push_processor_status_word()
 uint8_t flag_status_word()
 {
     uint8_t status = 0;
+    status = set_bit(status, 0, (bool) get_carry_flag());
+    status = set_bit(status, 1, true);
+    status = set_bit(status, 2, (bool) get_parity_flag());
+    status = set_bit(status, 3, false);
+    status = set_bit(status, 4, (bool) get_aux_carry_flag());
+    status = set_bit(status, 5, false);
+    status = set_bit(status, 6, (bool) get_zero_flag());
+    status = set_bit(status, 7, (bool) get_sign_flag());
 
-
-    return 0;
+    return status;
 }
 
 void push(uint8_t value) {

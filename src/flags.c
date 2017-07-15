@@ -56,17 +56,12 @@ void handle_aux_carry_flag_sub(const int value1, const int value2)
 
 void set_zero_flag(bool flag)
 {
-    if (flag) {
-        f = (uint8_t) (f | (1 << 6));
-        return;
-    }
-
-    f = (uint8_t) (f & ~(1 << 6));
+    f = set_bit(f, 6, flag);
 }
 
 int get_zero_flag()
 {
-    return (f & 0b01000000) >> 6;
+    return get_bit(f, 6);
 }
 
 bool is_zero_flag_set()
@@ -76,17 +71,12 @@ bool is_zero_flag_set()
 
 void set_sign_flag(bool flag)
 {
-    if (flag) {
-        f = (uint8_t) (f | (1 << 7));
-        return;
-    }
-
-    f = (uint8_t) (f & ~(1 << 7));
+    f = set_bit(f, 7, flag);
 }
 
 int get_sign_flag()
 {
-    return (f & 0b10000000) >> 7;
+    return get_bit(f, 7);
 }
 
 bool is_sign_flag_set()
@@ -96,17 +86,12 @@ bool is_sign_flag_set()
 
 void set_parity_flag(bool flag)
 {
-    if (flag) {
-        f = (uint8_t) (f | (1 << 2));
-        return;
-    }
-
-    f = (uint8_t) (f & ~(1 << 2));
+    f = set_bit(f, 2, flag);
 }
 
 int get_parity_flag()
 {
-    return (f & 0b00000100) >> 2;
+    return get_bit(f, 2);
 }
 
 bool is_parity_flag_set()
@@ -116,17 +101,12 @@ bool is_parity_flag_set()
 
 void set_carry_flag(bool flag)
 {
-    if (flag) {
-        f = (uint8_t) (f | (1 << 0));
-        return;
-    }
-
-    f = (uint8_t) (f & ~(1 << 0));
+    f = set_bit(f, 0, flag);
 }
 
 int get_carry_flag()
 {
-    return (f & 0b00000001);
+    return get_bit(f, 0);
 }
 
 bool is_carry_flag_set()
@@ -136,17 +116,12 @@ bool is_carry_flag_set()
 
 void set_aux_carry_flag(bool flag)
 {
-    if (flag) {
-        f = (uint8_t) (f | (1 << 4));
-        return;
-    }
-
-    f = (uint8_t) (f & ~(1 << 4));
+    f = set_bit(f, 4, flag);
 }
 
 int get_aux_carry_flag()
 {
-    return (f & 0b00010000) >> 4;
+    return get_bit(f, 4);
 }
 
 bool is_aux_carry_flag_set()

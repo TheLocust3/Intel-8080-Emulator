@@ -11,5 +11,6 @@
 #include "../registers.h"
 
 void push_register_pair(RegisterPair *dst_register_pair);
+void push_processor_status_word();
 
 #endif //INC_8080_EMULATOR_STACK_H

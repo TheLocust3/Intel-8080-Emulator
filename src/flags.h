@@ -6,6 +6,7 @@
 #define INC_8080_EMULATOR_FLAGS_H
 
 #include "registers.h"
+#include "common_functions.h"
 
 void set_zero_flag(bool flag);
 void set_sign_flag(bool flag);

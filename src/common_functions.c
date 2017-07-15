@@ -4,6 +4,20 @@
 
 #include "common_functions.h"
 
+int get_bit(uint8_t byte, int bit_number)
+{
+    return (byte & (1 << bit_number)) >> bit_number;
+}
+
+uint8_t set_bit(uint8_t byte, int bit_number, bool set)
+{
+    if (set) {
+        return (uint8_t) (byte | (1 << bit_number));
+    }
+
+    return (uint8_t) (byte & ~(1 << bit_number));
+}
+
 uint16_t combine_bytes(uint8_t high, uint8_t low)
 {
     return (high << 8) + low;

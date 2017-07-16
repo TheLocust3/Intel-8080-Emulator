@@ -221,6 +221,9 @@ void define_miscellaneous_opcodes()
     InstructionTemplate pop_register_pair_template = new_instruction_template("11RP0001", &pop_register_pair);
     add_instruction_template(pop_register_pair_template);
 
+    InstructionTemplate pop_processor_status_word_template = new_instruction_template("11110001", &pop_processor_status_word);
+    add_instruction_template(pop_processor_status_word_template);
+
     InstructionTemplate nop_template = new_instruction_template("00000000", &nop);
     add_instruction_template(nop_template);
 }

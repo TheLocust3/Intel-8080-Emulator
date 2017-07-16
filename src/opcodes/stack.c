@@ -30,6 +30,18 @@ void pop_register_pair(RegisterPair *src_register_pair)
     *src_register_pair->high = pop();
 }
 
+void pop_processor_status_word()
+{
+    uint8_t status = pop();
+    set_carry_flag((bool) get_bit(status, 0));
+    set_parity_flag((bool) get_bit(status, 2));
+    set_aux_carry_flag((bool) get_bit(status, 4));
+    set_zero_flag((bool) get_bit(status, 6));
+    set_sign_flag((bool) get_bit(status, 7));
+
+    a = pop();
+}
+
 uint8_t flag_status_word()
 {
     uint8_t status = 0;

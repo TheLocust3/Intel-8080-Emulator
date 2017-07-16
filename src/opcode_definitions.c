@@ -212,11 +212,14 @@ void define_branch_opcodes()
 
 void define_miscellaneous_opcodes()
 {
-    InstructionTemplate push_template = new_instruction_template("11RP0101", &push_register_pair);
-    add_instruction_template(push_template);
+    InstructionTemplate push_register_pair_template = new_instruction_template("11RP0101", &push_register_pair);
+    add_instruction_template(push_register_pair_template);
 
     InstructionTemplate push_processor_status_word_template = new_instruction_template("11110101", &push_processor_status_word);
     add_instruction_template(push_processor_status_word_template);
+
+    InstructionTemplate pop_register_pair_template = new_instruction_template("11RP0001", &pop_register_pair);
+    add_instruction_template(pop_register_pair_template);
 
     InstructionTemplate nop_template = new_instruction_template("00000000", &nop);
     add_instruction_template(nop_template);

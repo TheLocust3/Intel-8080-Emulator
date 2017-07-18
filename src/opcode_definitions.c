@@ -208,6 +208,9 @@ void define_branch_opcodes()
 
     InstructionTemplate call_template = new_instruction_template("11000011", &call);
     add_instruction_template(call_template);
+
+    InstructionTemplate call_condition_template = new_instruction_template("11CCC100", &call_condition);
+    add_instruction_template(call_condition_template);
 }
 
 void define_miscellaneous_opcodes()

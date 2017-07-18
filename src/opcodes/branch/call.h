@@ -13,5 +13,6 @@
 #include "../../flags.h"
 
 void call();
+void call_condition(int condition);
 
 #endif //INC_8080_EMULATOR_CALL_H

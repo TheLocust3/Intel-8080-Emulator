@@ -224,6 +224,9 @@ void define_miscellaneous_opcodes()
     InstructionTemplate pop_processor_status_word_template = new_instruction_template("11110001", &pop_processor_status_word);
     add_instruction_template(pop_processor_status_word_template);
 
+    InstructionTemplate exchange_stack_top_with_HL_template = new_instruction_template("11100011", &exchange_stack_top_with_HL);
+    add_instruction_template(exchange_stack_top_with_HL_template);
+
     InstructionTemplate nop_template = new_instruction_template("00000000", &nop);
     add_instruction_template(nop_template);
 }

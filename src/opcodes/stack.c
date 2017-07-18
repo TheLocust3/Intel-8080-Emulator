@@ -42,6 +42,20 @@ void pop_processor_status_word()
     a = pop();
 }
 
+void exchange_stack_top_with_HL()
+{
+    uint16_t sp = combine_bytes(s, p);
+
+    uint8_t tmp_low = read_byte_from_address(sp);
+    uint8_t tmp_high = read_byte_from_address((uint16_t) (sp + 1));
+
+    set_byte_from_address(sp, l);
+    set_byte_from_address((uint16_t) (sp + 1), h);
+
+    l = tmp_low;
+    h = tmp_high;
+}
+
 uint8_t flag_status_word()
 {
     uint8_t status = 0;

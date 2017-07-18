@@ -56,6 +56,12 @@ void exchange_stack_top_with_HL()
     h = tmp_high;
 }
 
+void move_HL_to_SP()
+{
+    s = h;
+    p = l;
+}
+
 uint8_t flag_status_word()
 {
     uint8_t status = 0;

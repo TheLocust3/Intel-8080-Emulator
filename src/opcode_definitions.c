@@ -227,6 +227,9 @@ void define_miscellaneous_opcodes()
     InstructionTemplate exchange_stack_top_with_HL_template = new_instruction_template("11100011", &exchange_stack_top_with_HL);
     add_instruction_template(exchange_stack_top_with_HL_template);
 
+    InstructionTemplate move_HL_to_SP_template = new_instruction_template("11111001", &move_HL_to_SP);
+    add_instruction_template(move_HL_to_SP_template);
+
     InstructionTemplate nop_template = new_instruction_template("00000000", &nop);
     add_instruction_template(nop_template);
 }

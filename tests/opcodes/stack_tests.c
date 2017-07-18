@@ -13,6 +13,7 @@ void push_processor_status_word_test();
 void pop_register_pair_test();
 void pop_processor_status_word_test();
 void exchange_stack_top_with_HL_test();
+void move_HL_to_SP_test();
 
 const int TEST_VALUE1 = 10;
 const int TEST_VALUE2 = 5;
@@ -24,6 +25,7 @@ int main(int argc, const char* argv[])
     pop_register_pair_test();
     pop_processor_status_word_test();
     exchange_stack_top_with_HL_test();
+    move_HL_to_SP_test();
 
     return 0;
 }
@@ -142,4 +144,19 @@ void exchange_stack_top_with_HL_test()
     assert(l == 0 && "exchange_stack_top_with_HL_test failed!");
     assert(read_byte_from_address(sp) == TEST_VALUE2 && "exchange_stack_top_with_HL_test failed!");
     assert(read_byte_from_address((uint16_t) (sp + 1)) == TEST_VALUE1 && "exchange_stack_top_with_HL_test failed!");
+}
+
+void move_HL_to_SP_test()
+{
+    pc = 0;
+    s = 0xFF;
+    p = 0xFF;
+    h = TEST_VALUE1;
+    l = TEST_VALUE2;
+
+    move_HL_to_SP();
+
+
+    assert(s == TEST_VALUE1 && "move_HL_to_SP_test failed!");
+    assert(p == TEST_VALUE2 && "move_HL_to_SP_test failed!");
 }

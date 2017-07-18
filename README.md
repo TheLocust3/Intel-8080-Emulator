@@ -14,3 +14,4 @@ To run the project's unit tests:
 - Handle interrupts
 - Create tests that test extremes
 - More comprehensive condition matcher tests
+- Make sure swapping registers doesn't mean the registers point to the same memory

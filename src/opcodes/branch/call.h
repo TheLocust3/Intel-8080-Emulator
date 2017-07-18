@@ -9,6 +9,8 @@
 #include "../../ram.h"
 #include "../../common_functions.h"
 #include "../stack.h"
+#include "jump.h"
+#include "../../flags.h"
 
 void call();
 

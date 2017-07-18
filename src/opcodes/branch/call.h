@@ -8,6 +8,7 @@
 #include "../../registers.h"
 #include "../../ram.h"
 #include "../../common_functions.h"
+#include "../stack.h"
 
 void call();
 

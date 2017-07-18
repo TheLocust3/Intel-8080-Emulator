@@ -10,6 +10,9 @@
 #include "../common_functions.h"
 #include "../registers.h"
 
+void push(uint8_t value);
+uint8_t pop();
+
 void push_register_pair(RegisterPair *dst_register_pair);
 void push_processor_status_word();
 void pop_register_pair(RegisterPair *dst_register_pair);

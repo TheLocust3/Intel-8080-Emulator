@@ -6,8 +6,6 @@
 #include "../flags.h"
 #include "../registers.h"
 
-void push(uint8_t value);
-uint8_t pop();
 uint8_t flag_status_word();
 
 // TODO: Prevent sp from being passed in

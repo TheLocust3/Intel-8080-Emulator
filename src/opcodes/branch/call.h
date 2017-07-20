@@ -15,5 +15,6 @@
 void call();
 void call_condition(int condition);
 void return_plain();
+void return_condition(int condition);
 
 #endif //INC_8080_EMULATOR_CALL_H

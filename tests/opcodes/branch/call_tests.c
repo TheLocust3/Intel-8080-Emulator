@@ -22,6 +22,14 @@ void call_not_sign_test();
 void call_sign_test();
 
 void return_test();
+void return_not_zero_test();
+void return_zero_test();
+void return_not_carry_test();
+void return_carry_test();
+void return_not_parity_test();
+void return_parity_test();
+void return_not_sign_test();
+void return_sign_test();
 
 const int TEST_ADDRESS = 10;
 const int TEST_ADDRESS2 = 5;
@@ -39,6 +47,14 @@ int main(int argc, const char* argv[])
     call_sign_test();
 
     return_test();
+    return_not_zero_test();
+    return_zero_test();
+    return_not_carry_test();
+    return_carry_test();
+    return_not_parity_test();
+    return_parity_test();
+    return_not_sign_test();
+    return_sign_test();
 
     return 0;
 }
@@ -204,6 +220,150 @@ void return_test()
     set_byte_from_address((uint16_t) (pc + 2), 0);
 
     call();
+    return_plain();
+
+    assert(pc == TEST_ADDRESS2 && "return_test failed!");
+    assert(combine_bytes(s, p) == 0xFFFF && "return_test failed!");
+}
+
+void return_not_zero_test()
+{
+    pc = TEST_ADDRESS2;
+    s = 0xFF;
+    p = 0xFF;
+    f = 0;
+    set_zero_flag(false);
+
+    set_byte_from_address((uint16_t) (pc + 1), (uint8_t) TEST_ADDRESS);
+    set_byte_from_address((uint16_t) (pc + 2), 0);
+
+    call_condition(CONDITIONAL_NZ);
+    return_plain();
+
+    assert(pc == TEST_ADDRESS2 && "return_test failed!");
+    assert(combine_bytes(s, p) == 0xFFFF && "return_test failed!");
+}
+
+void return_zero_test()
+{
+    pc = TEST_ADDRESS2;
+    s = 0xFF;
+    p = 0xFF;
+    f = 0;
+    set_zero_flag(true);
+
+    set_byte_from_address((uint16_t) (pc + 1), (uint8_t) TEST_ADDRESS);
+    set_byte_from_address((uint16_t) (pc + 2), 0);
+
+    call_condition(CONDITIONAL_Z);
+    return_plain();
+
+    assert(pc == TEST_ADDRESS2 && "return_test failed!");
+    assert(combine_bytes(s, p) == 0xFFFF && "return_test failed!");
+}
+
+void return_not_carry_test()
+{
+    pc = TEST_ADDRESS2;
+    s = 0xFF;
+    p = 0xFF;
+    f = 0;
+    set_carry_flag(false);
+
+    set_byte_from_address((uint16_t) (pc + 1), (uint8_t) TEST_ADDRESS);
+    set_byte_from_address((uint16_t) (pc + 2), 0);
+
+    call_condition(CONDITIONAL_NC);
+    return_plain();
+
+    assert(pc == TEST_ADDRESS2 && "return_test failed!");
+    assert(combine_bytes(s, p) == 0xFFFF && "return_test failed!");
+}
+
+void return_carry_test()
+{
+    pc = TEST_ADDRESS2;
+    s = 0xFF;
+    p = 0xFF;
+    f = 0;
+    set_carry_flag(true);
+
+    set_byte_from_address((uint16_t) (pc + 1), (uint8_t) TEST_ADDRESS);
+    set_byte_from_address((uint16_t) (pc + 2), 0);
+
+    call_condition(CONDITIONAL_C);
+    return_plain();
+
+    assert(pc == TEST_ADDRESS2 && "return_test failed!");
+    assert(combine_bytes(s, p) == 0xFFFF && "return_test failed!");
+}
+
+void return_not_parity_test()
+{
+    pc = TEST_ADDRESS2;
+    s = 0xFF;
+    p = 0xFF;
+    f = 0;
+    set_parity_flag(false);
+
+    set_byte_from_address((uint16_t) (pc + 1), (uint8_t) TEST_ADDRESS);
+    set_byte_from_address((uint16_t) (pc + 2), 0);
+
+    call_condition(CONDITIONAL_PO);
+    return_plain();
+
+    assert(pc == TEST_ADDRESS2 && "return_test failed!");
+    assert(combine_bytes(s, p) == 0xFFFF && "return_test failed!");
+}
+
+void return_parity_test()
+{
+    pc = TEST_ADDRESS2;
+    s = 0xFF;
+    p = 0xFF;
+    f = 0;
+    set_parity_flag(true);
+
+    set_byte_from_address((uint16_t) (pc + 1), (uint8_t) TEST_ADDRESS);
+    set_byte_from_address((uint16_t) (pc + 2), 0);
+
+    call_condition(CONDITIONAL_PE);
+    return_plain();
+
+    assert(pc == TEST_ADDRESS2 && "return_test failed!");
+    assert(combine_bytes(s, p) == 0xFFFF && "return_test failed!");
+}
+
+void return_not_sign_test()
+{
+    pc = TEST_ADDRESS2;
+    s = 0xFF;
+    p = 0xFF;
+    f = 0;
+    set_sign_flag(false);
+
+    set_byte_from_address((uint16_t) (pc + 1), (uint8_t) TEST_ADDRESS);
+    set_byte_from_address((uint16_t) (pc + 2), 0);
+
+    call_condition(CONDITIONAL_P);
+    return_plain();
+
+    assert(pc == TEST_ADDRESS2 && "return_test failed!");
+    assert(combine_bytes(s, p) == 0xFFFF && "return_test failed!");
+}
+
+void return_sign_test()
+{
+    pc = TEST_ADDRESS2;
+    s = 0xFF;
+    p = 0xFF;
+    f = 0;
+    set_sign_flag(true);
+
+    set_byte_from_address((uint16_t) (pc + 1), (uint8_t) TEST_ADDRESS);
+    set_byte_from_address((uint16_t) (pc + 2), 0);
+
+    call_condition(CONDITIONAL_M);
     return_plain();
 
     assert(pc == TEST_ADDRESS2 && "return_test failed!");

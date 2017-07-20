@@ -15,7 +15,8 @@ void call()
     pc = combine_bytes(high, low);
 }
 
-void call_condition(int condition) {
+void call_condition(int condition)
+{
     switch (condition) {
         case CONDITIONAL_NZ:
             if (!is_zero_flag_set()) {
@@ -74,4 +75,58 @@ void return_plain()
     uint8_t high = pop();
 
     pc = combine_bytes(high, low);
+}
+
+void return_condition(int condition)
+{
+    switch (condition) {
+        case CONDITIONAL_NZ:
+            if (!is_zero_flag_set()) {
+                return_plain();
+            }
+
+            break;
+        case CONDITIONAL_Z:
+            if (is_zero_flag_set()) {
+                return_plain();
+            }
+
+            break;
+        case CONDITIONAL_NC:
+            if (!is_carry_flag_set()) {
+                return_plain();
+            }
+
+            break;
+        case CONDITIONAL_C:
+            if (is_carry_flag_set()) {
+                return_plain();
+            }
+
+            break;
+        case CONDITIONAL_PO:
+            if (!is_parity_flag_set()) {
+                return_plain();
+            }
+
+            break;
+        case CONDITIONAL_PE:
+            if (is_parity_flag_set()) {
+                return_plain();
+            }
+
+            break;
+        case CONDITIONAL_P:
+            if (!is_sign_flag_set()) {
+                return_plain();
+            }
+
+            break;
+        case CONDITIONAL_M:
+            if (is_sign_flag_set()) {
+                return_plain();
+            }
+
+            break;
+    }
 }

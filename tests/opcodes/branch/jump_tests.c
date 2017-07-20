@@ -44,7 +44,7 @@ void jump_test()
 
     jump();
 
-    assert(pc == 10 && "jump_test failed!");
+    assert(pc == TEST_ADDRESS && "jump_test failed!");
 }
 
 void jump_not_zero_test()
@@ -58,7 +58,7 @@ void jump_not_zero_test()
 
     jump_condition(CONDITIONAL_NZ);
 
-    assert(pc == 10 && "jump_not_zero_test failed!");
+    assert(pc == TEST_ADDRESS && "jump_not_zero_test failed!");
 }
 
 void jump_zero_test()
@@ -71,7 +71,7 @@ void jump_zero_test()
 
     jump_condition(CONDITIONAL_Z);
 
-    assert(pc == 10 && "jump_zero_test failed!");
+    assert(pc == TEST_ADDRESS && "jump_zero_test failed!");
 }
 
 void jump_not_carry_test()
@@ -85,7 +85,7 @@ void jump_not_carry_test()
 
     jump_condition(CONDITIONAL_NC);
 
-    assert(pc == 10 && "jump_not_carry_test failed!");
+    assert(pc == TEST_ADDRESS && "jump_not_carry_test failed!");
 }
 
 void jump_carry_test()
@@ -99,7 +99,7 @@ void jump_carry_test()
 
     jump_condition(CONDITIONAL_C);
 
-    assert(pc == 10 && "jump_carry_test failed!");
+    assert(pc == TEST_ADDRESS && "jump_carry_test failed!");
 }
 
 void jump_not_parity_test()
@@ -113,7 +113,7 @@ void jump_not_parity_test()
 
     jump_condition(CONDITIONAL_PO);
 
-    assert(pc == 10 && "jump_not_parity_test failed!");
+    assert(pc == TEST_ADDRESS && "jump_not_parity_test failed!");
 }
 
 void jump_parity_test()
@@ -127,7 +127,7 @@ void jump_parity_test()
 
     jump_condition(CONDITIONAL_PE);
 
-    assert(pc == 10 && "jump_parity_test failed!");
+    assert(pc == TEST_ADDRESS && "jump_parity_test failed!");
 }
 
 void jump_not_sign_test()
@@ -141,7 +141,7 @@ void jump_not_sign_test()
 
     jump_condition(CONDITIONAL_P);
 
-    assert(pc == 10 && "jump_not_sign_test failed!");
+    assert(pc == TEST_ADDRESS && "jump_not_sign_test failed!");
 }
 
 void jump_sign_test()
@@ -155,5 +155,5 @@ void jump_sign_test()
 
     jump_condition(CONDITIONAL_M);
 
-    assert(pc == 10 && "jump_sign_test failed!");
+    assert(pc == TEST_ADDRESS && "jump_sign_test failed!");
 }

@@ -78,15 +78,14 @@ uint8_t flag_status_word()
 void push(uint8_t value)
 {
     uint16_t sp = combine_bytes(s, p);
-
-    set_byte_from_address((uint16_t) (sp - 1), value);
-
     sp--;
+
+    set_byte_from_address(sp, value);
+
     s = get_high_order_byte(sp);
     p = get_low_order_byte(sp);
 }
 
-// TODO: Figure out if the memory needs to be erased
 uint8_t pop()
 {
     uint16_t sp = combine_bytes(s, p);

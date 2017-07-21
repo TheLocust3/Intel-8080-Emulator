@@ -221,6 +221,9 @@ void define_branch_opcodes()
 
     InstructionTemplate restart_template = new_instruction_template("11CCC111", &restart);
     add_instruction_template(restart_template);
+
+    InstructionTemplate jump_HL_indirect_template = new_instruction_template("11101001", &jump_HL_indirect);
+    add_instruction_template(jump_HL_indirect_template);
 }
 
 void define_miscellaneous_opcodes()

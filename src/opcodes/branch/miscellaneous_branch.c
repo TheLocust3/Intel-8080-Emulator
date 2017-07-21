@@ -14,3 +14,10 @@ void restart(int condition)
 
     pc = (uint16_t) (8 * condition);
 }
+
+void jump_HL_indirect()
+{
+    printf("PCHL\n");
+
+    pc = combine_bytes(h, l);
+}

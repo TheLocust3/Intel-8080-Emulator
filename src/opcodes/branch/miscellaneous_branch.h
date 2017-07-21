@@ -11,5 +11,6 @@
 #include "../stack.h"
 
 void restart(int condition);
+void jump_HL_indirect();
 
 #endif //INC_8080_EMULATOR_MISCELLANEOUS_BRANCH_H

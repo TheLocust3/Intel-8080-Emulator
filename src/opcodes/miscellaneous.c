@@ -3,9 +3,17 @@
 //
 
 #include "miscellaneous.h"
-#include "../registers.h"
+
+void enable_interrupts()
+{
+    printf("EI\n");
+
+    interrupts_enabled = true;
+}
 
 void nop()
 {
+    printf("NOP\n");
+
     pc++;
 }

@@ -6,6 +6,9 @@
 #define INC_8080_EMULATOR_CPU_H
 
 #include <stdio.h>
+#include <stdbool.h>
+
+bool interrupts_enabled;
 
 void initialize();
 void cycle();

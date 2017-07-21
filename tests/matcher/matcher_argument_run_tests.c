@@ -4,7 +4,6 @@
 
 #include <assert.h>
 #include "../../src/matcher/matcher.h"
-#include "../../src/registers.h"
 #include "../../src/opcodes/branch/jump.h"
 
 void setup();

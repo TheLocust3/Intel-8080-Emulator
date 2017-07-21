@@ -2,11 +2,9 @@
 // Created by Jake Kinsella on 6/14/17.
 //
 
-#include <stdio.h>
 #include <assert.h>
 #include "../../src/matcher/instruction_template.h"
 #include "../../src/matcher/matcher.h"
-#include "../../src/opcode_definitions.h"
 
 void empty_method();
 

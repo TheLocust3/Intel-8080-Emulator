@@ -2,10 +2,8 @@
 // Created by Jake Kinsella on 6/10/17.
 //
 
-#include <stdio.h>
 #include <assert.h>
 #include "../../src/opcodes/data_transfer.h"
-#include "../../src/registers.h"
 #include "../../src/ram.h"
 #include "../../src/common_functions.h"
 

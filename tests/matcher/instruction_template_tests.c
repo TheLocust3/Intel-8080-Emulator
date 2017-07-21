@@ -2,7 +2,6 @@
 // Created by Jake Kinsella on 6/15/17.
 //
 
-#include <stdio.h>
 #include <assert.h>
 #include "../../src/matcher/instruction_template.h"
 

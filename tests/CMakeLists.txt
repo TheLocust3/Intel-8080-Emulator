@@ -9,6 +9,7 @@ add_executable(bitwise_tests ../src/common_functions.c ../src/ram.c ../src/regis
 add_executable(miscellaneous_logical_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/logical/miscellaneous_logical.c opcodes/logical/miscellaneous_logical_tests.c)
 add_executable(jump_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/branch/jump.c opcodes/branch/jump_tests.c)
 add_executable(call_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/stack.c ../src/opcodes/branch/call.c opcodes/branch/call_tests.c)
+add_executable(miscellaneous_branch_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/stack.c ../src/opcodes/branch/miscellaneous_branch.c opcodes/branch/miscellaneous_branch_tests.c)
 add_executable(stack_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c ../src/opcodes/stack.c opcodes/stack_tests.c)
 add_executable(miscellaneous_tests ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/opcodes/miscellaneous.c opcodes/miscellaneous_tests.c)
 
@@ -33,6 +34,7 @@ add_test(bitwise_tests bitwise_tests)
 add_test(miscellaneous_logical_tests miscellaneous_logical_tests)
 add_test(jump_tests jump_tests)
 add_test(call_tests call_tests)
+add_test(miscellaneous_branch_tests miscellaneous_branch_tests)
 add_test(stack_tests stack_tests)
 add_test(miscellaneous_tests miscellaneous_tests)
 

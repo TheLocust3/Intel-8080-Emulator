@@ -14,6 +14,7 @@
 #include "opcodes/branch/jump.h"
 #include "opcodes/branch/call.h"
 #include "opcodes/stack.h"
+#include "opcodes/branch/miscellaneous_branch.h"
 
 void define_data_transfer_opcodes();
 void define_arithmetic_opcodes();
@@ -217,6 +218,9 @@ void define_branch_opcodes()
 
     InstructionTemplate return_condition_template = new_instruction_template("11CCC000", &return_condition);
     add_instruction_template(return_condition_template);
+
+    InstructionTemplate restart_template = new_instruction_template("11CCC111", &restart);
+    add_instruction_template(restart_template);
 }
 
 void define_miscellaneous_opcodes()

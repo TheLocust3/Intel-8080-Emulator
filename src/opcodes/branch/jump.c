@@ -7,6 +7,8 @@
 
 void jump()
 {
+    printf("JMP addr\n");
+
     uint8_t low = read_byte_from_address((uint16_t) (pc + 1));
     uint8_t high = read_byte_from_address((uint16_t) (pc + 2));
 
@@ -15,6 +17,8 @@ void jump()
 
 void jump_condition(int condition)
 {
+    printf("Jcondition addr\n");
+
     uint8_t low = read_byte_from_address((uint16_t) (pc + 1));
     uint8_t high = read_byte_from_address((uint16_t) (pc + 2));
     uint16_t address = combine_bytes(high, low);

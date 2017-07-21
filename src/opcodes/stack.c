@@ -11,12 +11,16 @@ uint8_t flag_status_word();
 // TODO: Prevent sp from being passed in
 void push_register_pair(RegisterPair *dst_register_pair)
 {
+    printf("PUSH rp\n");
+
     push(*dst_register_pair->high);
     push(*dst_register_pair->low);
 }
 
 void push_processor_status_word()
 {
+    printf("PUSH PSW\n");
+
     push(a);
     push(flag_status_word());
 }
@@ -24,12 +28,16 @@ void push_processor_status_word()
 // TODO: Prevent sp from being passed in
 void pop_register_pair(RegisterPair *src_register_pair)
 {
+    printf("POP rp\n");
+
     *src_register_pair->low = pop();
     *src_register_pair->high = pop();
 }
 
 void pop_processor_status_word()
 {
+    printf("POP PSW\n");
+
     uint8_t status = pop();
     set_carry_flag((bool) get_bit(status, 0));
     set_parity_flag((bool) get_bit(status, 2));
@@ -42,6 +50,8 @@ void pop_processor_status_word()
 
 void exchange_stack_top_with_HL()
 {
+    printf("XTHL\n");
+
     uint16_t sp = combine_bytes(s, p);
 
     uint8_t tmp_low = read_byte_from_address(sp);
@@ -56,6 +66,8 @@ void exchange_stack_top_with_HL()
 
 void move_HL_to_SP()
 {
+    printf("SPHL\n");
+
     s = h;
     p = l;
 }

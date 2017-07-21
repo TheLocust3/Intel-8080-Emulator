@@ -249,6 +249,9 @@ void define_miscellaneous_opcodes()
     InstructionTemplate enable_interrupts_template = new_instruction_template("11111011", &enable_interrupts);
     add_instruction_template(enable_interrupts_template);
 
+    InstructionTemplate disable_interrupts_template = new_instruction_template("11110011", &disable_interrupts);
+    add_instruction_template(disable_interrupts_template);
+
     InstructionTemplate nop_template = new_instruction_template("00000000", &nop);
     add_instruction_template(nop_template);
 }

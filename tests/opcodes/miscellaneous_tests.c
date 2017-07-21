@@ -6,11 +6,13 @@
 #include "../../src/opcodes/miscellaneous.h"
 
 void enable_interrupts_test();
+void disable_interrupts_test();
 void nop_test();
 
 int main(int argc, const char* argv[])
 {
     enable_interrupts_test();
+    disable_interrupts_test();
     nop_test();
 
     return 0;
@@ -21,6 +23,13 @@ void enable_interrupts_test()
     enable_interrupts();
 
     assert(interrupts_enabled == true && "enable_interrupts_test failed!");
+}
+
+void disable_interrupts_test()
+{
+    disable_interrupts();
+
+    assert(interrupts_enabled == false && "disable_interrupts_test failed!");
 }
 
 void nop_test()

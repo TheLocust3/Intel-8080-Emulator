@@ -9,6 +9,7 @@
 #include "../cpu.h"
 
 void enable_interrupts();
+void disable_interrupts();
 void nop();
 
 #endif //INC_8080_EMULATOR_MISCELLANEOUS_H

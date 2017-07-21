@@ -11,6 +11,13 @@ void enable_interrupts()
     interrupts_enabled = true;
 }
 
+void disable_interrupts()
+{
+    printf("DI\n");
+
+    interrupts_enabled = false;
+}
+
 void nop()
 {
     printf("NOP\n");

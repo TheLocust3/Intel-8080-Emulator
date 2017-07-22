@@ -9,16 +9,19 @@
 
 void initialize()
 {
+    running = true;
+    interrupts_enabled = true;
+
     initialize_registers();
     initialize_ram();
 }
 
 void cycle()
 {
+    if (!running) return;
+
     uint8_t instruction = read_byte_from_address(pc);
     printf("0x%x: 0x%x\n", pc, instruction);
-
-    // pc starts at instruction when passed to handle functions
 
     int index = match(instruction);
     if (index != -1) {

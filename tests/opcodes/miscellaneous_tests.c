@@ -7,12 +7,14 @@
 
 void enable_interrupts_test();
 void disable_interrupts_test();
+void halt_test();
 void nop_test();
 
 int main(int argc, const char* argv[])
 {
     enable_interrupts_test();
     disable_interrupts_test();
+    halt_test();
     nop_test();
 
     return 0;
@@ -20,6 +22,8 @@ int main(int argc, const char* argv[])
 
 void enable_interrupts_test()
 {
+    running = false;
+
     enable_interrupts();
 
     assert(interrupts_enabled == true && "enable_interrupts_test failed!");
@@ -27,7 +31,18 @@ void enable_interrupts_test()
 
 void disable_interrupts_test()
 {
+    running = true;
+
     disable_interrupts();
+
+    assert(interrupts_enabled == false && "disable_interrupts_test failed!");
+}
+
+void halt_test()
+{
+    running = true;
+
+    halt();
 
     assert(interrupts_enabled == false && "disable_interrupts_test failed!");
 }

@@ -10,6 +10,7 @@
 
 void enable_interrupts();
 void disable_interrupts();
+void halt();
 void nop();
 
 #endif //INC_8080_EMULATOR_MISCELLANEOUS_H

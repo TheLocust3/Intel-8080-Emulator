@@ -9,6 +9,7 @@
 #include <stdbool.h>
 
 bool interrupts_enabled;
+bool running;
 
 void initialize();
 void cycle();

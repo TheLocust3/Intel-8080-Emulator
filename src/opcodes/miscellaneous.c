@@ -18,6 +18,13 @@ void disable_interrupts()
     interrupts_enabled = false;
 }
 
+void halt()
+{
+    printf("HLT\n");
+
+    running = false;
+}
+
 void nop()
 {
     printf("NOP\n");

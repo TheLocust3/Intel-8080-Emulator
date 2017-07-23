@@ -8,6 +8,8 @@
 #include "../registers.h"
 #include "../cpu.h"
 
+void input();
+void output();
 void enable_interrupts();
 void disable_interrupts();
 void halt();

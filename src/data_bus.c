@@ -2,6 +2,7 @@
 // Created by Jake Kinsella on 7/23/17.
 //
 
+#include <printf.h>
 #include "data_bus.h"
 
 void initialize_bus()

@@ -3,6 +3,22 @@
 //
 
 #include "miscellaneous.h"
+#include "../data_bus.h"
+
+// TODO: Not currently correct
+void input()
+{
+    printf("IN port\n");
+
+    a = read_bus();
+}
+
+void output()
+{
+    printf("OUT port\n");
+
+    write_bus(a);
+}
 
 void enable_interrupts()
 {

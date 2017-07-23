@@ -246,6 +246,12 @@ void define_miscellaneous_opcodes()
     InstructionTemplate move_HL_to_SP_template = new_instruction_template("11111001", &move_HL_to_SP);
     add_instruction_template(move_HL_to_SP_template);
 
+    InstructionTemplate input_template = new_instruction_template("11011011", &input);
+    add_instruction_template(input_template);
+
+    InstructionTemplate output_template = new_instruction_template("11010011", &output);
+    add_instruction_template(output_template);
+
     InstructionTemplate enable_interrupts_template = new_instruction_template("11111011", &enable_interrupts);
     add_instruction_template(enable_interrupts_template);
 

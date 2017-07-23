@@ -15,6 +15,8 @@ void push_register_pair(RegisterPair *dst_register_pair)
 
     push(*dst_register_pair->high);
     push(*dst_register_pair->low);
+
+    pc++;
 }
 
 void push_processor_status_word()
@@ -23,6 +25,8 @@ void push_processor_status_word()
 
     push(a);
     push(flag_status_word());
+
+    pc++;
 }
 
 // TODO: Prevent sp from being passed in
@@ -46,6 +50,8 @@ void pop_processor_status_word()
     set_sign_flag((bool) get_bit(status, 7));
 
     a = pop();
+
+    pc++;
 }
 
 void exchange_stack_top_with_HL()
@@ -62,6 +68,8 @@ void exchange_stack_top_with_HL()
 
     l = tmp_low;
     h = tmp_high;
+
+    pc++;
 }
 
 void move_HL_to_SP()
@@ -70,6 +78,8 @@ void move_HL_to_SP()
 
     s = h;
     p = l;
+
+    pc++;
 }
 
 uint8_t flag_status_word()

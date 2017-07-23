@@ -46,6 +46,7 @@ void push_register_pair_test()
     assert(sp == (0xFFFF - 2) && "push_register_pair_test failed!");
     assert(read_byte_from_address((uint16_t) (sp + 1)) == TEST_VALUE1 && "push_register_pair_test failed!");
     assert(read_byte_from_address(sp) == TEST_VALUE2 && "push_register_pair_test failed!");
+    assert(pc == 1 && "push_register_pair_test failed!");
 }
 
 void push_processor_status_word_test()
@@ -69,6 +70,7 @@ void push_processor_status_word_test()
     assert(sp == (0xFFFF - 2) && "push_processor_status_word_test failed!");
     assert(read_byte_from_address((uint16_t) (sp + 1)) == TEST_VALUE1 && "push_processor_status_word_test failed!");
     assert(read_byte_from_address(sp) == 0b11010111 && "push_processor_status_word_test failed!");
+    assert(pc == 1 && "push_processor_status_word_test failed!");
 }
 
 void pop_register_pair_test()
@@ -91,6 +93,7 @@ void pop_register_pair_test()
     assert(sp == 0xFFFF && "push_register_pair_test failed!");
     assert(h == TEST_VALUE1 && "push_register_pair_test failed!");
     assert(l == TEST_VALUE2 && "push_register_pair_test failed!");
+    assert(pc == 1 && "pop_register_pair_test failed!");
 }
 
 void pop_processor_status_word_test()
@@ -122,6 +125,7 @@ void pop_processor_status_word_test()
     assert(get_aux_carry_flag() && "pop_processor_status_word_test failed!");
     assert(get_zero_flag() && "pop_processor_status_word_test failed!");
     assert(get_sign_flag() && "pop_processor_status_word_test failed!");
+    assert(pc == 2 && "pop_processor_status_word_test failed!");
 }
 
 void exchange_stack_top_with_HL_test()
@@ -144,6 +148,7 @@ void exchange_stack_top_with_HL_test()
     assert(l == 0 && "exchange_stack_top_with_HL_test failed!");
     assert(read_byte_from_address(sp) == TEST_VALUE2 && "exchange_stack_top_with_HL_test failed!");
     assert(read_byte_from_address((uint16_t) (sp + 1)) == TEST_VALUE1 && "exchange_stack_top_with_HL_test failed!");
+    assert(pc == 1 && "exchange_stack_top_with_HL_test failed!");
 }
 
 void move_HL_to_SP_test()
@@ -159,4 +164,5 @@ void move_HL_to_SP_test()
 
     assert(s == TEST_VALUE1 && "move_HL_to_SP_test failed!");
     assert(p == TEST_VALUE2 && "move_HL_to_SP_test failed!");
+    assert(pc == 1 && "move_HL_to_SP_test failed!");
 }

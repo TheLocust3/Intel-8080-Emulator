@@ -11,6 +11,7 @@ void input()
     printf("IN port\n");
 
     a = read_bus();
+    pc++;
 }
 
 void output()
@@ -18,6 +19,7 @@ void output()
     printf("OUT port\n");
 
     write_bus(a);
+    pc++;
 }
 
 void enable_interrupts()
@@ -25,6 +27,7 @@ void enable_interrupts()
     printf("EI\n");
 
     interrupts_enabled = true;
+    pc++;
 }
 
 void disable_interrupts()
@@ -32,6 +35,7 @@ void disable_interrupts()
     printf("DI\n");
 
     interrupts_enabled = false;
+    pc++;
 }
 
 void halt()
@@ -39,11 +43,11 @@ void halt()
     printf("HLT\n");
 
     running = false;
+    pc++;
 }
 
 void nop()
 {
     printf("NOP\n");
-
     pc++;
 }

@@ -10,7 +10,7 @@
 void add_register_pair_to_HL_test();
 void decimal_adjust_accumulator_test();
 
-const int TEST_VALUE = 10;
+const int TEST_VALUE1 = 10;
 
 int main(int argc, const char* argv[])
 {
@@ -27,11 +27,11 @@ void add_register_pair_to_HL_test()
     h = 0;
     l = 0;
     b = 0;
-    c = TEST_VALUE;
+    c = TEST_VALUE1;
 
     add_register_pair_to_HL(create_register_pair(&b, &c));
 
-    assert(h == 0 && l == TEST_VALUE && "add_register_pair_to_HL_test failed!");
+    assert(h == 0 && l == TEST_VALUE1 && "add_register_pair_to_HL_test failed!");
     assert(pc == 1 && "add_register_pair_to_HL_test failed!");
     assert(!get_carry_flag() && "add_register_pair_to_HL_test failed!");
 }
@@ -40,7 +40,7 @@ void decimal_adjust_accumulator_test()
 {
     pc = 0;
     f = 0;
-    a = TEST_VALUE;
+    a = TEST_VALUE1;
 
     decimal_adjust_accumulator();
 

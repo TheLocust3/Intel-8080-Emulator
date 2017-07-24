@@ -5,6 +5,8 @@
 #include <assert.h>
 #include "../../src/opcodes/miscellaneous.h"
 #include "../../src/pins/data_bus.h"
+#include "../../src/ram.h"
+#include "../../src/pins/address_bus.h"
 
 void input_test();
 void output_test();
@@ -13,7 +15,8 @@ void disable_interrupts_test();
 void halt_test();
 void nop_test();
 
-const int TEST_VALUE = 10;
+const int TEST_VALUE1 = 10;
+const int TEST_VALUE2 = 5;
 
 int main(int argc, const char* argv[])
 {
@@ -31,24 +34,30 @@ void input_test()
 {
     pc = 0;
     a = 0;
-    write_data_bus(TEST_VALUE);
+    write_data_bus(TEST_VALUE1);
+    initialize_address_bus();
+    set_byte_from_address(1, TEST_VALUE2);
 
     input();
 
-    assert(a == TEST_VALUE && "input_test failed!");
-    assert(pc == 1 && "input_test failed!");
+    assert(a == TEST_VALUE1 && "input_test failed!");
+    assert(read_address_bus() == 0b0000010100000101 && "input_test failed!");
+    assert(pc == 2 && "input_test failed!");
 }
 
 void output_test()
 {
     pc = 0;
-    a = TEST_VALUE;
-    write_data_bus(0);
+    a = TEST_VALUE1;
+    initialize_data_bus();
+    initialize_address_bus();
+    set_byte_from_address(1, TEST_VALUE2);
 
     output();
 
-    assert(read_data_bus() == TEST_VALUE && "output_test failed!");
-    assert(pc == 1 && "output_test failed!");
+    assert(read_data_bus() == TEST_VALUE1 && "output_test failed!");
+    assert(read_address_bus() == 0b0000010100000101 && "input_test failed!");
+    assert(pc == 2 && "output_test failed!");
 }
 
 void enable_interrupts_test()

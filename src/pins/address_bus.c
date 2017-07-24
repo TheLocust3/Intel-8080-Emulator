@@ -9,12 +9,12 @@ void initialize_address_bus()
     address_bus = 0;
 }
 
-void write_address_bus(uint8_t byte)
+void write_address_bus(uint16_t byte)
 {
     address_bus = byte;
 }
 
-uint8_t read_address_bus()
+uint16_t read_address_bus()
 {
     return address_bus;
 }

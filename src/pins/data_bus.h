@@ -7,10 +7,10 @@
 
 #include <stdint.h>
 
-uint8_t bus;
+uint8_t data_bus;
 
-void initialize_bus();
-void write_bus(uint8_t byte);
-uint8_t read_bus();
+void initialize_data_bus();
+void write_data_bus(uint8_t byte);
+uint8_t read_data_bus();
 
 #endif //INC_8080_EMULATOR_DATA_BUS_H

@@ -4,7 +4,7 @@
 
 #include <assert.h>
 #include "../../src/opcodes/miscellaneous.h"
-#include "../../src/data_bus.h"
+#include "../../src/pins/data_bus.h"
 
 void input_test();
 void output_test();
@@ -31,7 +31,7 @@ void input_test()
 {
     pc = 0;
     a = 0;
-    write_bus(TEST_VALUE);
+    write_data_bus(TEST_VALUE);
 
     input();
 
@@ -43,11 +43,11 @@ void output_test()
 {
     pc = 0;
     a = TEST_VALUE;
-    write_bus(0);
+    write_data_bus(0);
 
     output();
 
-    assert(read_bus() == TEST_VALUE && "output_test failed!");
+    assert(read_data_bus() == TEST_VALUE && "output_test failed!");
     assert(pc == 1 && "output_test failed!");
 }
 

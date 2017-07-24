@@ -6,7 +6,7 @@
 #include "registers.h"
 #include "ram.h"
 #include "matcher/matcher.h"
-#include "data_bus.h"
+#include "pins/data_bus.h"
 
 void initialize()
 {
@@ -15,7 +15,7 @@ void initialize()
 
     initialize_registers();
     initialize_ram();
-    initialize_bus();
+    initialize_data_bus();
 }
 
 void cycle()

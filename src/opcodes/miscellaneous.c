@@ -3,14 +3,14 @@
 //
 
 #include "miscellaneous.h"
-#include "../data_bus.h"
+#include "../pins/data_bus.h"
 
 // TODO: Not currently correct
 void input()
 {
     printf("IN port\n");
 
-    a = read_bus();
+    a = read_data_bus();
     pc++;
 }
 
@@ -18,7 +18,7 @@ void output()
 {
     printf("OUT port\n");
 
-    write_bus(a);
+    write_data_bus(a);
     pc++;
 }
 

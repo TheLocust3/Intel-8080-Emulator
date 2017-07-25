@@ -7,7 +7,6 @@
 #include "../ram.h"
 #include "../pins/address_bus.h"
 
-// TODO: Not currently correct
 void input()
 {
     printf("IN port\n");

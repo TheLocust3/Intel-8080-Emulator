@@ -70,8 +70,6 @@ int binary_string_to_int(char *string)
     return number;
 }
 
-// TODO: Allow the location of these to be flexible
-
 // --RP----
 bool has_rp(InstructionTemplate instruction_template)
 {

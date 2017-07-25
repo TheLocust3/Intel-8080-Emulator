@@ -2,15 +2,20 @@
 // Created by Jake Kinsella on 7/14/17.
 //
 
+#include <stdlib.h>
 #include "stack.h"
 #include "../flags.h"
 #include "../registers.h"
 
 uint8_t flag_status_word();
 
-// TODO: Prevent sp from being passed in
 void push_register_pair(RegisterPair *dst_register_pair)
 {
+    if (dst_register_pair->high == &s ||  dst_register_pair->low == &p) {
+        printf("SP cannot be pushed!");
+        exit(1);
+    }
+
     printf("PUSH rp\n");
 
     push(*dst_register_pair->high);
@@ -29,9 +34,13 @@ void push_processor_status_word()
     pc++;
 }
 
-// TODO: Prevent sp from being passed in
 void pop_register_pair(RegisterPair *src_register_pair)
 {
+    if (src_register_pair->high == &s ||  src_register_pair->low == &p) {
+        printf("SP cannot be popped!");
+        exit(1);
+    }
+
     printf("POP rp\n");
 
     *src_register_pair->low = pop();

@@ -12,8 +12,8 @@ uint8_t flag_status_word();
 void push_register_pair(RegisterPair *dst_register_pair)
 {
     if (dst_register_pair->high == &s ||  dst_register_pair->low == &p) {
-        printf("SP cannot be pushed!");
-        exit(1);
+        printf("SP cannot be pushed!\n");
+        return;
     }
 
     printf("PUSH rp\n");
@@ -37,8 +37,8 @@ void push_processor_status_word()
 void pop_register_pair(RegisterPair *src_register_pair)
 {
     if (src_register_pair->high == &s ||  src_register_pair->low == &p) {
-        printf("SP cannot be popped!");
-        exit(1);
+        printf("SP cannot be popped!\n");
+        return;
     }
 
     printf("POP rp\n");

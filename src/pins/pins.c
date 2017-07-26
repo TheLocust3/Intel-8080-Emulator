@@ -3,3 +3,20 @@
 //
 
 #include "pins.h"
+
+void initialize_pins()
+{
+    for (int i = 0; i < PIN_NUMBER; i++) {
+        pins[i] = 0;
+    }
+}
+
+void write_pin(int pin_index, bool value)
+{
+    pins[pin_index] = value;
+}
+
+bool read_pin(int pin_index)
+{
+    return pins[pin_index];
+}

@@ -9,7 +9,9 @@
 #include <stdbool.h>
 
 int get_bit(uint8_t byte, int bit_number);
+int get_bit_16bit(uint16_t byte, int bit_number);
 uint8_t set_bit(uint8_t byte, int bit_number, bool set);
+uint16_t set_bit_16bit(uint16_t value, int bit_number, bool set);
 
 uint16_t combine_bytes(uint8_t high, uint8_t low);
 uint8_t get_high_order_byte(uint16_t number);

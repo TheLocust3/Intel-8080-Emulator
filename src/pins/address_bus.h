@@ -6,8 +6,8 @@
 #define INC_8080_EMULATOR_ADDRESS_BUS_H
 
 #include <stdint.h>
-
-uint16_t address_bus;
+#include "pins.h"
+#include "../common_functions.h"
 
 void initialize_address_bus();
 void write_address_bus(uint16_t byte);

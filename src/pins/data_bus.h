@@ -6,8 +6,8 @@
 #define INC_8080_EMULATOR_DATA_BUS_H
 
 #include <stdint.h>
-
-uint8_t data_bus;
+#include "pins.h"
+#include "../common_functions.h"
 
 void initialize_data_bus();
 void write_data_bus(uint8_t byte);

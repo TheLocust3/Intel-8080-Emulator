@@ -5,6 +5,10 @@
 #ifndef INC_8080_EMULATOR_PINS_H
 #define INC_8080_EMULATOR_PINS_H
 
+#include <stdbool.h>
+
+#define PIN_NUMBER 40
+
 #define A10 1
 #define GND 2
 #define D4 3
@@ -45,5 +49,11 @@
 #define A13 38
 #define A14 39
 #define A11 40
+
+bool pins[PIN_NUMBER];
+
+void initialize_pins();
+void write_pin(int pin_index, bool value);
+bool read_pin(int pin_index);
 
 #endif //INC_8080_EMULATOR_PINS_H

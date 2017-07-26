@@ -9,6 +9,11 @@ int get_bit(uint8_t byte, int bit_number)
     return (byte & (1 << bit_number)) >> bit_number;
 }
 
+int get_bit_16bit(uint16_t byte, int bit_number)
+{
+    return (byte & (1 << bit_number)) >> bit_number;
+}
+
 uint8_t set_bit(uint8_t byte, int bit_number, bool set)
 {
     if (set) {
@@ -16,6 +21,15 @@ uint8_t set_bit(uint8_t byte, int bit_number, bool set)
     }
 
     return (uint8_t) (byte & ~(1 << bit_number));
+}
+
+uint16_t set_bit_16bit(uint16_t value, int bit_number, bool set)
+{
+    if (set) {
+        return (uint16_t) (value | (1 << bit_number));
+    }
+
+    return (uint16_t) (value & ~(1 << bit_number));
 }
 
 uint16_t combine_bytes(uint8_t high, uint8_t low)

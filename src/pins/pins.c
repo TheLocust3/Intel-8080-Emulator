@@ -3,6 +3,9 @@
 //
 
 #include "pins.h"
+#include "../registers.h"
+
+void handle_reset_pin();
 
 void initialize_pins()
 {
@@ -22,4 +25,16 @@ void write_pin(int pin_index, bool value)
 bool read_pin(int pin_index)
 {
     return pins[pin_index];
+}
+
+void handle_input_pins()
+{
+    handle_reset_pin();
+}
+
+void handle_reset_pin()
+{
+    if (pins[RESET]) {
+        pc = 0;
+    }
 }

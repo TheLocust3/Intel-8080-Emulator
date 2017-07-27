@@ -20,6 +20,8 @@ void initialize()
 
 void cycle()
 {
+    handle_input_pins();
+
     if (!running) return;
 
     uint8_t instruction = read_byte_from_address(pc);

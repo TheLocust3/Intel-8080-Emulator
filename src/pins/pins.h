@@ -57,5 +57,6 @@ bool pins[PIN_NUMBER];
 void initialize_pins();
 void write_pin(int pin_index, bool value);
 bool read_pin(int pin_index);
+void handle_input_pins();
 
 #endif //INC_8080_EMULATOR_PINS_H

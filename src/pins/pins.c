@@ -4,8 +4,10 @@
 
 #include "pins.h"
 #include "../registers.h"
+#include "../cpu.h"
 
 void handle_reset_pin();
+void handle_ready_pin();
 
 void initialize_pins()
 {
@@ -30,11 +32,23 @@ bool read_pin(int pin_index)
 void handle_input_pins()
 {
     handle_reset_pin();
+    handle_ready_pin();
 }
 
 void handle_reset_pin()
 {
     if (pins[RESET]) {
         pc = 0;
+    }
+}
+
+// TODO: HOLD
+
+// TODO: INT
+
+void handle_ready_pin()
+{
+    if (pins[READY]) {
+        running = false;
     }
 }

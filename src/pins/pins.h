@@ -6,6 +6,8 @@
 #define INC_8080_EMULATOR_PINS_H
 
 #include <stdbool.h>
+#include "data_bus.h"
+#include "address_bus.h"
 
 #define PIN_NUMBER 40
 

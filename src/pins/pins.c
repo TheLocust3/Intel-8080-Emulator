@@ -9,6 +9,9 @@ void initialize_pins()
     for (int i = 0; i < PIN_NUMBER; i++) {
         pins[i] = 0;
     }
+
+    initialize_data_bus();
+    initialize_address_bus();
 }
 
 void write_pin(int pin_index, bool value)

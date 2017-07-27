@@ -6,16 +6,16 @@
 #include "registers.h"
 #include "ram.h"
 #include "matcher/matcher.h"
-#include "pins/data_bus.h"
+#include "pins/pins.h"
 
 void initialize()
 {
     running = true;
     interrupts_enabled = true;
 
+    initialize_pins();
     initialize_registers();
     initialize_ram();
-    initialize_data_bus();
 }
 
 void cycle()

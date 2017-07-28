@@ -3,6 +3,7 @@
 //
 
 #include "data_bus.h"
+#include "../cpu.h"
 
 void initialize_data_bus()
 {
@@ -41,4 +42,16 @@ uint8_t read_data_bus()
     byte = set_bit(byte, 7, read_pin(D7));
 
     return byte;
+}
+
+void write_status_information()
+{
+    write_pin(D0, read_pin(INT));
+    write_pin(D1, 0); // TODO: Write/output = 0, read/input = 1
+    write_pin(D2, 0); // TODO: address bus holds stack pointer
+    write_pin(D3, !running); // TODO: Make sure this is correct
+    write_pin(D4, 0); // TODO: implement this one
+    write_pin(D5, 0); // TODO: Fetching instruction
+    write_pin(D6, 0); // TODO: implement this one
+    write_pin(D7, 0); // TODO: implement this one
 }

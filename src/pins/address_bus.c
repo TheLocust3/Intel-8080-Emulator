@@ -2,7 +2,6 @@
 // Created by Jake Kinsella on 7/24/17.
 //
 
-#include <printf.h>
 #include "address_bus.h"
 
 void initialize_address_bus()

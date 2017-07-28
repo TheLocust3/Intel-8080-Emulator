@@ -48,7 +48,5 @@ void handle_reset_pin()
 
 void handle_ready_pin()
 {
-    if (pins[READY]) {
-        running = false;
-    }
+    running = pins[READY];
 }

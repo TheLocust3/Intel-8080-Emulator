@@ -7,6 +7,7 @@
 #include "ram.h"
 #include "matcher/matcher.h"
 #include "pins/pins.h"
+#include "opcodes/branch/miscellaneous_branch.h"
 
 void handle_interrupt();
 
@@ -46,7 +47,14 @@ void cycle()
 void handle_interrupt()
 {
     if (pins[INT]) {
-        // TODO: Handle interrupt
+        int location = 0;
+        location = set_bit((uint8_t) location, 0, pins[A0]);
+        location = set_bit((uint8_t) location, 1, pins[A1]);
+        location = set_bit((uint8_t) location, 2, pins[A1]);
+
+        restart(location);
+        uint8_t instruction = (uint8_t) ((0b11 << 6) + (location << 3) + 111);
+        write_data_bus(instruction);
     }
 }
 

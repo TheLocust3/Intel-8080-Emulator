@@ -8,6 +8,8 @@
 #include "matcher/matcher.h"
 #include "pins/pins.h"
 
+void handle_interrupt();
+
 void initialize()
 {
     running = true;
@@ -36,6 +38,15 @@ void cycle()
         int rp_code = get_rp_code_from_opcode(instruction);
         int condition_code = get_condition_code_from_opcode(instruction);
         run_instruction(dst_code, src_code, rp_code, condition_code, template);
+    }
+
+    handle_interrupt();
+}
+
+void handle_interrupt()
+{
+    if (pins[INT]) {
+        // TODO: Handle interrupt
     }
 }
 

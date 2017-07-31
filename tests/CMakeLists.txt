@@ -19,6 +19,7 @@ add_executable(matcher_simple_run_tests ../src/log.c ../src/common_functions.c .
 add_executable(matcher_argument_run_tests ../src/log.c ../src/common_functions.c ../src/registers.c ../src/matcher/instruction_template.c ../src/matcher/matcher.c matcher/matcher_argument_run_tests.c)
 
 add_executable(flag_tests ../src/log.c ../src/common_functions.c ../src/ram.c ../src/registers.c ../src/flags.c flag_tests.c)
+add_executable(edge_tests ../src/log.c ../src/common_functions.c ../src/ram.c ../src/registers.c edge_tests.c)
 
 target_link_libraries(matcher_tests m)
 target_link_libraries(instruction_template_tests m)

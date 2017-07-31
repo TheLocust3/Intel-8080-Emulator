@@ -4,6 +4,7 @@
 
 #include "bitwise.h"
 #include "../../ram.h"
+#include "../../log.h"
 
 void handle_bitwise_flags(const uint8_t result, const uint8_t value1, const uint8_t value2);
 
@@ -13,7 +14,7 @@ void or(const uint8_t src);
 
 void and_register(const uint8_t src_register)
 {
-    printf("ANA r\n");
+    log("ANA r\n");
 
     const uint8_t tmp = a;
 
@@ -27,7 +28,7 @@ void and_register(const uint8_t src_register)
 
 void and_memory()
 {
-    printf("ANA (HL)\n");
+    log("ANA (HL)\n");
 
     const uint8_t tmp = a;
     const uint8_t data = read_byte(h, l);
@@ -42,7 +43,7 @@ void and_memory()
 
 void and_immediate()
 {
-    printf("ANA data\n");
+    log("ANA data\n");
 
     const uint8_t tmp = a;
     const uint8_t data = read_byte_from_address(pc);
@@ -58,7 +59,7 @@ void and_immediate()
 
 void exclusive_or_register(const uint8_t src_register)
 {
-    printf("XRA r\n");
+    log("XRA r\n");
 
     const uint8_t tmp = a;
 
@@ -73,7 +74,7 @@ void exclusive_or_register(const uint8_t src_register)
 
 void exclusive_or_memory()
 {
-    printf("XRA (HL)\n");
+    log("XRA (HL)\n");
 
     const uint8_t tmp = a;
     const uint8_t data = read_byte(h, l);
@@ -89,7 +90,7 @@ void exclusive_or_memory()
 
 void exclusive_or_immediate()
 {
-    printf("XRI data\n");
+    log("XRI data\n");
 
     const uint8_t tmp = a;
     const uint8_t data = read_byte_from_address(pc);
@@ -105,7 +106,7 @@ void exclusive_or_immediate()
 
 void or_register(const uint8_t src_register)
 {
-    printf("ORA r\n");
+    log("ORA r\n");
 
     const uint8_t tmp = a;
 
@@ -120,7 +121,7 @@ void or_register(const uint8_t src_register)
 
 void or_memory()
 {
-    printf("ORA M\n");
+    log("ORA M\n");
 
     const uint8_t tmp = a;
     const uint8_t data = read_byte(h, l);
@@ -136,7 +137,7 @@ void or_memory()
 
 void or_immediate()
 {
-    printf("ORI data\n");
+    log("ORI data\n");
 
     const uint8_t tmp = a;
     const uint8_t data = read_byte_from_address(pc);
@@ -152,7 +153,7 @@ void or_immediate()
 
 void rotate_left()
 {
-    printf("RLC\n");
+    log("RLC\n");
 
     if ((a << 1) > 0xFF) {
         set_carry_flag(true);
@@ -167,7 +168,7 @@ void rotate_left()
 
 void rotate_right()
 {
-    printf("RRC\n");
+    log("RRC\n");
 
     if ((a >> 1) < 0) { // Might not properly catch it
         set_carry_flag(true);
@@ -182,7 +183,7 @@ void rotate_right()
 
 void rotate_left_through_carry()
 {
-    printf("RAL\n");
+    log("RAL\n");
 
     int old_carry_flag = get_carry_flag();
 
@@ -199,7 +200,7 @@ void rotate_left_through_carry()
 
 void rotate_right_through_carry()
 {
-    printf("RAR\n");
+    log("RAR\n");
 
     int old_carry_flag = get_carry_flag() << 7;
 

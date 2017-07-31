@@ -6,17 +6,18 @@
 #include "stack.h"
 #include "../flags.h"
 #include "../registers.h"
+#include "../log.h"
 
 uint8_t flag_status_word();
 
 void push_register_pair(RegisterPair *dst_register_pair)
 {
     if (dst_register_pair->high == &s ||  dst_register_pair->low == &p) {
-        printf("SP cannot be pushed!\n");
+        log("SP cannot be pushed!\n");
         return;
     }
 
-    printf("PUSH rp\n");
+    log("PUSH rp\n");
 
     push(*dst_register_pair->high);
     push(*dst_register_pair->low);
@@ -26,7 +27,7 @@ void push_register_pair(RegisterPair *dst_register_pair)
 
 void push_processor_status_word()
 {
-    printf("PUSH PSW\n");
+    log("PUSH PSW\n");
 
     push(a);
     push(flag_status_word());
@@ -37,11 +38,11 @@ void push_processor_status_word()
 void pop_register_pair(RegisterPair *src_register_pair)
 {
     if (src_register_pair->high == &s ||  src_register_pair->low == &p) {
-        printf("SP cannot be popped!\n");
+        log("SP cannot be popped!\n");
         return;
     }
 
-    printf("POP rp\n");
+    log("POP rp\n");
 
     *src_register_pair->low = pop();
     *src_register_pair->high = pop();
@@ -49,7 +50,7 @@ void pop_register_pair(RegisterPair *src_register_pair)
 
 void pop_processor_status_word()
 {
-    printf("POP PSW\n");
+    log("POP PSW\n");
 
     uint8_t status = pop();
     set_carry_flag((bool) get_bit(status, 0));
@@ -65,7 +66,7 @@ void pop_processor_status_word()
 
 void exchange_stack_top_with_HL()
 {
-    printf("XTHL\n");
+    log("XTHL\n");
 
     uint16_t sp = combine_bytes(s, p);
 
@@ -83,7 +84,7 @@ void exchange_stack_top_with_HL()
 
 void move_HL_to_SP()
 {
-    printf("SPHL\n");
+    log("SPHL\n");
 
     s = h;
     p = l;

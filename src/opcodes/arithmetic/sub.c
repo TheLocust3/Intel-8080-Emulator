@@ -3,13 +3,14 @@
 //
 
 #include "sub.h"
+#include "../../log.h"
 
 void sub_8bit(uint8_t *dst, const uint8_t src);
 void handle_flags_sub(const int final_value, const int value1, const int value2);
 
 void sub_register(const uint8_t src_register)
 {
-    printf("SUB r\n");
+    log("SUB r\n");
 
     int tmp = a;
 
@@ -21,7 +22,7 @@ void sub_register(const uint8_t src_register)
 
 void sub_memory()
 {
-    printf("SUB M\n");
+    log("SUB M\n");
 
     int tmp = a;
     uint8_t byte = read_byte(h, l);
@@ -34,7 +35,7 @@ void sub_memory()
 
 void sub_immediate()
 {
-    printf("SUI data\n");
+    log("SUI data\n");
 
     int tmp = a;
     uint8_t byte = read_byte_from_address((uint16_t) (pc + 1));
@@ -47,7 +48,7 @@ void sub_immediate()
 
 void sub_register_with_borrow(const uint8_t src_register)
 {
-    printf("SBB r\n");
+    log("SBB r\n");
 
     int tmp = a;
     uint8_t byte = (uint8_t) (src_register + get_carry_flag());
@@ -60,7 +61,7 @@ void sub_register_with_borrow(const uint8_t src_register)
 
 void sub_memory_with_borrow()
 {
-    printf("SBB M\n");
+    log("SBB M\n");
 
     int tmp = a;
     uint8_t byte = (uint8_t) (read_byte(h, l) + get_carry_flag());
@@ -73,7 +74,7 @@ void sub_memory_with_borrow()
 
 void sub_immediate_with_borrow()
 {
-    printf("SBI data\n");
+    log("SBI data\n");
 
     int tmp = a;
     uint8_t byte = (uint8_t) (read_byte_from_address((uint16_t) (pc + 1)) + get_carry_flag());

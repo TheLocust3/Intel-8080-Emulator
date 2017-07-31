@@ -4,12 +4,13 @@
 
 #include "miscellaneous_logical.h"
 #include "../../ram.h"
+#include "../../log.h"
 
 void handle_flags_cmp(const int final_value, const int value1, const int value2);
 
 void compare_register(const uint8_t src_register)
 {
-    printf("CMP r\n");
+    log("CMP r\n");
 
     int result = a - src_register;
 
@@ -20,7 +21,7 @@ void compare_register(const uint8_t src_register)
 
 void compare_memory()
 {
-    printf("CMP M\n");
+    log("CMP M\n");
 
     int byte = read_byte(h, l);
     int result = a - byte;
@@ -32,7 +33,7 @@ void compare_memory()
 
 void compare_immediate()
 {
-    printf("CPI data\n");
+    log("CPI data\n");
 
     int byte = read_byte_from_address(pc);
     int result = a - byte;
@@ -44,7 +45,7 @@ void compare_immediate()
 
 void complement_accumulator()
 {
-    printf("CMA\n");
+    log("CMA\n");
 
     a = ~a;
 
@@ -53,7 +54,7 @@ void complement_accumulator()
 
 void complement_carry()
 {
-    printf("CMC\n");
+    log("CMC\n");
 
     set_carry_flag(!get_carry_flag());
 
@@ -62,7 +63,7 @@ void complement_carry()
 
 void set_carry()
 {
-    printf("STC\n");
+    log("STC\n");
 
     set_carry_flag(true);
 

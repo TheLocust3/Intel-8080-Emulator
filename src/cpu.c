@@ -8,6 +8,7 @@
 #include "matcher/matcher.h"
 #include "pins/pins.h"
 #include "opcodes/branch/miscellaneous_branch.h"
+#include "log.h"
 
 void handle_interrupt();
 
@@ -28,7 +29,7 @@ void cycle()
     if (!running) return;
 
     uint8_t instruction = read_byte_from_address(pc);
-    printf("0x%x: 0x%x\n", pc, instruction);
+    log("0x%x: 0x%x\n", pc, instruction);
 
     int index = match(instruction);
     if (index != -1) {
@@ -60,5 +61,5 @@ void handle_interrupt()
 
 void print_register_status()
 {
-    printf("A: 0x%x, B: 0x%x, C: 0x%x, D: 0x%x, E: 0x%x, F: 0x%x, H: 0x%x, L: 0x%x, SP: 0x%x\n", a, b, c, d, e, f, h, l, combine_bytes(s, p));
+    log("A: 0x%x, B: 0x%x, C: 0x%x, D: 0x%x, E: 0x%x, F: 0x%x, H: 0x%x, L: 0x%x, SP: 0x%x\n", a, b, c, d, e, f, h, l, combine_bytes(s, p));
 }

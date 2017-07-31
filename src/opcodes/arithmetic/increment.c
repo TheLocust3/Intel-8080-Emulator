@@ -4,6 +4,7 @@
 
 #include "increment.h"
 #include "../../registers.h"
+#include "../../log.h"
 
 void handle_flags_increment(const int final_value, const int value1);
 void handle_flags_decrement(const int final_value, const int value1);
@@ -13,7 +14,7 @@ void decrement_8bit(uint8_t *dst);
 
 void increment_register(uint8_t *dst)
 {
-    printf("INR r\n");
+    log("INR r\n");
 
     int tmp = a;
 
@@ -26,7 +27,7 @@ void increment_register(uint8_t *dst)
 
 void increment_memory()
 {
-    printf("INR M\n");
+    log("INR M\n");
 
     int tmp = read_byte(h, l);
     uint8_t *memory = read_byte_pointer(h, l);
@@ -40,7 +41,7 @@ void increment_memory()
 
 void increment_register_pair(const RegisterPair dst_register_pair)
 {
-    printf("INX rp\n");
+    log("INX rp\n");
 
     int tmp = combine_bytes(*dst_register_pair.high, *dst_register_pair.low) + 1;
     if (tmp > 0xFFFF) {
@@ -55,7 +56,7 @@ void increment_register_pair(const RegisterPair dst_register_pair)
 
 void decrement_register(uint8_t *dst)
 {
-    printf("DCR r\n");
+    log("DCR r\n");
 
     int tmp = a;
 
@@ -68,7 +69,7 @@ void decrement_register(uint8_t *dst)
 
 void decrement_memory()
 {
-    printf("DCR M\n");
+    log("DCR M\n");
 
     int tmp = read_byte(h, l);
     uint8_t *memory = read_byte_pointer(h, l);
@@ -82,7 +83,7 @@ void decrement_memory()
 
 void decrement_register_pair(const RegisterPair dst_register_pair)
 {
-    printf("DCX rp\n");
+    log("DCX rp\n");
 
     int tmp = combine_bytes(*dst_register_pair.high, *dst_register_pair.low) - 1;
     if (tmp < 0) {

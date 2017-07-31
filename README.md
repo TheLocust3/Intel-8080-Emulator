@@ -8,8 +8,6 @@ To run the project's unit tests:
 ### To-Do  
 
 - CPU tests  
-- Add more opcodes
-- Use log function instead of prints
 - Handle flags
 - Handle interrupts
 - Create tests that test extremes

@@ -6,10 +6,11 @@
 #include "../pins/data_bus.h"
 #include "../ram.h"
 #include "../pins/address_bus.h"
+#include "../log.h"
 
 void input()
 {
-    printf("IN port\n");
+    log("IN port\n");
 
     uint8_t byte = read_byte_from_address((uint16_t) (pc + 1));
 
@@ -21,7 +22,7 @@ void input()
 
 void output()
 {
-    printf("OUT port\n");
+    log("OUT port\n");
 
     uint8_t byte = read_byte_from_address((uint16_t) (pc + 1));
 
@@ -33,7 +34,7 @@ void output()
 
 void enable_interrupts()
 {
-    printf("EI\n");
+    log("EI\n");
 
     interrupts_enabled = true;
     pc++;
@@ -41,7 +42,7 @@ void enable_interrupts()
 
 void disable_interrupts()
 {
-    printf("DI\n");
+    log("DI\n");
 
     interrupts_enabled = false;
     pc++;
@@ -49,7 +50,7 @@ void disable_interrupts()
 
 void halt()
 {
-    printf("HLT\n");
+    log("HLT\n");
 
     running = false;
     pc++;
@@ -57,6 +58,6 @@ void halt()
 
 void nop()
 {
-    printf("NOP\n");
+    log("NOP\n");
     pc++;
 }

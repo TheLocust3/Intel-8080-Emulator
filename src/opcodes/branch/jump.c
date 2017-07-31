@@ -4,10 +4,11 @@
 
 #include "jump.h"
 #include "../../flags.h"
+#include "../../log.h"
 
 void jump()
 {
-    printf("JMP addr\n");
+    log("JMP addr\n");
 
     uint8_t low = read_byte_from_address((uint16_t) (pc + 1));
     uint8_t high = read_byte_from_address((uint16_t) (pc + 2));
@@ -17,7 +18,7 @@ void jump()
 
 void jump_condition(int condition)
 {
-    printf("Jcondition addr\n");
+    log("Jcondition addr\n");
 
     uint8_t low = read_byte_from_address((uint16_t) (pc + 1));
     uint8_t high = read_byte_from_address((uint16_t) (pc + 2));

@@ -3,11 +3,12 @@
 //
 
 #include "miscellaneous_branch.h"
+#include "../../log.h"
 
 // Using condition int in place of NNN. Technically works the same
 void restart(int condition)
 {
-    printf("RST n\n");
+    log("RST n\n");
 
     push(get_high_order_byte(pc));
     push(get_low_order_byte(pc));
@@ -17,7 +18,7 @@ void restart(int condition)
 
 void jump_HL_indirect()
 {
-    printf("PCHL\n");
+    log("PCHL\n");
 
     pc = combine_bytes(h, l);
 }

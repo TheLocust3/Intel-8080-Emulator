@@ -3,10 +3,11 @@
 //
 
 #include "miscellaneous_arithmetic.h"
+#include "../../log.h"
 
 void add_register_pair_to_HL(const RegisterPair dst_register_pair)
 {
-    printf("DAD rp\n");
+    log("DAD rp\n");
 
     int tmp = combine_bytes(h, l) + combine_bytes(*dst_register_pair.high, *dst_register_pair.low);
 
@@ -25,7 +26,7 @@ void add_register_pair_to_HL(const RegisterPair dst_register_pair)
 
 void decimal_adjust_accumulator()
 {
-    printf("DAA\n");
+    log("DAA\n");
 
     if ((a & 0xF) > 9 || is_aux_carry_flag_set()) {
         a += 6;

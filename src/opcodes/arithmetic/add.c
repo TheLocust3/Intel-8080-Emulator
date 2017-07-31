@@ -3,6 +3,7 @@
 //
 
 #include "add.h"
+#include "../../log.h"
 
 void handle_flags_add(const int final_value, const int value1, const int value2);
 
@@ -10,7 +11,7 @@ void add_8bit(uint8_t *dst, const uint8_t src);
 
 void add_register(const uint8_t src_register)
 {
-    printf("ADD r\n");
+    log("ADD r\n");
 
     int tmp = a;
 
@@ -22,7 +23,7 @@ void add_register(const uint8_t src_register)
 
 void add_memory()
 {
-    printf("ADD (HL)\n");
+    log("ADD (HL)\n");
 
     int tmp = a;
     uint8_t byte = read_byte(h, l);
@@ -35,7 +36,7 @@ void add_memory()
 
 void add_immediate()
 {
-    printf("ADI data\n");
+    log("ADI data\n");
 
     int tmp = a;
     uint8_t byte = read_byte_from_address((uint16_t) (pc + 1));
@@ -48,7 +49,7 @@ void add_immediate()
 
 void add_register_with_carry(const uint8_t src_register)
 {
-    printf("ADC r\n");
+    log("ADC r\n");
 
     int tmp = a;
     uint8_t byte = (uint8_t) (src_register + get_carry_flag());
@@ -61,7 +62,7 @@ void add_register_with_carry(const uint8_t src_register)
 
 void add_memory_with_carry()
 {
-    printf("ADC M\n");
+    log("ADC M\n");
 
     int tmp = a;
     uint8_t byte = (uint8_t) (read_byte(h, l) + get_carry_flag());
@@ -74,7 +75,7 @@ void add_memory_with_carry()
 
 void add_immediate_with_carry()
 {
-    printf("ACI data\n");
+    log("ACI data\n");
 
     int tmp = a;
     uint8_t byte = (uint8_t) (read_byte_from_address((uint16_t) (pc + 1)) + get_carry_flag());

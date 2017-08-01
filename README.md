@@ -7,11 +7,8 @@ To run the project's unit tests:
 
 ### To-Do  
 
-- CPU tests  
-- Handle flags
-- Handle interrupts
+- CPU tests
 - Create tests that test extremes
 - More comprehensive condition matcher tests
-- Make sure swapping registers doesn't mean the registers point to the same memory
 - Extract conditional logic out
 - Implement peripheral emulation
